@@ -67,38 +67,37 @@ Running date 2010-06-20
 ==Examine the output==
 
 ===Entity Query Output===
-The first few lines of the entity query output should look something like this:
+Some lines of the entity query output should look something like this:
 {{{
 ticker	id	document.published	document.source.name	start	stop	type	momentum	positive	negative
 C	990192	"2010-06-14T18:30:00.000Z	"clusterstock	"2010-06-11T00:00:00.000Z	"2010-06-11T00:00:00.000Z	"EntityOccurrence	0.0486139160644	 	 
-C	990198	"2010-06-14T18:30:00.000Z	"clusterstock	"2010-05-05T00:00:00.000Z	"2010-05-05T00:00:00.000Z	"EntityOccurrence	0.0486139160644	 	 
-C	990300	"2010-06-14T18:30:00.000Z	"clusterstock	"2010-06-14T18:30:00.000Z	"2010-06-14T18:30:00.000Z	"EntityOccurrence	0.00211360739933	 	 
-C	1006201	"2010-06-14T18:30:00.000Z	"businessinsider	"2010-06-11T00:00:00.000Z	"2010-06-11T00:00:00.000Z	"EntityOccurrence	0.0516856172	 	 
-C	1006213	"2010-06-14T18:30:00.000Z	"businessinsider	"2010-05-05T00:00:00.000Z	"2010-05-05T00:00:00.000Z	"EntityOccurrence	0.0516856172	 	 
-C	1012270	"2010-06-14T19:42:47.000Z	"reuters_business	"2009-01-01T00:00:00.000Z	"2009-01-01T00:00:00.000Z	"EntityOccurrence	0.0524590932998	 	 
-C	1012321	"2010-06-14T19:42:47.000Z	"reuters_deals	"2009-01-01T00:00:00.000Z	"2009-01-01T00:00:00.000Z	"EntityOccurrence	0.0539707126544	 	 
-C	1012753	"2010-06-14T18:02:12.000Z	"reuters_deals	"2011-01-01T00:00:00.000Z	"2011-02-01T00:00:00.000Z	"EntityOccurrence	0.0566739725412	 	 
-C	1012754	"2010-06-14T18:02:12.000Z	"reuters_deals	"2010-11-01T00:00:00.000Z	"2010-12-01T00:00:00.000Z	"EntityOccurrence	0.0566739725412	 	 
-C	1014303	"2010-06-14T18:02:12.000Z	"reuters_business	"2011-01-01T00:00:00.000Z	"2011-02-01T00:00:00.000Z	"EntityOccurrence	0.0592774940363	 	  
+C       2262357 "2010-06-17T09:23:20.000Z       "24_7   "2010-06-17T09:23:20.000Z       "2010-06-17T09:23:20.000Z       "CompanyTicker  0.109071484071
+C       2486846 "2010-06-17T12:52:15.000Z       "seeking_alpha_usmarket "2010-06-17T12:52:15.000Z       "2010-06-17T12:52:15.000Z       "CompanyEmployeesNumber 0.268442292171
+C       2506216 "2010-06-17T14:31:00.000Z       "techweb_all_feed       "2010-06-17T00:00:00.000Z       "2010-06-17T00:00:00.000Z       "CompanyLocation        0.112606948405
+C       2583817 "2010-06-17T14:20:25.000Z       "capitaliqpowermoves    "2010-06-17T14:20:25.000Z       "2010-06-17T14:20:25.000Z       "PersonCareer   0.0180406149754
+C       2604184 "2010-06-17T20:08:01.000Z       "pr_inside_business     "2010-06-17T20:08:01.000Z       "2010-06-17T20:08:01.000Z       "CompanyTicker  0.0894946294307
+C       2604188 "2010-06-17T20:08:01.000Z       "pr_inside_business     "2010-06-17T20:08:01.000Z       "2010-06-17T20:08:01.000Z       "CompanyTicker  0.0894946294307
+C       2616392 "2010-06-17T20:00:00.000Z       "marketwire     "2010-06-17T20:00:00.000Z       "2010-06-17T20:00:00.000Z       "CompanyTicker  0.120274979187
+C       2618372 "2010-06-17T21:04:43.000Z       "blogtaragana   "2010-06-17T21:04:43.000Z       "2010-06-17T21:04:43.000Z       "CompanyInvestment      0.10235846086
+C       2679963 "2010-06-18T07:23:06.000Z       "reuters_private_equity "2010-01-01T00:00:00.000Z       "2010-01-01T00:00:00.000Z       "CompanyInvestment      0.0649858926842
+C       2688602 "2010-06-18T08:02:43.000Z       "reuters_ma     "2010-01-01T00:00:00.000Z       "2010-01-01T00:00:00.000Z       "CompanyInvestment      0.17407960199
+C       2688607 "2010-06-18T08:02:43.000Z       "reuters_ma     "2010-06-18T00:00:00.000Z       "2010-06-18T00:00:00.000Z       "CompanyInvestment      0.17407960199
+C       2765174 "2010-06-18T07:32:03.000Z       "economictimesindia     "2010-01-01T00:00:00.000Z       "2010-01-01T00:00:00.000Z       "CompanyInvestment      0.209822085567
 ....
 }}}
 
 This file is a tab-delimited file, with column headings at the top. It should be pretty straightforward to open this in Excel or read it in with R's read.delim() command. The output columns are the ticker, the document ID, the publish date for the document, the document source, the time period that the document references, the momentum of the entity and the sentiment behind the entity. Not all fields will always be published. 
 
 ===Aggregate Query Output===
-The aggregate results will look something like this:
+Some aggregate results will look something like this:
 
 {{{
 tickers,Day,Count,Momentum,Positive,Negative
-CHK,2010-06-14,2,0.00352021081731,0.0,0.0
-GE,2010-06-14,99,0.0238207023313,0.09733124444,0.0
 GOOG,2010-06-14,987,0.348027749091,0.07336196219,0.01466786384
 INTC,2010-06-14,288,0.148892345712,0.05220133659,0.00207086951
 MSFT,2010-06-14,2131,0.554405631849,0.03840043871,0.00970781516
 XOM,2010-06-14,100,0.0345069934921,0.02981864773,0.08003951591
 YHOO,2010-06-14,303,0.108720400113,0.06675251259,0.00468387133
-CHK,2010-06-15,4,0.00474654163617,0.0,0.0
-GE,2010-06-15,53,0.0232735039511,0.0,0.0
 ...
 }}}
 
