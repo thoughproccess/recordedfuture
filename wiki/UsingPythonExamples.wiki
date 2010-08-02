@@ -16,7 +16,7 @@ The easiest way to get the code is to save the following four files to the same 
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/tickerfile.txt tickerfile.txt]
 
-You can also [http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples browse for it]. 
+You can also [http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples browse for it] and view the files online for now if you'd prefer. 
 
 Alternatively, if you have [http://subversion.tigris.org/ Subversion] installed, you can check out the code as follows:
 
