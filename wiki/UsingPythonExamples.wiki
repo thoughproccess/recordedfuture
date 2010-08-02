@@ -11,24 +11,22 @@ Using the example code in the python-examples directory is straightforward and w
 ==Get the code==
 
 The easiest way to get the code is to save the following four files to the same directory:
-* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/aggquery.py aggquery.py]
-* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/entquery.py entquery.py]
-* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
-* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/tickerfile.txt tickerfile.txt]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/aggquery.py aggquery.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/entquery.py entquery.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/tickerfile.txt tickerfile.txt]
 
-[http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples browse for it]. 
+You can also [http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples browse for it]. 
 
-Or, if you have [http://subversion.tigris.org/ Subversion] installed, you can check out the code as follows:
+Alternatively, if you have [http://subversion.tigris.org/ Subversion] installed, you can check out the code as follows:
 
 {{{
 svn checkout http://recordedfuture.googlecode.com/svn/trunk/python-examples/ recordedfuture-read-only 
 }}}
 
-A new directory called "recordedfuture-read-only" will be created in your current working directory and the python files will be included in it. Change to this directory for the remainder of these instructions.
+A new directory called "recordedfuture-read-only" will be created in your current working directory and the python files will be included in it. 
 
-{{{
-cd recordedfuture-read-only
-}}}
+In any case, you'll want to fire up a terminal (cmd.exe on Windows, Terminal on Mac, or Xterm/gnome-terminal on Linux) and cd to the directory that houses these four files for the remainder of this tutorial. 
 
 
 ==Run the code==
