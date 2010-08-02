@@ -10,7 +10,15 @@ Using the example code in the python-examples directory is straightforward and w
 
 ==Get the code==
 
-You'll need to check out the code with [http://subversion.tigris.org/ Subversion]. With the command line client, the proper way to check out the code follows.
+The easiest way to get the code is to save the following four files to the same directory:
+* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/aggquery.py aggquery.py]
+* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/entquery.py entquery.py]
+* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
+* [http://recordedfuture.googlecode.com/svn/trunk/python-examples/tickerfile.txt tickerfile.txt]
+
+[http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples browse for it]. 
+
+Or, if you have [http://subversion.tigris.org/ Subversion] installed, you can check out the code as follows:
 
 {{{
 svn checkout http://recordedfuture.googlecode.com/svn/trunk/python-examples/ recordedfuture-read-only 
