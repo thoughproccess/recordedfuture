@@ -11,8 +11,8 @@ Using the example code in the python-examples directory is straightforward and w
 ==Get the code==
 
 The easiest way to get the code is to save the following four files to the same directory:
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/aggquery.py aggquery.py]
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/entquery.py entquery.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-aggquery.py company-aggquery.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-entquery.py company-entquery.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/tickerfile.txt tickerfile.txt]
 
