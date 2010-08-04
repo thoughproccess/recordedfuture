@@ -38,7 +38,7 @@ An entity style query pulls information about any occurrences of an entity from 
 
 To run the example entity style query you'll do the following:
 {{{
-python entquery.py MYTOKEN tickerfile.txt 20100614 20100620 > entoutputfile.txt
+python company-entquery.py MYTOKEN tickerfile.txt 20100614 20100620 > entoutputfile.txt
 }}}
 
 MYTOKEN will be substituted with your API Token. The fifth and sixth arguments above are the date range over which you want to run the query. Query ouput will be placed in the file *entoutputfile.txt* and you should see something like this in your terminal: 
@@ -57,7 +57,7 @@ Running ticker INTC
 Aggregate queries are similar to entity queries. The main difference they provide is that they aggregate all occurrences on a particular date for a particular ticker and provide total counts of the types of events you query for, as well as average momentum and sentiment metrics for those instances on those days. Running is similar to the entity query, but the output will look slightly different. To run:
 
 {{{
-python aggquery.py MYTOKEN tickerfile.txt 20100614 20100620 > aggoutputfile.txt
+python company-aggquery.py MYTOKEN tickerfile.txt 20100614 20100620 > aggoutputfile.txt
 }}}
 
 This time you'll see the following in your terminal:
