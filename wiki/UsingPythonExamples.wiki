@@ -77,19 +77,15 @@ Running date 2010-06-20
 Some lines of the entity query output should look something like this:
 {{{
 ticker	id	document.published	document.source.name	start	stop	type	momentum	positive	negative
-C	990192	"2010-06-14T18:30:00.000Z	"clusterstock	"2010-06-11T00:00:00.000Z	"2010-06-11T00:00:00.000Z	"EntityOccurrence	0.0486139160644	 	 
-C       2262357 "2010-06-17T09:23:20.000Z       "24_7   "2010-06-17T09:23:20.000Z       "2010-06-17T09:23:20.000Z       "CompanyTicker  0.109071484071
-C       2486846 "2010-06-17T12:52:15.000Z       "seeking_alpha_usmarket "2010-06-17T12:52:15.000Z       "2010-06-17T12:52:15.000Z       "CompanyEmployeesNumber 0.268442292171
-C       2506216 "2010-06-17T14:31:00.000Z       "techweb_all_feed       "2010-06-17T00:00:00.000Z       "2010-06-17T00:00:00.000Z       "CompanyLocation        0.112606948405
-C       2583817 "2010-06-17T14:20:25.000Z       "capitaliqpowermoves    "2010-06-17T14:20:25.000Z       "2010-06-17T14:20:25.000Z       "PersonCareer   0.0180406149754
-C       2604184 "2010-06-17T20:08:01.000Z       "pr_inside_business     "2010-06-17T20:08:01.000Z       "2010-06-17T20:08:01.000Z       "CompanyTicker  0.0894946294307
-C       2604188 "2010-06-17T20:08:01.000Z       "pr_inside_business     "2010-06-17T20:08:01.000Z       "2010-06-17T20:08:01.000Z       "CompanyTicker  0.0894946294307
-C       2616392 "2010-06-17T20:00:00.000Z       "marketwire     "2010-06-17T20:00:00.000Z       "2010-06-17T20:00:00.000Z       "CompanyTicker  0.120274979187
-C       2618372 "2010-06-17T21:04:43.000Z       "blogtaragana   "2010-06-17T21:04:43.000Z       "2010-06-17T21:04:43.000Z       "CompanyInvestment      0.10235846086
-C       2679963 "2010-06-18T07:23:06.000Z       "reuters_private_equity "2010-01-01T00:00:00.000Z       "2010-01-01T00:00:00.000Z       "CompanyInvestment      0.0649858926842
-C       2688602 "2010-06-18T08:02:43.000Z       "reuters_ma     "2010-01-01T00:00:00.000Z       "2010-01-01T00:00:00.000Z       "CompanyInvestment      0.17407960199
-C       2688607 "2010-06-18T08:02:43.000Z       "reuters_ma     "2010-06-18T00:00:00.000Z       "2010-06-18T00:00:00.000Z       "CompanyInvestment      0.17407960199
-C       2765174 "2010-06-18T07:32:03.000Z       "economictimesindia     "2010-01-01T00:00:00.000Z       "2010-01-01T00:00:00.000Z       "CompanyInvestment      0.209822085567
+AMZN	52200795	"2009-01-05T13:15:04.000Z	"seeking_alpha_market_currents	"2009-01-05T13:15:04.000Z	"2009-01-05T13:15:04.000Z	"EntityOccurrence	0.0645560727197	0.5142857	0.0
+AMZN	52376632	"2009-01-05T18:08:14.000Z	"techcrunch	"2009-01-05T18:08:14.000Z	"2009-01-05T18:08:14.000Z	"EntityOccurrence	0.0740905210324	0.0	0.0
+AMZN	52376633	"2009-01-05T18:08:14.000Z	"techcrunch	"2009-01-05T18:08:14.000Z	"2009-01-05T18:08:14.000Z	"EntityOccurrence	0.0740905210324	0.0	0.0
+AMZN	52376634	"2009-01-05T18:08:14.000Z	"techcrunch	"2009-01-05T18:08:14.000Z	"2009-01-05T18:08:14.000Z	"EntityOccurrence	0.0740905210324	0.0	0.0
+AMZN	37057385	"2009-01-03T06:33:00.000Z	"engadget	"2009-01-03T06:33:00.000Z	"2009-01-03T06:33:00.000Z	"CompanyProduct	0.173733129615	0.0	0.0
+AMZN	52200797	"2009-01-05T13:15:04.000Z	"seeking_alpha_market_currents	"2009-01-05T13:15:04.000Z	"2009-01-05T13:15:04.000Z	"AnalystRecommendation	0.384920634921	0.5142857	0.0
+AMZN	37772575	"2009-01-05T13:36:22.000Z	"24_7	"2009-01-05T13:36:22.000Z	"2009-01-05T13:36:22.000Z	"CompanyTicker	0.111111111111	0.0	0.0
+AMZN	48943642	"2009-01-05T14:00:00.000Z	"pr_newswire	"2009-01-05T14:00:00.000Z	"2009-01-05T14:00:00.000Z	"CompanyProduct	0.071276371308	0.0	0.0
+
 ....
 }}}
 
