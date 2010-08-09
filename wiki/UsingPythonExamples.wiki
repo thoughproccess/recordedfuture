@@ -119,4 +119,4 @@ Next, you'll need to change the line:
 {{{
 outorder = ["id","document.published", "document.source.name", "start","stop","type", "momentum", "positive", "negative"]
 }}}
-to match the output order that matches what you'd like in your output file. Planned enhancements to the helper functions in recfut.py should eliminate the need to manually set these in multiple place, but for now this should do the trick. 
+to match the output order that matches what you'd like in your output file. Planned enhancements to the helper functions in recfut.py should eliminate the need to manually set these in multiple places, but for now this should do the trick. 
