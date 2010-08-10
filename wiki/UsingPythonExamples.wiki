@@ -107,7 +107,7 @@ The columns here are the ticker, date for the aggregate, count of articles refer
 
 Users will likely want to try running their own queries, and the neat thing about the JSON query API is how flexible it is. You can query the data in the Recorded Future database from all sorts of directions. Changing dates and tickers really just scratches the surface. 
 
-Before messing around with the queries, I recommend reading [http://www.recordedfuture.com/api/home/ our API documentation]. There you will find what type of data you can ask for and what the various metadata fields in the results mean.
+Before modifying these queries, I recommend reading [http://www.recordedfuture.com/api/home/ our API documentation]. There you will find what type of data you can ask for and what the various metadata fields in the results mean.
 
 To change output columns in the code, currently you need to change two lines in entquery.py. First you'll change the line
 {{{
