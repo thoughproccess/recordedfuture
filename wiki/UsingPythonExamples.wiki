@@ -11,6 +11,7 @@ Using the example code in the python-examples directory is straightforward and w
 ==Get the code==
 
 The easiest way to get the code is to save the following four files to the same directory:
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-aggrawquery.py company-aggrawquery.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-aggquery.py company-aggquery.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-entquery.py company-entquery.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
@@ -71,6 +72,26 @@ Running date 2010-06-19
 Running date 2010-06-20
 }}}
 
+===Aggregate Raw Queries===
+Aggregate raw queries are very similar to traditional aggregate queries, but should be significantly faster. The tradeoff is that you'll need to query by Recored Future entity ID, rather than directly by ticker. We've set up our recfut.py script to handle this lookup automatically. To run:
+
+{{{
+python company-aggrawquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggoutputfile.txt
+}}}
+
+This time you'll see the following in your terminal:
+{{{
+Running ticker C
+Running ticker GOOG
+Running ticker MSFT
+Running ticker YHOO
+Running ticker CHK
+Running ticker XOM
+Running ticker GE
+Running ticker INTC
+}}}
+
+
 ==Examine the output==
 
 ===Entity Query Output===
@@ -102,6 +123,19 @@ YHOO,2010-06-14,303,0.108720400113,0.06675251259,0.00468387133
 }}}
 
 The columns here are the ticker, date for the aggregate, count of articles referencing the entity associated with the ticker, and the average momentum and sentiment associated with the ticker on that date. In this case, results are in CSV format, again easily ingestible by your favorite statistics software.
+
+===Aggregate Raw Query Output===
+Some aggregate results will look something like this:
+
+{{{
+ticker,id,Day,count,momentum,positive,negative
+AAPL,33340558,2010-06-14,263,0.0840077702003,0.079561872469,0.024719272969
+WMT,33329965,2010-06-14,69,0.0459325847256,0.094861657971,0.0149925024152
+...
+}}}
+
+The columns here are identical to the aggregate columns. The one additional column you'll see is the "id" column, which is the internal Recorded Future Entity ID we used to run the query on.
+
 
 == Modify the code ==
 
