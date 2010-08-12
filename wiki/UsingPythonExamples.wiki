@@ -76,7 +76,7 @@ Running date 2010-06-20
 Aggregate raw queries are very similar to traditional aggregate queries, but should be significantly faster. The tradeoff is that you'll need to query by Recored Future entity ID, rather than directly by ticker. We've set up our recfut.py script to handle this lookup automatically. To run:
 
 {{{
-python company-aggrawquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggoutputfile.txt
+python company-aggrawquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggrawoutputfile.txt
 }}}
 
 This time you'll see the following in your terminal:
