@@ -4,26 +4,26 @@
 
 Contents
 
-# <a href="#TOC-version-1.0.0">*1 *version 1.0.0</a>
-# <a href="#TOC-Introduction">*2 *Introduction</a>
-	# <a href="#TOC-Quick-Start:-Creating-Requests.">*2.1 *Quick Start: Creating Requests.</a>
-# <a href="#TOC-Input-and-Output-in-JSON">*3 *Input and Output in JSON</a>
-# <a href="#TOC-Query-specification">*4 *Query specification</a>
-    # <a href="#TOC-Matching-on-instance-identity-or-ty">*4.1 *Matching on instance identity or type</a>
-    # <a href="#TOC-Matching-on-instance-time">*4.2 *Matching on instance time</a>
-    # <a href="#TOC-Matching-on-the-canonical-item">*4.3 *Matching on the canonical item</a>
-    # <a href="#TOC-Matching-on-attributes">*4.4 *Matching on attributes</a>
-    # <a href="#TOC-Matching-on-document-and-source-asp">*4.5 *Matching on document and source aspects</a>
-    # <a href="#TOC-Output-fields">*4.6 *Output fields</a>
-    # <a href="#TOC-Entity-details">*4.7 *Entity details</a>
-    # <a href="#TOC-Response-specification">*4.8 *Response specification</a>
-# <a href="#TOC-Aggregate-Queries">*5 *Aggregate Queries</a>
-# <a href="#TOC-Examples">*6 *Examples</a>
-    # <a href="#TOC-Query-Examples">*6.1 *Query Examples</a>
-    # <a href="#TOC-Response-Example">*6.2 *Response Example</a>
-# <a href="#TOC-Working-with-the-API-in-the-Recorde">*7 *Working with the API in the Recorded Future UI</a>
-# <a href="#TOC-Using-the-Recorded-Future-API-with-">*8 *Using the Recorded Future API with R</a>
-# <a href="#TOC-Using-the-Recorded-Future-API-with-1">*9 *Using the Recorded Future API with Python</a>
-# <a href="#TOC-Entity-and-Event-Types">*10 *Entity and Event Types</a>
-    # <a href="#TOC-Entity-Types">*10.1 *Entity Types</a>
-    # <a href="#TOC-Event-Types">*10.2 *Event Types</a>
+    # [*1 *version 1.0.0#TOC-version-1.0.0]
+    # <a href="#TOC-Introduction">*2 *Introduction</a>
+        # <a href="#TOC-Quick-Start:-Creating-Requests.">*2.1 *Quick Start: Creating Requests.</a>
+    # <a href="#TOC-Input-and-Output-in-JSON">*3 *Input and Output in JSON</a>
+    # <a href="#TOC-Query-specification">*4 *Query specification</a>
+        # <a href="#TOC-Matching-on-instance-identity-or-ty">*4.1 *Matching on instance identity or type</a>
+        # <a href="#TOC-Matching-on-instance-time">*4.2 *Matching on instance time</a>
+        # <a href="#TOC-Matching-on-the-canonical-item">*4.3 *Matching on the canonical item</a>
+        # <a href="#TOC-Matching-on-attributes">*4.4 *Matching on attributes</a>
+        # <a href="#TOC-Matching-on-document-and-source-asp">*4.5 *Matching on document and source aspects</a>
+        # <a href="#TOC-Output-fields">*4.6 *Output fields</a>
+        # <a href="#TOC-Entity-details">*4.7 *Entity details</a>
+        # <a href="#TOC-Response-specification">*4.8 *Response specification</a>
+    # <a href="#TOC-Aggregate-Queries">*5 *Aggregate Queries</a>
+    # <a href="#TOC-Examples">*6 *Examples</a>
+        # <a href="#TOC-Query-Examples">*6.1 *Query Examples</a>
+        # <a href="#TOC-Response-Example">*6.2 *Response Example</a>
+    # <a href="#TOC-Working-with-the-API-in-the-Recorde">*7 *Working with the API in the Recorded Future UI</a>
+    # <a href="#TOC-Using-the-Recorded-Future-API-with-">*8 *Using the Recorded Future API with R</a>
+    # <a href="#TOC-Using-the-Recorded-Future-API-with-1">*9 *Using the Recorded Future API with Python</a>
+    # <a href="#TOC-Entity-and-Event-Types">*10 *Entity and Event Types</a>
+        # <a href="#TOC-Entity-Types">*10.1 *Entity Types</a>
+        # <a href="#TOC-Event-Types">*10.2 *Event Types</a>
