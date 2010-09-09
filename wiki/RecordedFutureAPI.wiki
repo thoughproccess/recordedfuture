@@ -63,21 +63,79 @@ The following sample query looks for Product Release events from companies withi
 
 {{{
 {
-    "instance": {
-        "type": ["ProductRelease"],
-        "attributes": [{"name": "company",
-                        "entity": {"attributes": [{"name": "gics", 
-                                                   "string": "Information Technology"}]}}],
-        "document": {
-        	"published": {"min": "2010-01-01", "max": "2010-02-01"}
-        },
-        "limit": 100
+  "instance": {
+    "type": ["ProductRelease"],
+    "attributes": [{"name": "company",
+                    "entity": {"attributes": [{"name": "gics",
+                                               "string": "Information Technology"}]}}],
+    "document": {
+      "published": {"min": "2010-01-01", "max": "2010-02-01"}
     },
-    "output": {
+    "limit": 100
+  },
+  "output": {
     "fields": ["type", "time", "fragment", "momentum", "attributes",
-			 "document.title", "document.url", "document.published", "source.description"]
-    
-    },
-    "token": TOKEN
+               "document.title", "document.url", "document.published", "source.description"]
+  },
+  "token": TOKEN
 }
 }}}
+
+
+The following sample result is part of the response to the query, which contains information about one event instance. The result contains information about the event (an announced product release), the text fragment it was found in (“Microsoft launches tech policy Web site.”), the document source (Federal Computer Week News), the document it was found in (The URL that displays the actual document), and the current momentum value.
+
+{{{
+{
+  "fragment": "Microsoft launches tech policy Web site.",
+  "stop": "2010-01-06T17:13:31.000Z",
+  "start": "2010-01-06T17:13:31.000Z",
+  "attributes": {
+    "status": "announced",
+    "company": 33312449,
+    "product_type": "Other",
+    "product": 33434006
+  },
+  "document": {
+    "url": "http://fcw.com/articles/2010/01/06/microsoft-web-technology-policy.aspx",
+    "source": {
+      "description": "Federal Computer Week News"
+    },
+    "published": "2010-01-06T17:13:31.000Z",
+    "title": "Microsoft launches tech policy Web site"
+  },
+  "type": "ProductRelease",
+  "momentum": 0.044266346260364201
+}
+}}}
+
+
+Entities – the people, companies, organizations, and places of the Recorded Future Who/Where list – are created on-demand as they are harvested by a query. Once an entity is defined, all references to that entity are defined as entity instances that point to the underlying canonical entity. Once an entity is defined, all references to that entity are defined as entity instances that point to the underlying canonical entity. Entities are returned in a separate structure, to avoid duplication, and in the instances only references to the entities are present, using an opaque identifier. For example, in the attributes section above there is a company with the identifier 33312449. In the entity structure, there is an parameter for that identifier:
+{{{
+    "33312449": {
+      "type": "Company",
+      "name": "Microsoft",
+      "momentum": 0.72911597000853101
+    }
+}}}
+
+For details about the exact query and response structures, see the “Query Specification” and “Response Specification” sections.
+
+== Input and Output in JSON ==
+
+The Recorded Future API supports JSON as the input and output format. For a detailed JSON specification, visit Douglas Crockford’s site [http://www.json.org/ JSON.org], paying particular attention to [http://tools.ietf.org/html/rfc4627 RFC 4627]. This section provides a short excerpt.
+*Tip*: If you are using [http://www.r-project.org R], you don’t need to worry about formatting JSON input or parsing JSON output. R packages manage input and output for you. See “Using the Recorded Future API with R” to learn more.
+*JSON* (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
+JSON is built on two structures:
+
+	* A collection of name/value pairs. In various languages, this is realized as an _object_, record, struct, dictionary, hash table, keyed list, or associative array.
+	* An ordered list of values. In most languages, this is realized as an _array_, vector, list, or sequence.
+
+These are universal data structures. Virtually all modern programming languages support them in one form or another. It makes sense that a data format that is interchangeable with programming languages also be based on these structures.
+In JSON, which always uses Unicode encoding, they take on these forms:
+
+	* An _object_ is an unordered set of name/value pairs. An object begins with { <font size="-1"(left brace)</font> and ends with } <small>(right brace)</small>. Each name is followed by : <small>(colon)</small> and the name/value pairs are separated by , <small>(comma)</small>.
+	* An _array_ is an ordered collection of values. An array begins with [ <small>(left bracket)</small> and ends with ] <small>(right bracket)</small>. Values are separated by , <small>(comma)</small>.
+	* A _value_ can be a _string_ in double quotes, or a _number_, or true or false or null, or an _object_ or an _array_. These structures can be nested.
+    * A _string_ is a collection of zero or more Unicode characters, wrapped in double quotes, using backslash escapes. A character is represented as a single character string. A string is very much like a C or Java string.
+	* A _number_ is very much like a C or Java number, except that the octal and hexadecimal formats are not used.
+    * Whitespace can be inserted between any pair of tokens.
