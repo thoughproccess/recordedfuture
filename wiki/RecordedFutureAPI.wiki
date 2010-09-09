@@ -251,7 +251,7 @@ _document_ matches on aspects of the document in which the instance was found, o
 
 _id_ matches on document identifiers. An identifier is a long integer, and is a system defined identification of the document. The value of the parameter must be an integer or a list of integers. The parameter matches if the document identifier matches one of the provided identifiers. You’ll usually match on document identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.
 
-_published_ matches on the publication date of the document. The value is a time-range structure:</div>
+_published_ matches on the publication date of the document. The value is a time-range structure:
 
 {{{
 {
@@ -336,3 +336,34 @@ _limit_ specifies the maximum number of instances in the response. The value of 
 === Output fields ===
 
 The _output_ fields shape the query response.
+
+|| *Field name* || *Description* ||
+|| "id" || The identity number of the instance ||
+|| "type" || The name of the type of the instance ||
+|| "time" || Start and stop time of the instance ||
+|| "time_fragment" || The text fragment from which the time was derived ||
+|| "time_fragment_context" || A larger context of the time fragment ||
+|| "fragment" || The text fragment this instance was found in ||
+|| "fragment_coentities" || The list of entities found in the instance text fragment ||
+|| "momentum || The momentum value of this instance, a value between 0 and 1. For aggregate queries, this is the average momentum. ||
+|| "sentiment" || The list of sentiments of this instance, either "positive" or negative". For aggregate queries, this is the average sentiment. ||
+|| "attributes" || The attributes of this instance. The attributes with basic types are given inline. The entity attributes are given as references to the entity identifiers. The entities themselves are given in a separate dictionary, with the string form of the entity identifier as the key, and the entity details as the value. ||
+|| "canonical.id" || The identity number of the canonical item of this instance ||
+|| "relevance" || The relevance score for the instance, a value between 0 and 100, which specifies the importance of an entity occurrence in a document. The relevance field is available only for instances of type “_EntityOccurrence_” . ||
+|| "document_category" || The highest scoring topic for this document ||
+|| "document.id" || The identity number of the document ||
+|| "document.title" || The title of the document ||
+|| "document.url" || The URL of the document ||
+|| "document.analyzed" || The point in time when the document was analyzed ||
+|| "document.published" || The point in time when the document was published by the source ||
+|| "document.downloaded" || The point in time when the document was downloaded ||
+|| "document.coentities" || The list of entities found in the document ||
+|| "source.id" || The identity number of the source ||
+|| "source.name" || The name of the source ||
+|| "source.description || The description of the source ||
+|| "source.media_type" || The media type of the source ||
+|| "source.topic" || The source topic ||
+|| "source.country" || The originating country of the source ||
+|| "count" || For aggregate queries: The hit count ||
+
+===Entity details===
