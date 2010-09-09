@@ -4,7 +4,7 @@
 
 Contents
 
-    # *1 *[version 1.0.0#version_1.0.0]
+    # *1 *[version 1.0.0#Recorded_Future_API]
     # <a href="#TOC-Introduction">*2 *Introduction</a>
         # <a href="#TOC-Quick-Start:-Creating-Requests.">*2.1 *Quick Start: Creating Requests.</a>
     # <a href="#TOC-Input-and-Output-in-JSON">*3 *Input and Output in JSON</a>
