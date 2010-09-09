@@ -155,9 +155,9 @@ A query has the following structure:
 }
 }}}
 
-The optional comment section can be used to document a question in human readable form. It is not used in the query.
+The optional _comment_ section can be used to document a question in human readable form. It is not used in the query.
 
-The instance section specifies conditions that must be true for all returned instances.
+The _instance_ section specifies conditions that must be true for all returned instances.
 
 {{{
 "instance": {
@@ -174,12 +174,165 @@ The instance section specifies conditions that must be true for all returned ins
 
 === Matching on instance identity or type ===
 
-id matches on instance identifiers. An identifier is a long integer, and is a system defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.The value of id must be an integer or a list of integers. id matches if the instance identifier matches one of the provided identifiers.
+_id_ matches on instance identifiers. An identifier is a long integer, and is a system defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.The value of _id_ must be an integer or a list of integers. _id_ matches if the instance identifier matches one of the provided identifiers.
 
-type matches on the names of the canonical types of instances. The canonical types are the event types and entity types in the system, as described by the system metadata specification. The value of type must be a string or a list of strings. type matches if the name of the canonical type of the instance is one of the supplied instance type names. A list of all current entity and event types is available at the end of this document.
+_type_ matches on the names of the canonical types of instances. The canonical types are the event types and entity types in the system, as described by the system metadata specification. The value of _type_ must be a string or a list of strings. _type_ matches if the name of the canonical type of the instance is one of the supplied instance type names. A list of all current entity and event types is available at the end of this document.
 
 === Matching on instance time ===
 
-start_time specifies the minimum time of the instance start time and must be a string formatted as YYYY-MM-DD.
+_start`_`time_ specifies the minimum time of the instance start time and must be a string formatted as YYYY-MM-DD.
 
 _stop`_`time_ specifies the maximum time of the instance stop time and must be a string formatted as YYYY-MM-DD.
+
+=== Matching on the canonical item ===
+
+The canonical parameter matches on aspects of the instance's canonical item. The aspects are specified using the structure:
+
+{{{
+"canonical": {
+    "id": [integer],
+    "name": [string]
+}
+}}}
+
+_id_ matches on canonical identifiers. An identifier is a long integer, and is a system defined identification of the canonical item. The value must be an integer or a list of integers. The value matches if the canonical identifier matches one of the provided identifiers.
+You’ll usually match on canonical identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.
+
+_name matches on canonical names. Only canonical entities have names; canonical events do not. The value of _name_ must be a string or a list of strings. The parameter matches if the canonical name identifier matches one of the supplied names.
+
+=== Matching on attributes ===
+
+The attributes parameter matches on the attributes of the instance. The attributes section is a list of match criteria for attributes, and all entries in the list must match, in order for an instance to match. Attributes are identified by name or by type. Named attributes can be used only if a distinct type constraint has been set in the query, then all attributes of the typed item are available to be referenced by name. Typed attributes match all attributes of an item with that type. The structure of an attribute match is:
+
+{{{
+{
+  name-or-type,
+  value-constraint
+}
+}}}
+The _name-or-type_ part is either "name": _attribute-name_ or "type": _type_. The _value-constraint_ part is type dependent. Here is the list of different types, and how to match on them:
+
+{{{
+"string":  [string]
+"int":     [integer]
+"float":   [float]
+"bool":    [bool]
+"entity":  entity-match
+}}}
+
+Matching for the string, integer, float, and Boolean are all of the form that a single value or a list of values of the specified type. If a list is supplied, a match is found if any element of the list matches. For entity matches, the structure is a subset of the structure for entity instances, excluding the time and document constraints.
+
+{{{
+"entity": {
+    "id": [integer],
+    "name": [string],
+    "attributes": attributes-constraints
+}
+}}}
+
+_id_ matches on the canonical entity identifier
+_name_ matches on canonical entity name.
+_attributes_ recursively matches on entity attributes, as described in this section.
+
+=== Matching on document and source aspects ===
+
+_document_ matches on aspects of the document in which the instance was found, or aspects of the source the document was received from. It has the following structure:
+
+{{{
+"document": {
+    "id": [integer],
+    "published": time-range,
+    "analyzed": time-range,
+    "downloaded": time-range,
+    "url": string,
+    "source": source-constraints
+}
+}}}
+
+_id_ matches on document identifiers. An identifier is a long integer, and is a system defined identification of the document. The value of the parameter must be an integer or a list of integers. The parameter matches if the document identifier matches one of the provided identifiers. You’ll usually match on document identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.
+
+_published_ matches on the publication date of the document. The value is a time-range structure:</div>
+
+{{{
+{
+    "min": time-spec,
+    "max": time-spec
+}
+}}}
+
+If _published_ is not specified, there is no constraint on the document publication time. If _min_ is specified, the publication time must not be earlier than the given time. If _max_ is specified, the publication time must not be later than the given time. The time must be specified as a string with the date format YYYY-MM-DD.
+
+_analyzed_ matches on the date Recorded Future analyzed the document. _analyzed_ has the same structure as _published_.
+
+_downloaded_ matches on the date Recorded Future downloaded the document. _downloaded_ has the same structure as _published_.
+
+_url_ matches on the URL of the document. The value of the entry must be a string or a list of strings. The entry matches if the document URL matches one of the provided URLs.
+
+The source constraint has the following structure:
+
+{{{
+"source": {
+    "id": [integer],
+    "name": [string],
+    "description": [string],
+    "topic": [string],
+    "media_type": [string],
+    "country": [string],
+    "url": [string],
+    "limit": [integer]
+}
+}}}
+
+_id_ matches on source identifiers. An identifier is a long integer, and is a system defined identification of a source. The value of the parameter must be an integer or a list of integers. The parameter matches if the source identifier matches one of the provided identifiers.
+
+_name_ matches on source name. A source name is a short string identifying the source. The value of the parameter must be a string or a list of strings. The parameter matches if the source name matches one of the supplied names.
+
+_description_ matches on source descriptions. A source description is a somewhat longer string identifying the source. The value of the parameter must be a string or a list of strings. The parameter matches if the source description matches one of the provided names.
+
+_topic_ matches on source topics. (Recorded Future categorizes all Sources into topics.) The value of the parameter must be a string or a list of strings. The parameter matches if the source topic matches one of the following names:
+
+{{{
+Business
+Technology
+General
+Geopolitical
+Energy
+Legal
+Healthcare
+Government
+Military
+Financial services
+Health care
+Humanitarian
+Environment
+InfoSec
+terrorism
+disease
+health
+ISVG
+Malware
+}}}
+
+_media`_`type_ matches on source media types. (The system categorizes all Sources into media types.) The value of the parameter must be a string or a list of strings. _media`_`type_ matches if the source media type matches one of the following names:
+
+{{{
+Blog
+Niche
+Mainstream
+Government
+NGO
+News_agency
+Exchange
+Primary_source
+DataProvider
+}}}
+
+_country_ matches on the originating country of the source. The value of _country_ must be a string or a list of strings. _country_ matches if the source country matches one of the country names specified in the metadata document.
+
+_url_ matches on the URL of the source. The value of _url_ must be a string  or a list of strings. _url_ matches if the source URL matches one of the provided names.
+
+_limit_ specifies the maximum number of instances in the response. The value of _limit_ must be an integer.
+
+=== Output fields ===
+
+The _output_ fields shape the query response.
