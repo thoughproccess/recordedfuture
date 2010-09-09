@@ -49,4 +49,4 @@ To access Recorded Future through the API:
 === Quick Start: Creating Requests. ===
 
 Queries are sent using HTTP GET to
-	[ http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression]
+	[http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression]
