@@ -1,6 +1,6 @@
 = Recorded Future API =
 
-==version 1.0.0==
+== version 1.0.0 ==
 
 Contents
 
@@ -27,3 +27,26 @@ Contents
     # <a href="#TOC-Entity-and-Event-Types">*10 *Entity and Event Types</a>
         # <a href="#TOC-Entity-Types">*10.1 *Entity Types</a>
         # <a href="#TOC-Event-Types">*10.2 *Event Types</a>
+
+== Introduction ==
+
+The Recorded Future’s API enables you to build analytic applications and perform analysis which is aware of events happening around the globe 24x7, with extensive historical records. You can perform queries and receive results from the Recorded Future Temporal Analytics Engine across a vast set of events, entities, and time points spanning from the far past into the future.
+
+Your application can come alive with real time access into the Recorded Future engine, completely aware of events as they unfold around the world - and your analysis of for example financial markets can be made aware of events involving companies, people, products, etc. Historical archives allows you to extensively backtest results.
+
+Sample applications and analysis built/done with the Recorded Future API include
+* Interactive dashboards of global events
+* Google earth overlay of global events
+* Back testing whether FT Alphaville (high profile financial blog) is "better" than general news in predicting stock returns
+* Back testing whether Recorded Future momentum metric accurately predicts equity trading volume
+
+To access Recorded Future through the API:
+    # Request a Recorded Future API token.
+    # Create a structured JSON string that describes the query.
+    # Create and submit the associated URL.
+    # Retrieve and parse the results.
+
+=== Quick Start: Creating Requests. ===
+
+Queries are sent using HTTP GET to
+	[ http://api.recordedfuture.com/ws/rfq/instances?q=query&amp;compress=usecompression]
