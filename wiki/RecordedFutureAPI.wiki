@@ -27,3 +27,5 @@ Contents
     # <a href="#TOC-Entity-and-Event-Types">*10 *Entity and Event Types</a>
         # <a href="#TOC-Entity-Types">*10.1 *Entity Types</a>
         # <a href="#TOC-Event-Types">*10.2 *Event Types</a>
+
+[WikiSyntax#Wiki-style_markup]
