@@ -133,7 +133,7 @@ JSON is built on two structures:
 These are universal data structures. Virtually all modern programming languages support them in one form or another. It makes sense that a data format that is interchangeable with programming languages also be based on these structures.
 In JSON, which always uses Unicode encoding, they take on these forms:
 
-	* An _object_ is an unordered set of name/value pairs. An object begins with { <font size="-1"(left brace)</font> and ends with } <small>(right brace)</small>. Each name is followed by : <small>(colon)</small> and the name/value pairs are separated by , <small>(comma)</small>.
+	* An _object_ is an unordered set of name/value pairs. An object begins with { <font size="-1">(left brace)</font> and ends with } <small>(right brace)</small>. Each name is followed by : <small>(colon)</small> and the name/value pairs are separated by , <small>(comma)</small>.
 	* An _array_ is an ordered collection of values. An array begins with [ <small>(left bracket)</small> and ends with ] <small>(right bracket)</small>. Values are separated by , <small>(comma)</small>.
 	* A _value_ can be a _string_ in double quotes, or a _number_, or true or false or null, or an _object_ or an _array_. These structures can be nested.
     * A _string_ is a collection of zero or more Unicode characters, wrapped in double quotes, using backslash escapes. A character is represented as a single character string. A string is very much like a C or Java string.
