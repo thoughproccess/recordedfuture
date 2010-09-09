@@ -176,7 +176,7 @@ The _instance_ section specifies conditions that must be true for all returned i
 
 _id_ matches on instance identifiers. An identifier is a long integer, and is a system defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.The value of _id_ must be an integer or a list of integers. _id_ matches if the instance identifier matches one of the provided identifiers.
 
-_type_ matches on the names of the canonical types of instances. The canonical types are the event types and entity types in the system, as described by the system metadata specification. The value of _type_ must be a string or a list of strings. _type_ matches if the name of the canonical type of the instance is one of the supplied instance type names. A list of all current entity and event types is available at the end of this document.
+_type_ matches on the names of the canonical types of instances. The canonical types are the event types and entity types in the system, as described by the system metadata specification. The value of _type_ must be a string or a list of strings. _type_ matches if the name of the canonical type of the instance is one of the supplied instance type names. A list of all current entity and event types is available [#Entity_and_Event_Types at the end of this document].
 
 === Matching on instance time ===
 
