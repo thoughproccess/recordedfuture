@@ -49,7 +49,7 @@ To access Recorded Future through the API:
 === Quick Start: Creating Requests. ===
 
 Queries are sent using HTTP GET to
-	[http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression http://api.recordedfuture.com/ws/rfq/instances?q=_query_&compress=_usecompression_]
+	[http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression]
     
 Zip compression is enabled if the optional attribute compress=usecompression. If the attribute is not set, no compression is used.
 
@@ -59,3 +59,25 @@ Note: Queries can also be sent using HTTP POST. Do this if the query string beco
 Queries and responses are expressed in JSON.
 
 The following sample query looks for Product Release events from companies within the Information Technology sector, published in January 2010. The 100 first results are returned.
+
+
+{{{
+{
+    "instance": {
+        "type": ["ProductRelease"],
+        "attributes": [{"name": "company",
+                        "entity": {"attributes": [{"name": "gics", 
+                                                   "string": "Information Technology"}]}}],
+        "document": {
+        	"published": {"min": "2010-01-01", "max": "2010-02-01"}
+        },
+        "limit": 100
+    },
+    "output": {
+    "fields": ["type", "time", "fragment", "momentum", "attributes",
+			 "document.title", "document.url", "document.published", "source.description"]
+    
+    },
+    "token": TOKEN
+}
+}}}
