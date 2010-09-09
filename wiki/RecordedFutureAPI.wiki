@@ -35,10 +35,10 @@ The Recorded Future’s API enables you to build analytic applications and perfo
 Your application can come alive with real time access into the Recorded Future engine, completely aware of events as they unfold around the world - and your analysis of for example financial markets can be made aware of events involving companies, people, products, etc. Historical archives allows you to extensively backtest results.
 
 Sample applications and analysis built/done with the Recorded Future API include
-* Interactive dashboards of global events
-* Google earth overlay of global events
-* Back testing whether FT Alphaville (high profile financial blog) is "better" than general news in predicting stock returns
-* Back testing whether Recorded Future momentum metric accurately predicts equity trading volume
+    * Interactive dashboards of global events
+    * Google earth overlay of global events
+    * Back testing whether FT Alphaville (high profile financial blog) is "better" than general news in predicting stock returns
+    * Back testing whether Recorded Future momentum metric accurately predicts equity trading volume
 
 To access Recorded Future through the API:
     # Request a Recorded Future API token.
@@ -49,4 +49,4 @@ To access Recorded Future through the API:
 === Quick Start: Creating Requests. ===
 
 Queries are sent using HTTP GET to
-	[ http://api.recordedfuture.com/ws/rfq/instances?q=query&amp;compress=usecompression]
+	[ http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression]
