@@ -139,3 +139,47 @@ In JSON, which always uses Unicode encoding, they take on these forms:
 	* A _string_ is a collection of zero or more Unicode characters, wrapped in double quotes, using backslash escapes. A character is represented as a single character string. A string is very much like a C or Java string.
 	* A _number_ is very much like a C or Java number, except that the octal and hexadecimal formats are not used.
 	* Whitespace can be inserted between any pair of tokens.
+
+== Query specification ==
+
+Queries are given as the q parameter in the API URL. They need to be [http://en.wikipedia.org/wiki/URL_encoding URL encoded].
+
+A query has the following structure:
+
+{{{
+{
+  "comment": <string> (optional),
+  "instance": <instance_spec>,
+  "output": <output_spec>,
+  "token": <string>
+}
+}}}
+
+The optional comment section can be used to document a question in human readable form. It is not used in the query.
+
+The instance section specifies conditions that must be true for all returned instances.
+
+{{{
+"instance": {
+    "id": [integer],
+    "type": [string],
+    "start_time": time-spec,
+    "stop_time": time-spec,
+    "canonical": canonical-constraints,
+    "attributes": attributes-constraints,
+    "document": document-constraints,
+    "limit": integer
+}
+}}}
+
+=== Matching on instance identity or type ===
+
+id matches on instance identifiers. An identifier is a long integer, and is a system defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.The value of id must be an integer or a list of integers. id matches if the instance identifier matches one of the provided identifiers.
+
+type matches on the names of the canonical types of instances. The canonical types are the event types and entity types in the system, as described by the system metadata specification. The value of type must be a string or a list of strings. type matches if the name of the canonical type of the instance is one of the supplied instance type names. A list of all current entity and event types is available at the end of this document.
+
+=== Matching on instance time ===
+
+start_time specifies the minimum time of the instance start time and must be a string formatted as YYYY-MM-DD.
+
+_stop`_`time_ specifies the maximum time of the instance stop time and must be a string formatted as YYYY-MM-DD.
