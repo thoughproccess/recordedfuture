@@ -49,4 +49,11 @@ To access Recorded Future through the API:
 === Quick Start: Creating Requests. ===
 
 Queries are sent using HTTP GET to
-	[http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression]
+	[http://api.recordedfuture.com/ws/rfq/instances?q=_query_&compress=_usecompression_ http://api.recordedfuture.com/ws/rfq/instances?q=query&compress=usecompression]
+    
+Zip compression is enabled if the optional attribute compress=usecompression. If the attribute is not set, no compression is used.
+
+Note: Queries can also be sent using HTTP POST. Do this if the query string becomes too long (typically, there is a limit on a few thousand characters for GET requests).
+
+
+Queries and responses are expressed in JSON.
