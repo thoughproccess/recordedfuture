@@ -367,3 +367,951 @@ The _output_ fields shape the query response.
 || "count" || For aggregate queries: The hit count ||
 
 ===Entity details===
+
+
+The "_entity_details_" section is a dictionary keyed by entity type name, and the values are lists of the attribute names that should be included in the output. The type, name and momentum are given for all entities. Some attributes are entity attributes, and they may be followed recursively to a certain maximum depth. The default depth is 2, which returns entity information for entities listed as attributes of instances that meet the initial query criteria. You can change the default by setting the depth parameter in the output section.  If set to 0, no entity details are given, and if set to -1, there is no depth limit.
+
+=== Response specification ===
+
+Responses are returned as a structured JSON string. A response has the following structure:
+
+{{{
+{
+  "status": <"SUCCESS" or "FAILURE">
+  "error": <describes the problem in case of FAILURE>
+  "instances": <list of matching events instances, in decreasing momentum order>
+  "entities": <a dictionary with details for entities involved in the events>
+}
+}}}
+
+
+If _count_ is specified, not instance or entity details will be returned. The entities section will only be returned if the _attributes_ field is set in the output fields.
+
+==Aggregate Queries==
+
+Aggregate queries return daily average sentiment, momentum, and total count for entities you specify. Aggregate query format is similar to the format of queries that return records for specific entity and event and instances:
+_entity_ is required. See Quick start: creating requests for more information.
+_document_ is required and must include the “_published_” parameter. All other “_document_” and “_source_” parameters are optional.
+See Matching on document and source aspects for more information.
+_key_ causes the results to be grouped based on a specified entity aspect, such as _id_ or _name_ or a textual attributes on the entity type specified in the entity section. Forexample, if the entity is specified to be of type company, then you can specify “_key_”: "tickers" in the aggregate query. If no _key_ value is specified, the default value is "_id_".
+The available output fields are _source_, _count_, _momentum_, and _sentiment_. See the Output fields table for more information. If "_source_" is set in the "_output_" fields, the query returns multiple records per day. If the query does not include "_source_", it returns one record per day.
+You can specify an optional output format that specifies the format of the returned “_key_” aggregates. Note that this field affects only the “_key_” aggregates; the response document itself is always in JSON format.
+
+    * “_format_”: “_csv_” The value of the “_key_” aggregates is a CSV file encoded as a string with embedded newlines.
+    * “_format_”: “_json_” (default) The value of the “_key_” aggregates is a list of JSON dictionaries.
+
+The response is grouped by the specified key and day, where day is in the range specified by "_document_: "_published_".
+
+{{{
+{
+  "aggregate": {
+    "entity": {"type": "Company", "attributes": {"name": "tickers", "string": "AAPL"}},
+    "document": {"published": {"min": "2010-02-01", "max": "2010-02-05"}},
+    "key": "tickers"
+  },
+  "output": {
+    "fields": ["count", "momentum", "positive", "negative"],
+    "format": "csv"
+  },
+  "token": TOKEN,
+}
+}}}
+
+The output with the _aggregates_  formatted as CSV is
+
+{{{
+{
+  "status": "SUCCESS",
+  "aggregates": "tickers,Day,Count,Momentum,Positive,Negative\r\nAAPL,2010-02-01,130,0.0970647896404,0.04719179308,0.05534764\r\nAAPL,2010-02-02,126,0.131935758091,0.03681524524,0.01985223413\r\nAAPL,2010-02-03,100,0.0712206521117,0.097500107,0.040581817\r\nAAPL,2010-02-04,90,0.0507399318718,0.05230126222,0.00760450556\r\n",
+  "errors": []
+}
+}}}
+
+The output with the aggregates formatted as JSON is:
+
+{{{
+{
+  "status": "SUCCESS",
+  "aggregates": [
+    {
+      "count": 130, "positive": 0.047191793080000002, "negative": 0.055347639999999997,
+      "tickers": "AAPL", "day": "2010-02-01", "momentum": 0.097064789640384896
+    },
+    {
+      "count": 126, "positive": 0.036815245240000002, "negative": 0.01985223413,
+      "tickers": "AAPL", "day": "2010-02-02", "momentum": 0.131935758090586
+    },
+    {
+      "count": 100, "positive": 0.097500107000000003, "negative": 0.040581816999999999,
+      "tickers": "AAPL", "day": "2010-02-03", "momentum": 0.071220652111714494
+    },
+    {
+      "count": 90, "positive": 0.052301262219999999, "negative": 0.0076045055599999996,
+      "tickers": "AAPL", "day": "2010-02-04", "momentum": 0.050739931871842503
+    }
+  ],
+  "errors": []
+}
+}}}
+
+You can also create an aggregate query with a more general entity filter, such as this one, which returns all entities in a certain industry sector:
+
+{{{
+"entity": {"type": "Company", "attributes": {"name": "gics", "string": "Financials"}}
+}}}
+
+Keep in mind that a less-restricted query like this may take some time, as there are a lot of instances to aggregate.
+
+An aggregate_raw query is a faster but more constrained version of the aggregate query. An aggregate_raw query does not return entity IDs. You must run an entity query to retrieve IDs, then use those IDs in the aggregate_raw query's entity specification.
+
+aggregate_raw queries use this structure:
+
+{{{
+{
+ "aggregate_raw": {
+   "entity": {"id": [id1, id2, ..., idn]},
+   "document": {
+     "published": {
+       "min": "YYYY-MM-DD",
+       "max": " YYYY-MM-DD "}
+     }
+   },
+   "output": {
+     "fields": ["momentum", "count", "positive", "negative"]
+   },
+   "token": TOKEN
+}
+}}}
+This query will summarize momentum, count and sentiment for each id for each day in the published time range.  Another option exists to also separate the data by source as well as day  and is accessed by adding "source" to the list of output fields
+
+== Examples ==
+
+== Query Examples ==
+
+This section contains several sample queries.
+
+Example: Mergers
+
+{{{
+{
+  "comment": "Mergers involving Apple or Google, published last year",
+  "instance": {
+    "type": "Merger",
+    "attributes": [
+      {"type": "Company",
+        "entity": {
+          "attributes": {"name": "cusip", "string": ["037833100", "38259P508"]}
+        }
+      }   
+    ],
+    "document": {
+      "published": {"min": "2009-01-01", "max": "2009-12-31"}
+    },
+    "limit": 2
+  },
+  "token": "ABCDEF"
+}
+}}}
+
+Example: Quotations
+
+{{{
+{
+  "comment": "Barack Obama quotations involving companies in the financial industry",
+  "instance": {
+    "type": "Quotation",
+    "attributes": [
+      {"name": "person", "entity": {"name": "Barack Obama"}},
+      {"type": "Company", "entity": {"attributes": {"name": "gics", "string": "Financials"}}}
+    ],
+    "limit": 3
+  },
+  "token": "ABCDEF"
+}
+}}}
+
+Example: Mergers or acquisitions, by industry sector
+
+{{{
+{
+  "comment": "Mergers or acquisitions involving companies in two industry sectors",
+  "instance": {
+    "type": ["Merger", "Acquisition"],
+    "attributes": [
+      {"type": "Company", "entity": {"attributes": {"name": "gics", "string": "Information Technology"}}},
+      {"type": "Company", "entity": {"attributes": {"name": "gics", "string": "Telecommunications Services"}}}
+    ],
+    "limit": 2
+  },
+  "token": "TOKEN"
+}
+}}}
+
+Example: Mergers or acquisitions, by company name
+
+{{{
+{
+  "comment": "Mergers or acquisitions involving Apple or Google",
+  "instance": {
+    "type": ["Merger", "Acquisition"],
+    "attributes": [
+      {"type": "Company", "entity": {"attributes": {"name": "tickers", "string": ["AAPL", "GOOG"]}}}
+    ],
+    "limit": 2
+  },
+  "token": "TOKEN"
+}
+}}}
+
+Example: Relevance Score
+
+{{{
+{
+  "instance": {
+    "type": "EntityOccurrence",
+    "id": [8821184]
+  },
+  "output": {
+    "fields": ["document.title","relevance", "type", "time", "document_category"]
+  },
+  "token": "TOKEN"
+}
+}}}
+
+Example: Search for Entity Instances
+
+{{{
+{
+  "instance": {
+    "type": "EntityOccurrence",
+    "attributes": [{"name": "entity", 
+        "entity": {"type": "Company",
+                               "attributes": {"name": "gics", 
+                                              "string": "Financials"}}}],
+    "document": {
+      "published": {"min": "2010-01-01", "max": "2010-02-01"}
+    },
+    "limit": 5
+  },
+  "output": {
+    "fields": ["type", "time", "fragment", "sentiment", "momentum",
+               "attributes", "document.title", "document.published",
+               "source.description"],
+    "entity_details":{"Company": ["gics", "cusip", "sedol", "tickers", "industries"]}
+  },
+  "token": "TOKEN"
+ }
+}}}
+
+Example: Search for calendar events
+
+{{{
+{
+
+ "instance": {
+
+   "type": ["EconomicEvent"],
+
+   "attributes": [{"name": "country",
+
+                   "entity": {"attributes": [{"name": "name",
+
+                                              "string": "United States"}]}}],
+
+   "start_time": "2008-09-01",
+
+   "stop_time": "2008-10-01",
+
+   "limit": 10
+
+ },
+
+ "output": {
+
+   "fields": ["type", "time", "attributes", "fragment",
+
+              "document.title", "source.description"]
+
+ },
+
+ "token": "TOKEN"
+
+}
+}}}
+
+Example: Search for entity instances
+
+{{{
+{
+
+  "instance": {
+
+    "type": "EntityOccurrence",
+
+    "attributes": [{"name": "entity", 
+
+                 "entity": {"type": "Company",
+
+                               "attributes": {"name": "gics", 
+
+                                              "string": "Financials"}}}],
+
+    "document": {
+
+      "published": {"min": "2010-01-01", "max": "2010-02-01"}
+
+    },
+
+    "limit": 5
+
+  },
+
+  "output": {
+
+    "fields": ["type", "time", "fragment", "sentiment", "momentum",
+
+               "attributes", "document.title", "document.published",
+
+               "source.description"],
+
+    "entity_details":{"Company": ["gics", "cusip", "sedol", "tickers", "industries"]}
+
+  },
+
+  "token": TOKEN
+
+ }
+}}}
+
+=== Response Example ===
+
+The following sample is the complete response to the query in the Quick Start section earlier in this document:
+
+{{{
+{
+  "status": "SUCCESS", 
+  "instances": [
+    {
+      "fragment": "Symantec Corp. (Nasdaq: SYMC) today announced Symantec Data Insight, a new technology that enables organisations to improve data governance through insights into the ownership and usage of unstructured data , including files such as documents, spreadsheets ...", 
+      "stop": "2010-03-03T23:59:59.000Z", 
+      "start": "2010-03-03T00:00:00.000Z", 
+      "attributes": {
+        "status": "announced", 
+        "product": 117180333, 
+        "product_type": "Other", 
+        "company": 33312357, 
+        "date": "2010-03-03", 
+        "date_string": "today"
+      }, 
+      "document": {
+        "url": "http://www.scoop.co.nz/stories/BU1003/S00094.htm", 
+        "source": {
+          "description": "Scoop NZ - Business"
+        }, 
+        "published": "2010-03-03T00:52:00.000Z", 
+        "title": "Symantec Answers \u0093Whose Data Is It Anyway?\u0094"
+      }, 
+      "type": "ProductRelease", 
+      "momentum": 0.0
+    },    
+  ], 
+  "errors": [], 
+  "entities 
+    "33312357": {
+      "type": "Company", 
+      "name": "Symantec", 
+      "momentum": 0.015923216777303299
+    },   
+    "117180333": {
+      "type": "Product", 
+      "name": "Symantec Data Insight", 
+      "momentum": 8.3941912196759793e-06
+    }
+  }
+}
+}}}
+
+== Working with the API in the Recorded Future UI ==
+
+You can use the Recorded Future UI to:
+
+* automatically generate JSON requests and results for a query you enter in the UI.
+* generate results for a JSON request you paste into the UI
+
+If you are a registered user with an assigned API token, you’ll see the API call link at the top right of the screen when you log into Recorded Future.
+
+==== Automatically generating requests and results ====
+
+To automatically generate a request and result, enter a query in the What, Who/Where, and When boxes or, if you have saved Futures, click one to create the query. Click the API call link. Recorded Future displays the structured JSON string for that query. You can copy the string and paste it into your development environment.
+
+To generate the structured JSON string for the result, click the Call API link that appears below the API request. The result appears in a second box, below the request.
+
+==== Generating results for a specified JSON request ====
+
+You can paste a JSON request into the API Call box and have Recorded Future automatically generate the appropriate JSON result. This is a useful way to test your code. Click the Call API link or, if the API request box is already displayed, click the Clear link to remove the last request. Paste your request in the box and click Call API to generate the result.
+
+== Using the Recorded Future API with R ==
+
+[http://www.r-project.org/ R] is a language and environment for statistical computing and graphics. You can use commonly- available R packages to assist with forming and executing queries, and obtaining and parsing the results.
+
+The [http://www.omegahat.org/RJSONIO/ RJSONIO Package] contains functions that facilitate reading and writing JSON data:
+
+* The _fromJSON_ function converts a JSON string into R list objects.
+* The _toJSON_ function converts R list objects into a JSON string.
+
+The following sample shows a Recorded Future query as a standard R list object with two top level elements:  instance and output.
+{{{
+>print(Rquery)
+
+$instance
+$instance$type
+[1] "ProductRelease"
+
+$instance$attributes
+$instance$attributes[[1]]
+$instance$attributes[[1]]$type
+[1] "Company"
+
+$instance$attributes[[1]]$entity
+$instance$attributes[[1]]$entity$attributes
+$instance$attributes[[1]]$entity$attributes[[1]]
+$instance$attributes[[1]]$entity$attributes[[1]]$name
+[1] "gics"
+
+$instance$attributes[[1]]$entity$attributes[[1]]$string
+[1] "Information Technology"
+$instance$document
+$instance$document$published
+$instance$document$published$min
+[1] "2010-01-01"
+
+$instance$document$published$max
+[1] "2010-03-12"
+
+ $instance$limit
+[1] 1
+
+$output
+
+$output$fields
+
+[1]"type"   "time"     "fragment"      "momentum"      "attributes"    "document.title"    "document.url"     "document.published“ "source.description" 
+}}}
+
+To create a JSON string, apply the toJSON function to this R list object:
+
+{{{
+> json.Query<-toJSON(Rquery)
+
+> cat(json.Query)
+}}}
+
+The following sample shows the resulting JSON string:
+
+{{{
+{
+    "instance": {
+        "type": ["ProductRelease"],
+        "attributes": [{"type": "Company",
+                    "entity": {"attributes": [{"name": "gics",
+                                    "string": "Information Technology"}]}}],
+        "document": {
+            "published": {"min": "2010-01-01", "max": "2010-03-12"}
+        },
+        "limit": 1
+    },
+    "output": {
+        "fields": ["type", "time", "fragment", "momentum", "attributes", "document.title", "document.url", "document.published", "source.description"]
+    }
+}
+}}}
+
+The [http://www.omegahat.org/RCurl/ RCURL Package] is an R-interface to the [http://curl.haxx.se/ libcurl] library. This package assists with creating and submitting URLs that contain the JSON formatted query and with retrieving the results from the response.
+
+The following sample uses RCURL routines to form a URL and retrieve data and then uses the fromJSON function from the RJSONIO package to create the resulting R list objects.
+
+{{{
+> opts = curlOptions(header = FALSE
+
+> url<-paste("http://api.recordedfuture.com/ws/rfq/instances?q=",
+
+RCurl::curlEscape(jsonQuery),"&compress=1",sep="")
+
+> zippedJsonResult<-getBinaryURL(url, .opts = opts)
+
+> jsonResult<rawToChar(memDecompress(zippedJsonResult,type="gzip")
+> RqueryResult<-fromJSON(jsonResult)
+}}}
+
+== Using the Recorded Future API with Python ==
+
+A number of Python libraries are available to facilitate reading and writing JSON data, including the popular [http://www.undefined.org/python/ simplejson] and [http://sourceforge.net/projects/json-py/ json-py].
+
+The following sample Python code executes two queries and prints some of the results. If you test this sample by incorporating it into your code, remember to replace the value TOKEN with a valid Recorded Future API token.
+
+{{{
+#Sample Python query:
+
+#----------------------------------------------
+
+qsource2="""{
+
+  "comment": "Barack Obama quotations involving companies in the financial industry",
+
+  "instance": {
+
+    "type": ["Quotation"],
+
+    "attributes": [{"name": "person", "entity": {"name": "Barack Obama"}},
+
+       {"type": "Company", "entity": {"attributes": [{"name": "gics", "string": "Financials"}]}}],
+
+    "limit": 1,
+
+    "document": {
+
+      "published": {"min": "2010-01-01", "max": "2010-02-01"},
+
+      "source": {
+
+         "topic": "Business"
+
+      }
+
+    }
+
+  },
+
+  "output": {
+
+    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url", "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
+
+    "entities": {
+
+    }
+
+  },
+
+  "token": "API_token"
+
+}"""
+
+qsource="""{
+
+  "comment": "Q1 earnings calls",
+
+  "instance": {
+
+    "type": ["ConferenceCall"],
+
+    "attributes": [ {"name": "year", "string": "2009"},
+
+       {"type": "Company", "entity": {"attributes": [{"name": "tickers", "string": "C"}]}}],
+
+    "limit": 50,
+
+    "document": {
+
+      "source": {
+
+         "topic": "Business"
+
+      }
+
+    }
+
+  },
+
+  "output": {
+
+    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url", "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
+
+    "entities": {
+
+    }
+
+  },
+
+  "token": "TOKEN"
+
+}""" 
+}}}
+
+The following Python sample makes use of the Recorded Future event instances web service.
+
+{{{
+#-------------------------------------------------------
+#Python example that takes query and executes
+#------------------------------------------------------
+import sys, urllib, json
+
+# Simple program showing how to use the event instances web-service from Python
+
+# Web service URL
+url = 'http://api.recordedfuture.com/ws/rfq/instances?%s'
+
+# Wraps the web-service into a python function
+# Input: q: a JSON-formatted string specifying the query
+# Out: Dict corresponding to the JSON object returned by the web service
+def query(q):
+    try:
+        data = urllib.urlopen(url % urllib.urlencode({"q":q}))
+        if type(data) != str:
+            data = data.read()
+        #print data
+        return json.loads(data)
+    except Exception, e:
+        return {'status': 'FAILURE', 'errors': str(e)}
+
+# Main program code:
+# Open a specified query file (JSON-formatted), and run that query
+# The result is a list of event instances matching the query, ordered by momentum
+# and a dictionary with detailed information about the involved entities
+
+# Read the query
+#qsource = open(sys.argv[1], "r").read()
+
+# Run the query
+res = query(q=qsource)
+print(str(res))
+
+# Check if the query succeeded
+if res['status'] == 'FAILURE':
+    print("Error: " + str(res['errors']))
+    sys.exit(1)
+
+# Get the returned structures
+entities = res["entities"]
+evis = res["instances"]
+
+# Utility function to pretty print an entity overview (name and type)
+def eninfo(en):
+    return "%s[%s]" % (en["name"], en["type"])
+
+def utf8(s):
+    return s.encode('utf-8') if type(s) in [unicode, str] else s
+
+# Iterate of the event instances
+for evi in evis:  
+    # Print basic event instance info (type and time)
+    print (evi["type"], evi["start"], "-", evi["stop"])
+
+       # Print the event roles and their values
+    for k, v in evi["attributes"].items():
+        # No metadata available here, so use a simple method to check if
+        # the value is an entity reference: try to look it up in the
+        # entity dictionary
+        if type(v) in [long, int]:
+            en = entities.get(str(v))
+            if en:
+                v = eninfo(en)
+        print ("  %s=%s" % (k, v))
+    # Print anonymous entity references (not tied to a role) in the event instance
+    v = evi.get("mentions")
+    if v:
+        v = v if type(v) == list else [v]
+        print ("  mentions=%s" % ", ".join([eninfo(entities[str(enid)]) for enid in v]))
+
+    # Print document information
+    doc = evi["document"]
+    print ("  document:")
+    for key in ["title", "source", "url"]:
+            print ("    %s=%s" % (key, utf8(doc[key])))
+
+print ("\nDetails about involved entities:\n")
+
+for id, en in entities.items():
+    print (eninfo(en), "(id=" + str(id) + ")")
+    for k, v in en.items():
+        if k in ["name", "type"]:
+            continue
+        print ("  %s=%s" % (k, v))
+}}}
+
+== Entity and Event Types ==
+
+The following event and entity types are currently available in the system.
+
+=== Entity Types ===
+
+{{{
+Anniversary             
+
+City                    
+
+Company                 
+
+Continent               
+
+Country                 
+
+Currency                
+
+EmailAddress            
+
+EntertainmentAwardEvent 
+
+Facility                
+
+FaxNumber               
+
+Holiday                 
+
+Industry                
+
+IndustryTerm            
+
+MarketIndex             
+
+MedicalCondition        
+
+MedicalTreatment        
+
+Movie                   
+
+MusicAlbum              
+
+MusicGroup              
+
+NaturalFeature          
+
+OperatingSystem         
+
+Organization            
+
+Person                  
+
+PhoneNumber             
+
+Position                
+
+Product                 
+
+ProgrammingLanguage     
+
+ProvinceOrState         
+
+PublishedMedium         
+
+RadioProgram            
+
+RadioStation            
+
+Region                  
+
+ReportingEntity         
+
+SportsEvent             
+
+SportsGame              
+
+SportsLeague            
+
+Technology              
+
+TVShow                  
+
+TVStation               
+
+URL
+}}}
+
+=== Event Types ===
+
+{{{
+Acquisition                 
+
+Alliance                    
+
+AnalystEarningsEstimate     
+
+AnalystRecommendation       
+
+ArmedAssault                
+
+Arrest                      
+
+Arson                       
+
+Bankruptcy                  
+
+BiologicalTerrorism         
+
+Bombing                     
+
+BonusSharesIssuance         
+
+BusinessRelation            
+
+Buybacks                    
+
+Ceasefire                   
+
+ChemicalTerrorism           
+
+CivilCourtProceeding        
+
+CompanyAccountingChange     
+
+CompanyAffiliates           
+
+CompanyCompetitor           
+
+CompanyCustomer             
+
+CompanyEarningsAnnouncement 
+
+CompanyEarningsGuidance     
+
+CompanyEmployeesNumber      
+
+CompanyExpansion            
+
+CompanyForceMajeure         
+
+CompanyFounded              
+
+CompanyInvestment           
+
+CompanyLaborIssues          
+
+CompanyLayoffs              
+
+CompanyLegalIssues          
+
+CompanyListingChange        
+
+CompanyLocation             
+
+CompanyMeeting              
+
+CompanyNameChange           
+
+CompanyProduct              
+
+CompanyReorganization       
+
+CompanyRestatement          
+
+CompanyTechnology           
+
+CompanyTicker               
+
+CompanyUsingProduct         
+
+ConferenceCall              
+
+Conviction                  
+
+CreditRating                
+
+CriminalCourtProceeding     
+
+Cyberterrorism              
+
+DebtFinancing               
+
+DelayedFiling               
+
+DiplomaticRelations         
+
+Dividend                    
+
+EconomicEvent               
+
+EmploymentChange            
+
+EmploymentRelation          
+
+EnvironmentalIssue          
+
+Extinction                  
+
+FamilyRelation              
+
+FDAPhase                    
+
+Hijacking                   
+
+HostageRelease              
+
+HostageTakingKidnapping     
+
+Indictment                  
+
+InsiderTransaction          
+
+IPO                         
+
+JointVenture                
+
+ManMadeDisaster             
+
+Merger                      
+
+MilitaryOperation           
+
+MiscTerrorism               
+
+MovieRelease                
+
+MusicAlbumRelease           
+
+NaturalDisaster             
+
+NuclearTerrorism            
+
+PatentFiling                
+
+PatentIssuance              
+
+PersonAttributes            
+
+PersonCareer                
+
+PersonCommunication         
+
+PersonEducation             
+
+PersonEmailAddress          
+
+PersonRelation              
+
+PersonTravel                
+
+PoliceOperation             
+
+PoliticalEndorsement        
+
+PoliticalEvent              
+
+PoliticalRelationship       
+
+PollResult                  
+
+ProductIssues               
+
+ProductRecall               
+
+ProductRelease              
+
+Quotation                   
+
+Robbery                     
+
+SecondaryIssuance           
+
+StockSplit                  
+
+TerrorCommunication         
+
+TerrorFinancing             
+
+Trafficking                 
+
+Trial                       
+
+Vandalism                   
+
+VotingResult 
+}}}
