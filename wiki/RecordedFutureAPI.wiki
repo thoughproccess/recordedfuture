@@ -347,9 +347,9 @@ The _output_ fields shape the query response.
 || "fragment_coentities" || The list of entities found in the instance text fragment ||
 || "momentum || The momentum value of this instance, a value between 0 and 1. For aggregate queries, this is the average momentum. ||
 || "sentiment" || The list of sentiments of this instance, either "positive" or negative". For aggregate queries, this is the average sentiment. ||
-|| "attributes" || The attributes of this instance. The attributes with basic types are given inline. The entity attributes are given as references <br>to the entity identifiers. The entities themselves are given in a separate dictionary, with the string form of the entity identifier as the key, and the entity details as the value. ||
+|| "attributes" || The attributes of this instance. The attributes with basic types are given inline. The entity attributes are given as references to the entity identifiers. <br>The entities themselves are given in a separate dictionary, with the string form of the entity identifier as the key, and the entity details as the value. ||
 || "canonical.id" || The identity number of the canonical item of this instance ||
-|| "relevance" || The relevance score for the instance, a value between 0 and 100, which specifies the importance of an entity occurrence in a document. The relevance field is available only for instances of type “_EntityOccurrence_” . ||
+|| "relevance" || The relevance score for the instance, a value between 0 and 100, which specifies the importance of an entity occurrence in a document. <br>The relevance field is available only for instances of type “_EntityOccurrence_” . ||
 || "document_category" || The highest scoring topic for this document ||
 || "document.id" || The identity number of the document ||
 || "document.title" || The title of the document ||
