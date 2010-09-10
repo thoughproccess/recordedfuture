@@ -889,13 +889,8 @@ qsource2="""{
 
   "output": {
 
-    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id"
-    ,
-     "document.id"
-     , "document.title",
-      "document.url", "document.analyzed",
-       "document.published", "document.downloaded", "source.id",
-        "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
+    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url",
+     "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
 
     "entities": {
 
@@ -935,7 +930,8 @@ qsource="""{
 
   "output": {
 
-    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url", "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
+    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url", 
+    "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
 
     "entities": {
 
