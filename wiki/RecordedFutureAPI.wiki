@@ -5,8 +5,8 @@
 Contents
 
 *1 *[#version_1.0.0 version1.0.0]<br>
-    *2 *[#Introduction Introduction]<br>
-*2.1 *[#Quick_Start:_Creating_Requests. Quick Start: Creating Requests.]<br>
+*2 *[#Introduction Introduction]<br>
+  *  2.1 *[#Quick_Start:_Creating_Requests. Quick Start: Creating Requests.]<br>
 *3 *[#Input_and_Output_in_JSON Input and Output in JSON]<br>
 *4 *[#Query_specification Query specification]<br>
 *4.1 *[#Matching_on_instance_identity_or_type Matching on instance identity or type]<br>
