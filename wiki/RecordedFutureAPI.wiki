@@ -422,7 +422,11 @@ The output with the _aggregates_  formatted as CSV is
 {{{
 {
   "status": "SUCCESS",
-  "aggregates": "tickers,Day,Count,Momentum,Positive,Negative\r\nAAPL,2010-02-01,130,0.0970647896404,0.04719179308,0.05534764\r\nAAPL,2010-02-02,126,0.131935758091,0.03681524524,0.01985223413\r\nAAPL,2010-02-03,100,0.0712206521117,0.097500107,0.040581817\r\nAAPL,2010-02-04,90,0.0507399318718,0.05230126222,0.00760450556\r\n",
+  "aggregates": "tickers,Day,Count,Momentum,Positive,Negative\r
+  \nAAPL,2010-02-01,130,0.0970647896404,0.04719179308,0.05534764
+  \r\nAAPL,2010-02-02,126,0.131935758091,0.03681524524,0.01985223413
+  \r\nAAPL,2010-02-03,100,0.0712206521117,0.097500107,0.040581817
+  \r\nAAPL,2010-02-04,90,0.0507399318718,0.05230126222,0.00760450556\r\n",
   "errors": []
 }
 }}}
@@ -692,7 +696,8 @@ The following sample is the complete response to the query in the Quick Start se
   "status": "SUCCESS", 
   "instances": [
     {
-      "fragment": "Symantec Corp. (Nasdaq: SYMC) today announced Symantec Data Insight, a new technology that enables organisations to improve data governance through insights into the ownership and usage of unstructured data , including files such as documents, spreadsheets ...", 
+      "fragment": "Symantec Corp. (Nasdaq: SYMC) today announced Symantec Data Insight, a new technology that enables organisations to improve 
+      data governance through insights into the ownership and usage of unstructured data , including files such as documents, spreadsheets ...", 
       "stop": "2010-03-03T23:59:59.000Z", 
       "start": "2010-03-03T00:00:00.000Z", 
       "attributes": {
@@ -884,7 +889,8 @@ qsource2="""{
 
   "output": {
 
-    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url", "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
+    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url", 
+    "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
 
     "entities": {
 
