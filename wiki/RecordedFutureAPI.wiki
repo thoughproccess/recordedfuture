@@ -735,7 +735,7 @@ The following sample is the complete response to the query in the Quick Start se
     }
   }
 }
-<highlightSyntax>
+</highlightSyntax>
 }}}
 
 == Working with the API in the Recorded Future UI ==
