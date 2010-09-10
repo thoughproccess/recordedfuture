@@ -6,10 +6,10 @@ Contents
 
 *1 *[#version_1.0.0 version1.0.0]
 *2 *[#Introduction Introduction]
-      *2.1 *[#Quick_Start:_Creating_Requests. Quick Start: Creating Requests.]
+*      2.1 *[#Quick_Start:_Creating_Requests. Quick Start: Creating Requests.]
 *3 *[#Input_and_Output_in_JSON Input and Output in JSON]
 *4 *[#Query_specification Query specification]
-      *4.1 *[#Matching_on_instance_identity_or_type Matching on instance identity or type]
+*      4.1 *[#Matching_on_instance_identity_or_type Matching on instance identity or type]
       *4.2 *[#Matching_on_instance_time Matching on instance time]
       *4.3 *[#Matching_on_the_canonical_item Matching on the canonical item]
       *4.4 *[#Matching_on_attributes Matching on attributes]
