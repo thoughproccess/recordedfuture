@@ -690,7 +690,7 @@ Example: Search for entity instances
 === Response Example ===
 
 The following sample is the complete response to the query in the Quick Start section earlier in this document:
-
+<highlightSyntax>
 {{{
 {
   "status": "SUCCESS", 
@@ -735,7 +735,7 @@ The following sample is the complete response to the query in the Quick Start se
   }
 }
 }}}
-
+</highlightSyntax>
 == Working with the API in the Recorded Future UI ==
 
 You can use the Recorded Future UI to:
