@@ -497,7 +497,7 @@ This section contains several sample queries.
 
 Example: Mergers
 
-{{{<font color="white">
+{{{
 {
   "comment": "Mergers involving Apple or Google, published last year",
   "instance": {
@@ -516,7 +516,7 @@ Example: Mergers
   },
   "token": "ABCDEF"
 }
-</font>}}}
+}}}
 
 Example: Quotations
 
