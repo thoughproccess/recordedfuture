@@ -604,7 +604,7 @@ Example: Search for Entity Instances
                "source.description"],
     "entity_details":{"Company": ["gics", "cusip", "sedol", "tickers", "industries"]}
   },
-  "token": "TOKEN"
+  "token": `"TOKEN"`
  }
 }}}
 
