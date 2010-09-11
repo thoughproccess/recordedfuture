@@ -646,7 +646,7 @@ Example: Search for calendar events
 
 Example: Search for entity instances
 
-{{{<font color="#008800">
+{{{
 {
 
   "instance": {
@@ -686,7 +686,7 @@ Example: Search for entity instances
   "token": TOKEN
 
  }
-</font>}}}
+}}}
 
 === Response Example ===
 
