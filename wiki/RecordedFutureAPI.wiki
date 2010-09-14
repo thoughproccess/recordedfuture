@@ -286,6 +286,7 @@ The source constraint has the following structure:
 _id_ matches on source identifiers. An identifier is a long integer, and is a system defined identification of a source. The value of the parameter must be an integer or a list of integers. The parameter matches if the source identifier matches one of the provided identifiers.
 
 
+
 _name_ matches on source name. A source name is a short string identifying the source. The value of the parameter must be a string or a list of strings. The parameter matches if the source name matches one of the supplied names.
 
 _description_ matches on source descriptions. A source description is a somewhat longer string identifying the source. The value of the parameter must be a string or a list of strings. The parameter matches if the source description matches one of the provided names.
@@ -583,6 +584,7 @@ Example: Relevance Score
 }
 }}}
 
+
 Example: Search for Entity Instances
 
 {{{
@@ -803,7 +805,8 @@ $output
 
 $output$fields
 
-[1]"type"   "time"     "fragment"      "momentum"      "attributes"    "document.title"    "document.url"     "document.published“ "source.description" 
+[1]"type"   "time"     "fragment"      "momentum"      "attributes"    "document.title"    "document.url"     
+"document.published“ "source.description" 
 }}}
 
 To create a JSON string, apply the toJSON function to this R list object:
@@ -829,7 +832,8 @@ The following sample shows the resulting JSON string:
         "limit": 1
     },
     "output": {
-        "fields": ["type", "time", "fragment", "momentum", "attributes", "document.title", "document.url", "document.published", "source.description"]
+        "fields": ["type", "time", "fragment", "momentum", "attributes", "document.title", "document.url", 
+        "document.published", "source.description"]
     }
 }
 }}}
@@ -891,8 +895,10 @@ qsource2="""{
 
   "output": {
 
-    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url",
-     "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
+    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", 
+    "canonical.id", "document.id", "document.title", "document.url","document.analyzed", "document.published", 
+    "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", 
+    "source.country"],
 
     "entities": {
 
@@ -932,8 +938,10 @@ qsource="""{
 
   "output": {
 
-    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", "canonical.id", "document.id", "document.title", "document.url", 
-    "document.analyzed", "document.published", "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", "source.country"],
+    "fields": ["id", "type", "time", "time_fragment", "fragment", "momentum", "sentiment", "attributes", 
+    "canonical.id", "document.id", "document.title", "document.url", "document.analyzed", "document.published", 
+    "document.downloaded", "source.id", "source.name", "source.description", "source.media_type", "source.topic", 
+    "source.country"],
 
     "entities": {
 
