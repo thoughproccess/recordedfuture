@@ -725,7 +725,7 @@ The following sample is the complete response to the query in the Quick Start se
     },    
   ], 
   "errors": [], 
-  "entities 
+  "entities": { 
     "33312357": {
       "type": "Company", 
       "name": "Symantec", 
