@@ -294,25 +294,25 @@ _description_ matches on source descriptions. A source description is a somewhat
 _topic_ matches on source topics. (Recorded Future categorizes all Sources into topics.) The value of the parameter must be a string or a list of strings. The parameter matches if the source topic matches one of the following names:
 
 <font face="Courier">
-Business
-Technology
-General
-Geopolitical
-Energy
-Legal
-Healthcare
-Government
-Military
-Financial services
-Health care
-Humanitarian
-Environment
-InfoSec
-terrorism
-disease
-health
-ISVG
-Malware
+Business 
+Technology 
+General 
+Geopolitical 
+Energy 
+Legal 
+Healthcare 
+Government 
+Military 
+Financial services 
+Health care 
+Humanitarian 
+Environment 
+InfoSec 
+terrorism 
+disease 
+health 
+ISVG 
+Malware 
 </font>
 
 _media`_`type_ matches on source media types. (The system categorizes all Sources into media types.) The value of the parameter must be a string or a list of strings. _media`_`type_ matches if the source media type matches one of the following names:
