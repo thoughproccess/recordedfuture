@@ -1046,148 +1046,144 @@ The following event and entity types are currently available in the system.
 
 === Entity Types ===
 
-<font face="Courier New">
-Anniversary<br>
-City<br>
-Company<br>
-Continent<br>
-Country<br>
-Currency<br>
-EmailAddress<br>
-EntertainmentAwardEvent<br>
-Facility<br>
-FaxNumber<br>
-Holiday<br>
-Industry<br>
-IndustryTerm<br>
-MarketIndex<br>
-MedicalCondition<br>
-MedicalTreatment<br>
-Movie<br>
-MusicAlbum<br>
-MusicGroup<br>
-NaturalFeature<br>
-OperatingSystem<br>
-Organization<br>
-Person<br>
-PhoneNumber<br>
-Position<br>
-Product<br>
-ProgrammingLanguage<br>
-ProvinceOrState<br>
-PublishedMedium<br>
-RadioProgram<br>
-RadioStation<br>
-Region<br>
-ReportingEntity<br>
-SportsEvent<br>
-SportsGame<br>
-SportsLeague<br>
-Technology<br>
-TVShow<br>
-TVStation<br>
-URL<br>
-</font>
+<font face="Courier">Anniversary</font><br>
+<font face="Courier">City</font><br>
+<font face="Courier">Company</font><br>
+<font face="Courier">Continent</font><br>
+<font face="Courier">Country</font><br>
+<font face="Courier">Currency</font><br>
+<font face="Courier">EmailAddress</font><br>
+<font face="Courier">EntertainmentAwardEvent</font><br>
+<font face="Courier">Facility</font><br>
+<font face="Courier">FaxNumber</font><br>
+<font face="Courier">Holiday</font><br>
+<font face="Courier">Industry</font><br>
+<font face="Courier">IndustryTerm</font><br>
+<font face="Courier">MarketIndex</font><br>
+<font face="Courier">MedicalCondition</font><br>
+<font face="Courier">MedicalTreatment</font><br>
+<font face="Courier">Movie</font><br>
+<font face="Courier">MusicAlbum</font><br>
+<font face="Courier">MusicGroup</font><br>
+<font face="Courier">NaturalFeature</font><br>
+<font face="Courier">OperatingSystem</font><br>
+<font face="Courier">Organization</font><br>
+<font face="Courier">Person</font><br>
+<font face="Courier">PhoneNumber</font><br>
+<font face="Courier">Position</font><br>
+<font face="Courier">Product</font><br>
+<font face="Courier">ProgrammingLanguage</font><br>
+<font face="Courier">ProvinceOrState</font><br>
+<font face="Courier">PublishedMedium</font><br>
+<font face="Courier">RadioProgram</font><br>
+<font face="Courier">RadioStation</font><br>
+<font face="Courier">Region</font><br>
+<font face="Courier">ReportingEntity</font><br>
+<font face="Courier">SportsEvent</font><br>
+<font face="Courier">SportsGame</font><br>
+<font face="Courier">SportsLeague</font><br>
+<font face="Courier">Technology</font><br>
+<font face="Courier">TVShow</font><br>
+<font face="Courier">TVStation</font><br>
+<font face="Courier">URL</font><br>
 
 === Event Types ===
 
-<font face="Courier New">
-Acquisition<br>
-Alliance<br>
-AnalystEarningsEstimate<br>
-AnalystRecommendation<br>
-ArmedAssault<br>
-Arrest<br>
-Arson<br>
-Bankruptcy<br>
-BiologicalTerrorism<br>
-Bombing<br>
-BonusSharesIssuance<br>
-BusinessRelation<br>
-Buybacks<br>
-Ceasefire<br>
-ChemicalTerrorism<br>
-CivilCourtProceeding<br>
-CompanyAccountingChange<br>
-CompanyAffiliates<br>
-CompanyCompetitor<br>
-CompanyCustomer<br>
-CompanyEarningsAnnouncement<br>
-CompanyEarningsGuidance<br>
-CompanyEmployeesNumber<br>
-CompanyExpansion<br>
-CompanyForceMajeure<br>
-CompanyFounded<br>
-CompanyInvestment<br>
-CompanyLaborIssues<br>
-CompanyLayoffs<br>
-CompanyLegalIssues<br>
-CompanyListingChange<br>
-CompanyLocation<br>
-CompanyMeeting<br>
-CompanyNameChange<br>
-CompanyProduct<br>
-CompanyReorganization<br>
-CompanyRestatement<br>
-CompanyTechnology<br>
-CompanyTicker<br>
-CompanyUsingProduct<br>
-ConferenceCall<br>
-Conviction<br>
-CreditRating<br>
-CriminalCourtProceeding<br>
-Cyberterrorism<br>
-DebtFinancing<br>
-DelayedFiling<br>
-DiplomaticRelations<br>
-Dividend<br>
-EconomicEvent<br>
-EmploymentChange<br>
-EmploymentRelation<br>
-EnvironmentalIssue<br>
-Extinction<br>
-FamilyRelation<br>
-FDAPhase<br>
-Hijacking<br>
-HostageRelease<br>
-HostageTakingKidnapping<br>
-Indictment<br>
-InsiderTransaction<br>
-IPO<br>
-JointVenture<br>
-ManMadeDisaster<br>
-Merger<br>
-MilitaryOperation<br>
-MiscTerrorism<br>
-MovieRelease<br>
-MusicAlbumRelease<br>
-NaturalDisaster<br>
-NuclearTerrorism<br>
-PatentFiling<br>
-PatentIssuance<br>
-PersonAttributes<br>
-PersonCareer<br>
-PersonCommunication<br>
-PersonEducation<br>
-PersonEmailAddress<br>
-PersonRelation<br>
-PersonTravel<br>
-PoliceOperation<br>
-PoliticalEndorsement<br>
-PoliticalEvent<br>
-PoliticalRelationship<br>
-PollResult<br>
-ProductIssues<br>
-ProductRecall<br>
-ProductRelease<br>
-Quotation<br>
-Robbery<br>
-SecondaryIssuance<br>
-StockSplit<br>
-TerrorCommunication<br>
-TerrorFinancing<br>
-Trafficking<br>
-Trial<br>
-Vandalism<br>   
-VotingResult<br>
-</font>
+<font face="Courier">Acquisition</font><br>
+<font face="Courier">Alliance</font><br>
+<font face="Courier">AnalystEarningsEstimate</font><br>
+<font face="Courier">AnalystRecommendation</font><br>
+<font face="Courier">ArmedAssault</font><br>
+<font face="Courier">Arrest</font><br>
+<font face="Courier">Arson</font><br>
+<font face="Courier">Bankruptcy</font><br>
+<font face="Courier">BiologicalTerrorism</font><br>
+<font face="Courier">Bombing</font><br>
+<font face="Courier">BonusSharesIssuance</font><br>
+<font face="Courier">BusinessRelation</font><br>
+<font face="Courier">Buybacks</font><br>
+<font face="Courier">Ceasefire</font><br>
+<font face="Courier">ChemicalTerrorism</font><br>
+<font face="Courier">CivilCourtProceeding</font><br>
+<font face="Courier">CompanyAccountingChange</font><br>
+<font face="Courier">CompanyAffiliates</font><br>
+<font face="Courier">CompanyCompetitor</font><br>
+<font face="Courier">CompanyCustomer</font><br>
+<font face="Courier">CompanyEarningsAnnouncement</font><br>
+<font face="Courier">CompanyEarningsGuidance</font><br>
+<font face="Courier">CompanyEmployeesNumber</font><br>
+<font face="Courier">CompanyExpansion</font><br>
+<font face="Courier">CompanyForceMajeure</font><br>
+<font face="Courier">CompanyFounded</font><br>
+<font face="Courier">CompanyInvestment</font><br>
+<font face="Courier">CompanyLaborIssues</font><br>
+<font face="Courier">CompanyLayoffs</font><br>
+<font face="Courier">CompanyLegalIssues</font><br>
+<font face="Courier">CompanyListingChange</font><br>
+<font face="Courier">CompanyLocation</font><br>
+<font face="Courier">CompanyMeeting</font><br>
+<font face="Courier">CompanyNameChange</font><br>
+<font face="Courier">CompanyProduct</font><br>
+<font face="Courier">CompanyReorganization</font><br>
+<font face="Courier">CompanyRestatement</font><br>
+<font face="Courier">CompanyTechnology</font><br>
+<font face="Courier">CompanyTicker</font><br>
+<font face="Courier">CompanyUsingProduct</font><br>
+<font face="Courier">ConferenceCall</font><br>
+<font face="Courier">Conviction</font><br>
+<font face="Courier">CreditRating</font><br>
+<font face="Courier">CriminalCourtProceeding</font><br>
+<font face="Courier">Cyberterrorism</font><br>
+<font face="Courier">DebtFinancing</font><br>
+<font face="Courier">DelayedFiling</font><br>
+<font face="Courier">DiplomaticRelations</font><br>
+<font face="Courier">Dividend</font><br>
+<font face="Courier">EconomicEvent</font><br>
+<font face="Courier">EmploymentChange</font><br>
+<font face="Courier">EmploymentRelation</font><br>
+<font face="Courier">EnvironmentalIssue</font><br>
+<font face="Courier">Extinction</font><br>
+<font face="Courier">FamilyRelation</font><br>
+<font face="Courier">FDAPhase</font><br>
+<font face="Courier">Hijacking</font><br>
+<font face="Courier">HostageRelease</font><br>
+<font face="Courier">HostageTakingKidnapping</font><br>
+<font face="Courier">Indictment</font><br>
+<font face="Courier">InsiderTransaction</font><br>
+<font face="Courier">IPO</font><br>
+<font face="Courier">JointVenture</font><br>
+<font face="Courier">ManMadeDisaster</font><br>
+<font face="Courier">Merger</font><br>
+<font face="Courier">MilitaryOperation</font><br>
+<font face="Courier">MiscTerrorism</font><br>
+<font face="Courier">MovieRelease</font><br>
+<font face="Courier">MusicAlbumRelease</font><br>
+<font face="Courier">NaturalDisaster</font><br>
+<font face="Courier">NuclearTerrorism</font><br>
+<font face="Courier">PatentFiling</font><br>
+<font face="Courier">PatentIssuance</font><br>
+<font face="Courier">PersonAttributes</font><br>
+<font face="Courier">PersonCareer</font><br>
+<font face="Courier">PersonCommunication</font><br>
+<font face="Courier">PersonEducation</font><br>
+<font face="Courier">PersonEmailAddress</font><br>
+<font face="Courier">PersonRelation</font><br>
+<font face="Courier">PersonTravel</font><br>
+<font face="Courier">PoliceOperation</font><br>
+<font face="Courier">PoliticalEndorsement</font><br>
+<font face="Courier">PoliticalEvent</font><br>
+<font face="Courier">PoliticalRelationship</font><br>
+<font face="Courier">PollResult</font><br>
+<font face="Courier">ProductIssues</font><br>
+<font face="Courier">ProductRecall</font><br>
+<font face="Courier">ProductRelease</font><br>
+<font face="Courier">Quotation</font><br>
+<font face="Courier">Robbery</font><br>
+<font face="Courier">SecondaryIssuance</font><br>
+<font face="Courier">StockSplit</font><br>
+<font face="Courier">TerrorCommunication</font><br>
+<font face="Courier">TerrorFinancing</font><br>
+<font face="Courier">Trafficking</font><br>
+<font face="Courier">Trial</font><br>
+<font face="Courier">Vandalism</font><br>
+<font face="Courier">VotingResult</font><br>
