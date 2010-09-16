@@ -312,7 +312,7 @@ terrorism<br>
 disease<br>
 health<br>
 ISVG<br>
-Malware<br>
+Malware
 </font>
 
 _media`_`type_ matches on source media types. (The system categorizes all Sources into media types.) The value of the parameter must be a string or a list of strings. _media`_`type_ matches if the source media type matches one of the following names:
@@ -326,7 +326,6 @@ NGO<br>
 News_agency<br>
 Exchange<br>
 Primary_source<br>
-DataProvider<br>
 </font>
 
 _country_ matches on the originating country of the source. The value of _country_ must be a string or a list of strings. _country_ matches if the source country matches one of the country names specified in the metadata document.
