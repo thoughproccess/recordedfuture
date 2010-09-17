@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Using the example code in the python-examples directory is straightforward and will allow you to pull both aggregate and entity style queries from the [hhttp://code.google.com/p/recordedfuture/wiki/RecordedFutureAPI Recorded Future API]. You'll need [http://www.python.org/ Python 2.6 (or greater)] installed in order to use these scripts. You will also need a Recorded Future API token. To obtain access to a token, please e-mail [mailto:sales@recordedfuture.com sales@recordedfuture.com].
+Using the example code in the python-examples directory is straightforward and will allow you to pull both aggregate and entity style queries from the [http://code.google.com/p/recordedfuture/wiki/RecordedFutureAPI Recorded Future API]. You'll need [http://www.python.org/ Python 2.6 (or greater)] installed in order to use these scripts. You will also need a Recorded Future API token. To obtain access to a token, please e-mail [mailto:sales@recordedfuture.com sales@recordedfuture.com].
 
 
 = Instructions =
