@@ -12,7 +12,6 @@ Using the example code in the python-examples directory is straightforward and w
 
 The easiest way to get the code is to save the following files to the same directory:
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-aggrawquery.py company-aggrawquery.py]
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-aggquery.py company-aggquery.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-entquery.py company-entquery.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/tickerfile.txt tickerfile.txt]
@@ -54,26 +53,10 @@ Running ticker GE
 Running ticker INTC
 }}}
 
-===Aggregate Queries===
-Aggregate queries are similar to entity queries. The main difference they provide is that they aggregate all occurrences on a particular date for a particular ticker and provide total counts of the types of events you query for, as well as average momentum and sentiment metrics for those instances on those days. Running is similar to the entity query, but the output will look slightly different. To run:
-
-{{{
-python company-aggquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggoutputfile.txt
-}}}
-
-This time you'll see the following in your terminal:
-{{{
-Running date 2010-06-14
-Running date 2010-06-15
-Running date 2010-06-16
-Running date 2010-06-17
-Running date 2010-06-18
-Running date 2010-06-19
-Running date 2010-06-20
-}}}
-
 ===Aggregate Raw Queries===
-Aggregate raw queries are very similar to traditional aggregate queries, but should be significantly faster. The tradeoff is that you'll need to query by Recored Future entity ID, rather than directly by ticker. We've set up our recfut.py script to handle this lookup automatically. To run:
+Aggregate queries are similar to entity queries. The main difference they provide is that they aggregate all occurrences on a particular date for a particular ticker and provide total counts of the types of events you query for, as well as average momentum and sentiment metrics for those instances on those days. 
+
+Running is similar to the entity query, but the output will look slightly different. To run:
 
 {{{
 python company-aggrawquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggrawoutputfile.txt
