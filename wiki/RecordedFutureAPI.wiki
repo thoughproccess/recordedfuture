@@ -1053,6 +1053,7 @@ The following event and entity types are currently available in the system.
 <font face="Courier">Continent</font><br>
 <font face="Courier">Country</font><br>
 <font face="Courier">Currency</font><br>
+<font face="Courier">EconomicIndicator</font><br>
 <font face="Courier">EmailAddress</font><br>
 <font face="Courier">EntertainmentAwardEvent</font><br>
 <font face="Courier">Facility</font><br>
