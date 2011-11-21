@@ -388,24 +388,24 @@ If _count_ is specified, not instance or entity details will be returned. The en
 ==Aggregate Queries==
 
 Aggregate queries return daily average sentiment, momentum, and total count for entities you specify. Aggregate query format is similar to the format of queries that return records for specific entity and event and instances:
-_entity_ is required. See Quick start: creating requests for more information.
+_entity_ is required, and must be specified with entity id. See Quick start: creating requests for more information.
 _document_ is required and must include the “_published_” parameter. All other “_document_” and “_source_” parameters are optional.
 See Matching on document and source aspects for more information.
-_key_ causes the results to be grouped based on a specified entity aspect, such as _id_ or _name_ or a textual attributes on the entity type specified in the entity section. Forexample, if the entity is specified to be of type company, then you can specify “_key_”: "tickers" in the aggregate query. If no _key_ value is specified, the default value is "_id_".
-The available output fields are _source_, _count_, _momentum_, and _sentiment_. See the Output fields table for more information. If "_source_" is set in the "_output_" fields, the query returns multiple records per day. If the query does not include "_source_", it returns one record per day.
-You can specify an optional output format that specifies the format of the returned “_key_” aggregates. Note that this field affects only the “_key_” aggregates; the response document itself is always in JSON format.
+_name_ is required - common names include "daily_330pm", "daily_by_source_330pm", "by_half_hour", and "by_half_hour_by_source". The name of the aggregate frequently indicates the aggregation period. In the case of "daily_330pm", the name indicates that this aggregate is snapped at 3:30pm EST on a daily basis.
+The available output fields are _source_, _count_, _momentum_, _positive_, and _negative_. See the Output fields table for more information. 
+You can specify an optional output format that specifies the format of the returned aggregates. Note that this field affects only the aggregate section of the response; the response document itself is always in JSON format.
 
-    * “_format_”: “_csv_” The value of the “_key_” aggregates is a CSV file encoded as a string with embedded newlines.
-    * “_format_”: “_json_” (default) The value of the “_key_” aggregates is a list of JSON dictionaries.
+    * “_format_”: “_csv_” The value of the aggregates is a CSV file encoded as a string with embedded newlines.
+    * “_format_”: “_json_” (default) The value of the aggregates is a list of JSON dictionaries.
 
-The response is grouped by the specified key and day, where day is in the range specified by "_document_: "_published_".
+The response is grouped by entity and day, where day is in the range specified by "_document_: "_published_".
 
 {{{
 {
   "aggregate": {
-    "entity": {"type": "Company", "attributes": {"name": "tickers", "string": "AAPL"}},
+    "entity": {"id": [id1,id2,...,idn]},
     "document": {"published": {"min": "2010-02-01", "max": "2010-02-05"}},
-    "key": "tickers"
+    "name":"daily_330pm"
   },
   "output": {
     "fields": ["count", "momentum", "positive", "negative"],
@@ -420,11 +420,11 @@ The output with the _aggregates_  formatted as CSV is
 {{{
 {
   "status": "SUCCESS",
-  "aggregates": "tickers,Day,Count,Momentum,Positive,Negative\r
-  \nAAPL,2010-02-01,130,0.0970647896404,0.04719179308,0.05534764
-  \r\nAAPL,2010-02-02,126,0.131935758091,0.03681524524,0.01985223413
-  \r\nAAPL,2010-02-03,100,0.0712206521117,0.097500107,0.040581817
-  \r\nAAPL,2010-02-04,90,0.0507399318718,0.05230126222,0.00760450556\r\n",
+  "aggregates": "Entity,Day,Count,Momentum,Positive,Negative\r
+  \n33340558,2010-02-01,130,0.0970647896404,0.04719179308,0.05534764
+  \r\n33340558,2010-02-02,126,0.131935758091,0.03681524524,0.01985223413
+  \r\n33340558,2010-02-03,100,0.0712206521117,0.097500107,0.040581817
+  \r\n33340558,2010-02-04,90,0.0507399318718,0.05230126222,0.00760450556\r\n",
   "errors": []
 }
 }}}
@@ -437,34 +437,26 @@ The output with the aggregates formatted as JSON is:
   "aggregates": [
     {
       "count": 130, "positive": 0.047191793080000002, "negative": 0.055347639999999997,
-      "tickers": "AAPL", "day": "2010-02-01", "momentum": 0.097064789640384896
+      "Entity": 33340558, "day": "2010-02-01", "momentum": 0.097064789640384896
     },
     {
       "count": 126, "positive": 0.036815245240000002, "negative": 0.01985223413,
-      "tickers": "AAPL", "day": "2010-02-02", "momentum": 0.131935758090586
+      "Entity": 33340558, "day": "2010-02-02", "momentum": 0.131935758090586
     },
     {
       "count": 100, "positive": 0.097500107000000003, "negative": 0.040581816999999999,
-      "tickers": "AAPL", "day": "2010-02-03", "momentum": 0.071220652111714494
+      "Entity": 33340558, "day": "2010-02-03", "momentum": 0.071220652111714494
     },
     {
       "count": 90, "positive": 0.052301262219999999, "negative": 0.0076045055599999996,
-      "tickers": "AAPL", "day": "2010-02-04", "momentum": 0.050739931871842503
+      "Entity": 33340558, "day": "2010-02-04", "momentum": 0.050739931871842503
     }
   ],
   "errors": []
 }
 }}}
 
-You can also create an aggregate query with a more general entity filter, such as this one, which returns all entities in a certain industry sector:
-
-{{{
-"entity": {"type": "Company", "attributes": {"name": "gics", "string": "Financials"}}
-}}}
-
-Keep in mind that a less-restricted query like this may take some time, as there are a lot of instances to aggregate.
-
-An aggregate_raw query is a faster but more constrained version of the aggregate query. An aggregate_raw query does not return entity IDs. You must run an entity query to retrieve IDs, then use those IDs in the aggregate_raw query's entity specification.
+An aggregate_raw query is a slightly different version of the aggregate query. The aggregation period is Midnight to Midnight, UTC. Similar to an aggregate query, you must run an entity query to retrieve IDs, then use those IDs in the aggregate_raw query's entity specification.
 
 aggregate_raw queries use this structure:
 
