@@ -31,7 +31,7 @@ In any case, you'll want to fire up a terminal (cmd.exe on Windows, Terminal on 
 
 ==Run the code==
 
-Running the code is simple when you've got Python 2.6+ installed. We'll go over the three types of queries separately. 
+Running the code is simple when you've got Python 2.6+ installed. We'll go over the two types of queries separately. 
 
 ===Instance Queries===
 An entity style query pulls information about any occurrences of an entity from our database, subject to the constraints of the query itself. If, for instance, you only want to see occurrences published in a particular date range, you will set that in the query. By default, our program *entquery.py* is set up to pull all occurrences of a list of entities (identified by market ticker) over a user-specified date range. The list of entities is provided in a file. The file should contain tickers, one per line, for which the user wants to see entity occurrences. A sample file *tickerfile.txt* is provided in the python-examples directory. 
