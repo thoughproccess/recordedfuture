@@ -395,10 +395,10 @@ _name_ is required - common names include {{{"daily_330pm", "daily_by_source_330
 The available output fields are _source_, _count_, _momentum_, _positive_, and _negative_. See the Output fields table for more information. 
 You can specify an optional output format that specifies the format of the returned aggregates. Note that this field affects only the aggregate section of the response; the response document itself is always in JSON format.
 
-    * “_format_”: “_csv_” The value of the aggregates is a CSV file encoded as a string with embedded newlines.
-    * “_format_”: “_json_” (default) The value of the aggregates is a list of JSON dictionaries.
+    * _format_: _csv_ The value of the aggregates is a CSV file encoded as a string with embedded newlines.
+    * _format_: _json_ (default) The value of the aggregates is a list of JSON dictionaries.
 
-The response is grouped by entity and day, where day is in the range specified by "_document_: "_published_".
+The response is grouped by entity and day, where day is in the range specified by "_document_": "_published_".
 
 {{{
 {
