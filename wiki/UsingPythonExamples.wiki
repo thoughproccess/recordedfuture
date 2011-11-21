@@ -33,7 +33,7 @@ In any case, you'll want to fire up a terminal (cmd.exe on Windows, Terminal on 
 
 Running the code is simple when you've got Python 2.6+ installed. We'll go over the three types of queries separately. 
 
-===Entity Queries===
+===Instance Queries===
 An entity style query pulls information about any occurrences of an entity from our database, subject to the constraints of the query itself. If, for instance, you only want to see occurrences published in a particular date range, you will set that in the query. By default, our program *entquery.py* is set up to pull all occurrences of a list of entities (identified by market ticker) over a user-specified date range. The list of entities is provided in a file. The file should contain tickers, one per line, for which the user wants to see entity occurrences. A sample file *tickerfile.txt* is provided in the python-examples directory. 
 
 To run the example entity style query you'll do the following:
@@ -53,26 +53,16 @@ Running ticker GE
 Running ticker INTC
 }}}
 
-===Aggregate Raw Queries===
+===Aggregate Queries===
 Aggregate queries are similar to entity queries. The main difference they provide is that they aggregate all occurrences on a particular date for a particular ticker and provide total counts of the types of events you query for, as well as average momentum and sentiment metrics for those instances on those days. 
 
 Running is similar to the entity query, but the output will look slightly different. To run:
 
 {{{
-python company-aggrawquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggrawoutputfile.txt
+python company-aggquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggrawoutputfile.txt
 }}}
 
-This time you'll see the following in your terminal:
-{{{
-Running ticker C
-Running ticker GOOG
-Running ticker MSFT
-Running ticker YHOO
-Running ticker CHK
-Running ticker XOM
-Running ticker GE
-Running ticker INTC
-}}}
+This time you'll see no output in your terminal.
 
 
 ==Examine the output==
@@ -96,29 +86,16 @@ This file is a tab-delimited file, with column headings at the top. It should be
 Some aggregate results will look something like this:
 
 {{{
-tickers,Day,Count,Momentum,Positive,Negative
-GOOG,2010-06-14,987,0.348027749091,0.07336196219,0.01466786384
-INTC,2010-06-14,288,0.148892345712,0.05220133659,0.00207086951
-MSFT,2010-06-14,2131,0.554405631849,0.03840043871,0.00970781516
-XOM,2010-06-14,100,0.0345069934921,0.02981864773,0.08003951591
-YHOO,2010-06-14,303,0.108720400113,0.06675251259,0.00468387133
+Ticker,Entity,Day,Count,Momentum,Positive,Negative
+AAPL,33340558,2010-06-14,987,0.348027749091,0.07336196219,0.01466786384
+INTC,33321371,,2010-06-14,288,0.148892345712,0.05220133659,0.00207086951
+MSFT,33312449,2010-06-14,2131,0.554405631849,0.03840043871,0.00970781516
+XOM,33348656,2010-06-14,100,0.0345069934921,0.02981864773,0.08003951591
+YHOO,33312849,2010-06-14,303,0.108720400113,0.06675251259,0.00468387133
 ...
 }}}
 
 The columns here are the ticker, date for the aggregate, count of articles referencing the entity associated with the ticker, and the average momentum and sentiment associated with the ticker on that date. In this case, results are in CSV format, again easily ingestible by your favorite statistics software.
-
-===Aggregate Raw Query Output===
-Some aggregate results will look something like this:
-
-{{{
-ticker,id,Day,count,momentum,positive,negative
-AAPL,33340558,2010-06-14,263,0.0840077702003,0.079561872469,0.024719272969
-WMT,33329965,2010-06-14,69,0.0459325847256,0.094861657971,0.0149925024152
-...
-}}}
-
-The columns here are identical to the aggregate columns. The one additional column you'll see is the "id" column, which is the internal Recorded Future Entity ID we used to run the query on.
-
 
 == Modify the code ==
 
