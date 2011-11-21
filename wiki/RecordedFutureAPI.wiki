@@ -389,9 +389,9 @@ If _count_ is specified, not instance or entity details will be returned. The en
 
 Aggregate queries return daily average sentiment, momentum, and total count for entities you specify. Aggregate query format is similar to the format of queries that return records for specific entity and event and instances:
 _entity_ is required, and must be specified with entity id. See Quick start: creating requests for more information.
-_document_ is required and must include the “_published_” parameter. All other “_document_” and “_source_” parameters are optional.
+_document_ is required and must include the _published_ parameter. All other _document_ and _source_ parameters are optional.
 See Matching on document and source aspects for more information.
-_name_ is required - common names include "daily_330pm", "daily_by_source_330pm", "by_half_hour", and "by_half_hour_by_source". The name of the aggregate frequently indicates the aggregation period. In the case of "daily_330pm", the name indicates that this aggregate is snapped at 3:30pm EST on a daily basis.
+_name_ is required - common names include {{{"daily_330pm", "daily_by_source_330pm", "by_half_hour", and "by_half_hour_by_source"}}}. The name of the aggregate frequently indicates the aggregation period. In the case of "daily_330pm", the name indicates that this aggregate is snapped at 3:30pm EST on a daily basis.
 The available output fields are _source_, _count_, _momentum_, _positive_, and _negative_. See the Output fields table for more information. 
 You can specify an optional output format that specifies the format of the returned aggregates. Note that this field affects only the aggregate section of the response; the response document itself is always in JSON format.
 
