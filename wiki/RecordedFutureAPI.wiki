@@ -618,7 +618,7 @@ Example:
                           {"type": "momentum"}]}],
      "format": "csv"
   },
-  "token": "mQlodZMy"
+  "token": "TOKEN"
 }
 }}}
 
