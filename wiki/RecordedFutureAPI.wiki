@@ -464,7 +464,7 @@ The "_entity_details_" section is a dictionary keyed by entity type name, and th
 _type_ defines the shape of the output response, it can be either "csv" or "json". It is "json" by default.
 _timezone_ defines the timezone used to format the response items. Default is to format in UTC. 
 
-= Output Fields = 
+= Output fields = 
 Available output fields include
 
 || *Field name* || *Description* ||
