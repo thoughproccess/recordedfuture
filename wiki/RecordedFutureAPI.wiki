@@ -527,7 +527,10 @@ The response is grouped by entity and time, where time is in the range specified
     "entity": {"id": [id1,id2,...,idn]},
     "document": {"published": {"min": "2010-02-01", "max": "2010-02-05"}},
     "name":"daily_330pm"
-  }
+  },
+  "output": {
+    "format":"csv"
+  },
   "token": TOKEN,
 }
 }}}
