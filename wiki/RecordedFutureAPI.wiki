@@ -484,11 +484,11 @@ Available output fields include
 || "document.url" || The URL of the document ||
 || "document.published" || The point in time when the document was published by the source ||
 || "document.downloaded" || The point in time when the document was downloaded ||
-|| "source.id" || The identity number of the source ||
-|| "source.name" || The name of the source ||
-|| "source.media_type" || The media type of the source ||
-|| "source.topic" || The source topic ||
-|| "source.country" || The originating country of the source ||
+|| "document.sourceId.id" || The identity number of the source ||
+|| "document.sourceId.name" || The name of the source ||
+|| "document.sourceId.media_type" || The media type of the source ||
+|| "document.sourceId.topic" || The source topic ||
+|| "document.sourceId.country" || The originating country of the source ||
 
 
 === Response specification ===
