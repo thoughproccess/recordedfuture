@@ -565,18 +565,24 @@ The axis specification defines what to aggregate on. It is specified by providin
 || document || The ID of the instance's document ||
 || canonic || The canonic ID of the instance ||
 || tempus || The tempus of the instance: either 'historic' or 'prediction' ||
+|| publication_minute || The minute of publication of the document ||
+|| publication_hour || The hour of publication of the document ||
 || publication_day || The day of publication of the document ||
 || publication_month || The month of publication of the document ||
 || publication_year || The year of publication of the document ||
 || publication_month_in_year || The month of a year of publication of the document ||
 || publication_day_in_month || The day in a month of publication of the document ||
 || publication_weekday || The weekday of publication of the document ||
+|| start_minute || The minute of the instance start time ||
+|| start_hour || The hour of the instance start time ||
 || start_day || The day of the instance start time ||
 || start_month || The month of the instance start time ||
 || start_year || The year of the instance start time ||
 || start_month_in_year || The month of a year of the instance start time ||
 || start_day_in_month || The day in a month of the instance start time ||
 || start_weekday || The weekday of the instance start time ||
+|| stop_minute || The minute of the instance stop time ||
+|| stop_hour || The hour of the instance stop time ||
 || stop_day || The day of the instance stop time ||
 || stop_month || The month of the instance stop time ||
 || stop_year || The year of the instance stop time ||
