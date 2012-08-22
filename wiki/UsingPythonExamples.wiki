@@ -11,17 +11,18 @@ Using the example code in the python-examples directory is straightforward and w
 ==Get the code==
 
 The easiest way to get the code is to save the following files to the same directory:
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-aggquery.py company-aggquery.py]
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/company-entquery.py company-entquery.py]
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/recfut.py recfut.py]
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/tickerfile.txt tickerfile.txt]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/aggregatequery.rfq aggregatequery.rfq]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/instancequery.rfq instancequery.rfq]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/recfut.py recfut.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/uidecode.py uidecode.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/pull_live.py pull_live.py]
 
-You can also [http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples browse for it] and view the files online for now if you'd prefer. 
+You can also [http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples/pull_live browse for it] and view the files online for now if you'd prefer. 
 
 Alternatively, if you have [http://subversion.tigris.org/ Subversion] installed, you can check out the code as follows:
 
 {{{
-svn checkout http://recordedfuture.googlecode.com/svn/trunk/python-examples/ recordedfuture-read-only 
+svn checkout http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live recordedfuture-read-only 
 }}}
 
 A new directory called "recordedfuture-read-only" will be created in your current working directory and the python files will be included in it. 
@@ -34,23 +35,33 @@ In any case, you'll want to fire up a terminal (cmd.exe on Windows, Terminal on 
 Running the code is simple when you've got Python 2.6+ installed. We'll go over the two types of queries separately. 
 
 ===Instance Queries===
-An entity style query pulls information about any occurrences of an entity from our database, subject to the constraints of the query itself. If, for instance, you only want to see occurrences published in a particular date range, you will set that in the query. By default, our program *entquery.py* is set up to pull all occurrences of a list of entities (identified by market ticker) over a user-specified date range. The list of entities is provided in a file. The file should contain tickers, one per line, for which the user wants to see entity occurrences. A sample file *tickerfile.txt* is provided in the python-examples directory. 
+An entity style query pulls information about any occurrences of an entity from our database, subject to the constraints of the query itself. If, for instance, you only want to see occurrences published in a particular date range, you will set that in the query. By default, our query *instancequery.rfq* is set up to pull all occurrences of a list of entities and events (identified by an RF ID) over a user-specified date range. The list of entities is provided in the query itself, but may be provided in a separate file. That file should contain tickers, one per line, for which the user wants to see entity occurrences and event instances. A sample file *idfile.txt* is provided in the example directory. 
 
 To run the example entity style query you'll do the following:
 {{{
-python company-entquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > entoutputfile.txt
+python pull_live.py -t MYTOKEN --min 2012-08-15 --max 2012-08-20 -p instancequery.rfq > output_file.csv
 }}}
 
-MYTOKEN will be substituted with your API Token. The fifth and sixth arguments above are the date range over which you want to run the query. Query ouput will be placed in the file *entoutputfile.txt* and you should see something like this in your terminal: 
+MYTOKEN will be substituted with your API Token. The fifth and sixth arguments above are the date range over which you want to run the query. Query ouput will be placed in the file *output_file.csv* and you should see something like this in your terminal - this is the fully parameterized query you are executing against the API: 
 {{{
-Running ticker C
-Running ticker GOOG
-Running ticker MSFT
-Running ticker YHOO
-Running ticker CHK
-Running ticker XOM
-Running ticker GE
-Running ticker INTC
+{
+  "instance": {
+    "attributes": {
+      "entity": {
+        "id": "B_Ggm"
+      }
+    }, 
+    "document": {
+      "published": {
+        "max": "2012-08-20", 
+        "min": "2012-08-15"
+      }
+    }, 
+    "limit": 20000
+  }, 
+  "token": "MYTOKEN"
+}
+
 }}}
 
 ===Aggregate Queries===
@@ -59,10 +70,10 @@ Aggregate queries are similar to entity queries. The main difference they provid
 Running is similar to the entity query, but the output will look slightly different. To run:
 
 {{{
-python company-aggquery.py MYTOKEN tickerfile.txt 2010-06-14 2010-06-20 > aggrawoutputfile.txt
+python pull_live.py -t MYTOKEN --min 2012-08-15 --max 2012-08-20 -p aggregatequery.rfq > agg_output_file.csv
 }}}
 
-This time you'll see no output in your terminal.
+You should see similar output in your terminal - reflecting only the difference in the query type.
 
 
 ==Examine the output==
@@ -70,50 +81,37 @@ This time you'll see no output in your terminal.
 ===Entity Query Output===
 Some lines of the entity query output should look something like this:
 {{{
-ticker	id	document.published	document.source.name	start	stop	type	momentum	positive	negative
-AMZN	52200795	"2009-01-05T13:15:04.000Z	"seeking_alpha_market_currents	"2009-01-05T13:15:04.000Z	"2009-01-05T13:15:04.000Z	"EntityOccurrence	0.0645560727197	0.5142857	0.0
-AMZN	37057385	"2009-01-03T06:33:00.000Z	"engadget	"2009-01-03T06:33:00.000Z	"2009-01-03T06:33:00.000Z	"CompanyProduct	0.173733129615	0.0	0.0
-AMZN	52200797	"2009-01-05T13:15:04.000Z	"seeking_alpha_market_currents	"2009-01-05T13:15:04.000Z	"2009-01-05T13:15:04.000Z	"AnalystRecommendation	0.384920634921	0.5142857	0.0
-AMZN	37772575	"2009-01-05T13:36:22.000Z	"24_7	"2009-01-05T13:36:22.000Z	"2009-01-05T13:36:22.000Z	"CompanyTicker	0.111111111111	0.0	0.0
-AMZN	48943642	"2009-01-05T14:00:00.000Z	"pr_newswire	"2009-01-05T14:00:00.000Z	"2009-01-05T14:00:00.000Z	"CompanyProduct	0.071276371308	0.0	0.0
-
+id,momentum,positive,negative,canonical.id,type,document.id,document.published,document.downloaded,start,stop,document.url,document.title,document.sourceId.id,document.sourceId.name,document.sourceId.media_type,document.sourceId.topic,document.sourceId.country,fragment,attributes
+GP8HngAGiYj,0.00208338366054,0.0,0.0,GI-LKYw3RgP,CoOccurrence,JP2_CI,2012-08-17T12:30:24.000Z,2012-08-17T12:34:06.930Z,2012-08-17T12:30:24.000Z,2012-08-17T12:30:24.000Z,http://theaviationist.com/2012/08/17/gunship-releasing-flares/,Video shows Syrian Mil Mi-25 gunship releasing flares. A sign that rebels got their hands on MANPADS?,I8K-8k,The Aviationist,Blog,Geopolitical,United States of America,"Lockheed Martin, Boeing, Honeywell and Pratt & Whitney sued by F-22 pilot's widow.","entities:Pratt & Whitney,F-22,Honeywell International Inc,Boeing,Lockheed Martin||positive:0.0||general_positive:0.0||general_negative:0.47368422||negative:0.0"
+GP7pV6ABCxu,0.075499758726,0.0,0.0,B_Ggm,EntityOccurrence,JPugEC,2012-08-16T02:03:38.000Z,2012-08-16T02:03:40.260Z,2011-01-01T00:00:00.000Z,2011-12-31T23:59:59.000Z,http://feeds.bizjournals.com/~r/vertical_30/~3/h2SDu6QnxXE/hypersonic-boeing-waverider-fails.html,Hypersonic Boeing Waverider fails after six seconds,C11,Bizjournals.com,Niche,,United States of America,"The Waverider is a collaboration between Boeing and Pratt & Whitney Rocketdyne, and the Air Force Research Laboratory and Defense Advanced Research Projects Agency (DARPA).","positive:0.0||negative:0.0||entity:Boeing||general_negative:0.0||inherited_locations:Huntington Beach,California,Ohio||general_positive:0.0||document_category:Disaster_Accident"
+GP7pV6ABCxt,0.075499758726,0.0,0.0,B_Ggm,EntityOccurrence,JPugEC,2012-08-16T02:03:38.000Z,2012-08-16T02:03:40.260Z,2010-01-01T00:00:00.000Z,2010-12-31T23:59:59.000Z,http://feeds.bizjournals.com/~r/vertical_30/~3/h2SDu6QnxXE/hypersonic-boeing-waverider-fails.html,Hypersonic Boeing Waverider fails after six seconds,C11,Bizjournals.com,Niche,,United States of America,"The Waverider is a collaboration between Boeing and Pratt & Whitney Rocketdyne, and the Air Force Research Laboratory and Defense Advanced Research Projects Agency (DARPA).","positive:0.0||negative:0.0||entity:Boeing||general_negative:0.0||inherited_locations:Ohio,California,Huntington Beach||general_positive:0.0||document_category:Disaster_Accident"
+GP7pV6ABCxs,0.075499758726,0.0,0.0,B_Ggm,EntityOccurrence,JPugEC,2012-08-16T02:03:38.000Z,2012-08-16T02:03:40.260Z,2012-08-15T00:00:00.000Z,2012-08-15T23:59:59.000Z,http://feeds.bizjournals.com/~r/vertical_30/~3/h2SDu6QnxXE/hypersonic-boeing-waverider-fails.html,Hypersonic Boeing Waverider fails after six seconds,C11,Bizjournals.com,Niche,,United States of America,"Steve Wilhelm Staff Writer- Puget Sound Business Journal Email The Boeing-built hypersonic Waverider, which was to have traveled at six times the speed of sound, failed in a test Wednesday.",positive:0.0||negative:0.0||entity:Boeing||general_negative:0.0||general_positive:0.0||document_category:Disaster_Accident
 ....
 }}}
 
-This file is a tab-delimited file, with column headings at the top. It should be pretty straightforward to open this in Excel or read it in with R's read.delim() command. The output columns are the ticker, the document ID, the publish date for the document, the document source, the time period that the document references, the momentum of the entity and the sentiment behind the entity. Not all fields will always be published. 
+This file is a csv file, with column headings at the top. It should be pretty straightforward to open this in Excel or read it in with R's read.csv() command or python's csv module. 
 
 ===Aggregate Query Output===
 Some aggregate results will look something like this:
 
 {{{
-Ticker,Entity,Time,Count,Momentum,Positive,Negative
-MSFT,33312449,2011-11-01 19:30:00,780,0.43689,0.062,0.00461
-GOOG,33321272,2011-11-01 19:30:00,1707,0.72436,0.07052,0.0254
-AMZN,33328212,2011-11-01 19:30:00,344,0.20139,0.05491,0.01374
-CHK,33511577,2011-11-01 19:30:00,6,0.00817,0,0
-MSFT,33312449,2011-11-02 19:30:00,1235,0.4538,0.04981,0.0137
-GOOG,33321272,2011-11-02 19:30:00,2602,0.80317,0.06482,0.02282
-AMZN,33328212,2011-11-02 19:30:00,619,0.22222,0.06884,0.00787
-CHK,33511577,2011-11-02 19:30:00,45,0.02334,0,0.02581
+Entity,Time,Count,Attention.30min,Attention.24hr,Positive,Negative
+B_Ggm,2012-08-15 14:30:00,12,0.00826446,0.00546794,0,0
+B_Ggm,2012-08-17 18:00:00,18,0.01633394,0.01515646,0,0
+B_Ggm,2012-08-17 21:30:00,2,0.00166667,0.01094924,0,0
+B_Ggm,2012-08-15 18:00:00,2,0.00211864,0.00833403,0.11842105,0
+B_Ggm,2012-08-15 22:30:00,18,0.01152369,0.01147241,0,0
+B_Ggm,2012-08-16 08:00:00,24,0.11111111,0.01798082,0.01657197,0.00833333
+B_Ggm,2012-08-16 11:00:00,6,0.00618557,0.01617757,0,0
+B_Ggm,2012-08-17 07:00:00,12,0.09090909,0.01232548,0.00824176,0
+B_Ggm,2012-08-16 17:30:00,12,0.00957702,0.01085096,0,0
 ...
 }}}
 
-The columns here are the ticker, date for the aggregate, count of articles referencing the entity associated with the ticker, and the average momentum and sentiment associated with the ticker on that date. In this case, results are in CSV format, again easily ingestible by your favorite statistics software.
+The columns here are the entity id, time stamp for the aggregate, count of articles referencing the entity associated with the ticker, the 30 minute and 24-hour attention, and average sentiment associated with the entity on that date. These results are also in CSV format, again easily ingestible by your favorite statistics software.
 
-== Modify the code ==
+== Modify the queries ==
 
 Users will likely want to try running their own queries, and the neat thing about the JSON query API is how flexible it is. You can query the data in the Recorded Future database from all sorts of directions. Changing dates and tickers really just scratches the surface. 
 
-Before modifying these queries, I recommend reading [http://www.recordedfuture.com/api/home/ our API documentation]. There you will find what type of data you can ask for and what the various metadata fields in the results mean.
-
-To change output columns in the code, currently you need to change two lines in entquery.py. First you'll change the line
-{{{
-outfields = ["id","time","source.name", "document.published","type", "momentum", "sentiment"]
-}}}
-to match the output fields you decide on after reading the API documentation.
-
-Next, you'll need to change the line:
-{{{
-outorder = ["id","document.published", "document.source.name", "start","stop","type", "momentum", "positive", "negative"]
-}}}
-to match the output order that matches what you'd like in your output file. Planned enhancements to the helper functions in recfut.py should eliminate the need to manually set these in multiple places, but for now this should do the trick. 
+Before modifying these queries, we recommend reading [http://www.recordedfuture.com/api/home/ our API documentation]. There you will find what type of data you can ask for and what the various metadata fields in the results mean.
