@@ -115,6 +115,6 @@ The columns here are the entity id, time stamp for the aggregate, count of artic
 
 == Modify the queries ==
 
-Users will likely want to try running their own queries, and the neat thing about the JSON query API is how flexible it is. You can query the data in the Recorded Future database from all sorts of directions. Changing dates and tickers really just scratches the surface. 
+Users will likely want to try running their own queries, and the neat thing about the JSON query API is how flexible it is. You can query the data in the Recorded Future database from all sorts of directions. Changing dates and IDs really just scratches the surface. 
 
 Before modifying these queries, we recommend reading [http://www.recordedfuture.com/api/home/ our API documentation]. There you will find what type of data you can ask for and what the various metadata fields in the results mean.
