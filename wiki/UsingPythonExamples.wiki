@@ -36,9 +36,44 @@ Running the code is simple when you've got Python 2.6+ installed. We'll go over 
 {{{
 python pull_live.py --help
 }}}
+or
+{{{
+python entity_lookup.py --help
+}}}
+
+===Entity Queries===
+An entity query will look up information about entities in our system. This will help you obtain entity IDs for later queries to the system. For instance, if you want to look up the entity id for "Chevy Chase", you could run something like the following:
+{{{
+python entity_lookup.py -t MYTOKEN--type=Person --name="Chevy Chase"
+}}}
+
+Which yields:
+{{{
+Id,Name,Type,Hits,Momentum,Attributes
+B_asX,Chevy Chase,Person,3950,0.0010537690652378975,birth:1943-10-08|gender:male
+}}}
+
+==Other examples==
+Top 20 commodities in the system.
+{{{
+python entity_lookup.py -t MYTOKEN --type=Commodity --top=20
+}}}
+
+Top 50 entities with "Illinois" in the name:
+{{{
+python entity_lookup.py -t MYTOKEN--freetext="Illinois" --top=50
+}}}
+
+Look up the entity with the id "B_LyO" (Apple):
+{{{
+python entity_lookup.py -t MYTOKEN--id="B_LyO"
+}}}
+
+You can also specify types, names, or ids in a list from a file, with values one-per-line with the arguments "typefile", "namefile", and "idfile", respectively.
+
 
 ===Instance Queries===
-An entity style query pulls information about any occurrences of an entity from our database, subject to the constraints of the query itself. If, for instance, you only want to see occurrences published in a particular date range, you will set that in the query. By default, our query *instancequery.rfq* is set up to pull all occurrences of a list of entities and events (identified by an RF ID) over a user-specified date range. The list of entities is provided in the query itself, but may be provided in a separate file. That file should contain entity ids, one per line, for which the user wants to see entity occurrences and event instances. A sample file *idfile.txt* is provided in the example directory. IDs can be specified from this file with the option "-i idfile.txt".
+An instance query pulls information about any occurrences of an entity or event from our database, subject to the constraints of the query itself. If, for instance, you only want to see instances published in a particular date range, you will set that in the query. By default, our query *instancequery.rfq* is set up to pull all occurrences of a list of entities and events (identified by an RF ID) over a user-specified date range. The list of entities is provided in the query itself, but may be provided in a separate file. That file should contain entity ids, one per line, for which the user wants to see entity occurrences and event instances. A sample file *idfile.txt* is provided in the example directory. IDs can be specified from this file with the option "-i idfile.txt".
 
 To run the example entity style query you'll do the following:
 {{{
