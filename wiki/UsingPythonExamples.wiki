@@ -16,6 +16,7 @@ The easiest way to get the code is to save the following files to the same direc
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/recfut.py recfut.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/uidecode.py uidecode.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/pull_live.py pull_live.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/entity_lookup.py entity_lookup.py]
 
 You can also [http://code.google.com/p/recordedfuture/source/browse/#svn/trunk/python-examples/pull_live browse for it] and view the files online for now if you'd prefer. 
 
