@@ -45,7 +45,7 @@ python entity_lookup.py --help
 ===Entity Queries===
 An entity query will look up information about entities in our system. This will help you obtain entity IDs for later queries to the system. For instance, if you want to look up the entity id for "Chevy Chase", you could run something like the following:
 {{{
-python entity_lookup.py -t MYTOKEN--type=Person --name="Chevy Chase"
+python entity_lookup.py -t MYTOKEN --type=Person --name="Chevy Chase"
 }}}
 
 Which yields:
@@ -62,7 +62,7 @@ python entity_lookup.py -t MYTOKEN --type=Commodity --top=20
 
 Top 50 entities with "Illinois" in the name:
 {{{
-python entity_lookup.py -t MYTOKEN--freetext="Illinois" --top=50
+python entity_lookup.py -t MYTOKEN --freetext="Illinois" --top=50
 }}}
 
 Look up the entity with the id "B_LyO" (Apple):
