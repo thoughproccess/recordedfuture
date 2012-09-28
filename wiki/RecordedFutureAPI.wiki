@@ -704,6 +704,23 @@ Example: Mergers and Acquisitions
 }
 }}}
 
+Example: Future Events
+{{{
+{
+	"comment": "Search for events involving Apple in the future.",
+	"instance": {
+	    "attributes": {
+	        "entity":{
+	            "id": "B_LyO"
+	        }
+	    },
+		"start_time": "2012-10-01",
+		"limit":1000
+	},
+	"token": "YOURTOKEN"
+}
+}}}
+
 Example: Quotations
 
 {{{
