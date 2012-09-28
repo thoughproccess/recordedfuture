@@ -707,7 +707,7 @@ Example: Mergers and Acquisitions
 Example: Future Events
 {{{
 {
-	"comment": "Search for events involving Apple in the future.",
+	"comment": "Search for events involving Apple beginning after a particular date.",
 	"instance": {
 	    "attributes": {
 	        "entity":{
