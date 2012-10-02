@@ -775,6 +775,31 @@ Example: Search for calendar events
 }
 }}}
 
+Example: List and search by Bloomberg ID.
+The following query will give a list of all entities that have the Bloomberg ID attribute.
+{{{
+{
+  "entity": {
+    "attributes": {
+      "name": "external_links.bloomberg.id",
+      "exists": true
+    }
+  },
+  "token": "TOKEN"
+}
+}}}
+You can also find an entity based on its Bloomberg ID. 
+{{{
+{
+  "entity": {
+    "attributes": {
+      "name": "external_links.bloomberg.id",
+      "string": "BLOOMBERG_ID"
+    }
+  },
+  "token": "TOKEN"
+}
+}}}
 
 === Response Example ===
 
