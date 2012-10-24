@@ -801,6 +801,16 @@ You can also find an entity based on its Bloomberg ID.
 }
 }}}
 
+Example: Finding instances matching a given text fragment.
+{{{
+{
+  "instance": {
+    "fragment":"FRAGMENT OF TEXT TO SEARCH"
+  },
+  "token": "TOKEN"
+}
+}}}
+
 === Response Example ===
 
 The following sample is the complete response to the query in the Quick Start section earlier in this document:
