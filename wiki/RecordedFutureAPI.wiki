@@ -228,7 +228,7 @@ The following query will return source information for Chinese Business Blogs:
 {{{
 {
   "source": {
-    "topic": "Business"
+    "topic": "Business",
     "media_type": "Blog",
     "country": "China"
   },
