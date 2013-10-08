@@ -1306,26 +1306,41 @@ The following event and entity types are currently available in the system.
 
 <font face="Courier">Anniversary</font><br>
 <font face="Courier">City</font><br>
+<font face="Courier">Commodity</font><br>
 <font face="Courier">Company</font><br>
 <font face="Courier">Continent</font><br>
 <font face="Courier">Country</font><br>
+<font face="Courier">Coup</font><br>
+<font face="Courier">CreditCardNumber</font><br>
 <font face="Courier">Currency</font><br>
+<font face="Courier">CurrencyPair</font><br>
+<font face="Courier">CyberAttackCampaign</font><br>
 <font face="Courier">EconomicIndicator</font><br>
 <font face="Courier">EmailAddress</font><br>
 <font face="Courier">EntertainmentAwardEvent</font><br>
+<font face="Courier">EntityList</font><br>
 <font face="Courier">Facility</font><br>
 <font face="Courier">FaxNumber</font><br>
+<font face="Courier">Feature</font><br>
+<font face="Courier">FileName</font><br>
+<font face="Courier">GeoEntity</font><br>
 <font face="Courier">Holiday</font><br>
+<font face="Courier">Identifier</font><br>
 <font face="Courier">Industry</font><br>
 <font face="Courier">IndustryTerm</font><br>
+<font face="Courier">IpAddress</font><br>
+<font face="Courier">Malware</font><br>
 <font face="Courier">MarketIndex</font><br>
 <font face="Courier">MedicalCondition</font><br>
 <font face="Courier">MedicalTreatment</font><br>
+<font face="Courier">Movement</font><br>
 <font face="Courier">Movie</font><br>
 <font face="Courier">MusicAlbum</font><br>
 <font face="Courier">MusicGroup</font><br>
 <font face="Courier">NaturalFeature</font><br>
 <font face="Courier">OperatingSystem</font><br>
+<font face="Courier">Operation</font><br>
+<font face="Courier">OrgEntity</font><br>
 <font face="Courier">Organization</font><br>
 <font face="Courier">Person</font><br>
 <font face="Courier">PhoneNumber</font><br>
@@ -1337,14 +1352,22 @@ The following event and entity types are currently available in the system.
 <font face="Courier">RadioProgram</font><br>
 <font face="Courier">RadioStation</font><br>
 <font face="Courier">Region</font><br>
+<font face="Courier">Religion</font><br>
 <font face="Courier">ReportingEntity</font><br>
+<font face="Courier">Sector</font><br>
+<font face="Courier">Source</font><br>
+<font face="Courier">SourceMediaType</font><br>
 <font face="Courier">SportsEvent</font><br>
 <font face="Courier">SportsGame</font><br>
 <font face="Courier">SportsLeague</font><br>
-<font face="Courier">Technology</font><br>
 <font face="Courier">TVShow</font><br>
 <font face="Courier">TVStation</font><br>
+<font face="Courier">Technology</font><br>
+<font face="Courier">TechnologyArea</font><br>
+<font face="Courier">Topic</font><br>
 <font face="Courier">URL</font><br>
+<font face="Courier">Username</font><br>
+<font face="Courier">WinRegKey</font><br>
 
 === Event Types ===
 
