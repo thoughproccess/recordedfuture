@@ -239,24 +239,18 @@ The following query will return source information for Chinese Business Blogs:
 The response will look like this:
 {{{
 {
-  "status": "SUCCESS", 
-  "sources": {
-    "kC": {
-      "topic": "Business", 
-      "media_type": "Blog", 
-      "country": "China", 
-      "description": "SEO tips in China", 
-      "name": "THEM SEO and Web Design China"
-    }, 
-    "j9": {
-      "topic": "Business", 
-      "media_type": "Blog", 
-      "country": "China", 
-      "description": "Graphic Design blog where marketers, designers, and interested parties discuss the state of design in China", 
-      "name": " designers"
-    }, 
+    "status": "SUCCESS",
+    "sources": {
+        "Jn_RRv": {
+            "topic": "JxSEs3",
+            "media_type": "JxSEs9",
+            "location": "B_FNa",
+            "description": "Peoples Daily Online",
+            "name": "ChinaFeatures",
+            "id": "Jn_RRv"
+        },
     ...
-
+}
 }}}
 
 
