@@ -61,7 +61,7 @@ Data will be gzipped with HTTP content encoding if requested by the client by se
 
 Queries are expressed in JSON. Output is expressed in JSON or CSV.
 
-The following sample query looks for Product Release events for Microsoft, published in January 2010. The 100 first results are returned.
+The following sample query looks for Product Release events for Microsoft, published in August 2013. The 100 first results are returned.
 
 
 {{{
