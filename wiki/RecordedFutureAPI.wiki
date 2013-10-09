@@ -83,53 +83,76 @@ The following sample query looks for Product Release events for Microsoft, publi
 }}}
 
 
-The following sample result is part of the response to the query, which contains information about one event instance. The result contains information about the event (an announced product release), the text fragment it was found in (“Microsoft delays Xbox One release in eight markets to 2014.”), the document source (TechRadar), the document it was found in (the URL that displays the actual document), and the instance momentum value.
+The following sample result is part of the response to the query, which contains information about one event instance. The result contains information about the event (an announced product release), the text fragment it was found in (“Microsoft Delays Xbox One Launch”), the document source (IndiaTimes), the document it was found in (the URL that displays the actual document), and the instance momentum value.
 
 {{{
-{
-            "id": "GRzgngAo8zK",
+        {
+            "id": "GRzvcWAVNT6",
             "type": "ProductRelease",
             "cluster_ids": [
-                "BZrLAuBGHWy"
+                "Gx--573NiNe",
+                "Fk7dZCH4RjJ",
+                "FAx341q4q2w"
             ],
-            "momentum": 0.5446366621576377,
-            "start": "2014-01-01T00:00:00.000Z",
-            "stop": "2014-12-31T23:59:59.000Z",
-            "tagged_fragment": "Microsoft delays Xbox One release in eight markets to 2014.",
-            "fragment": "Microsoft delays Xbox One release in eight markets to 2014.",
-            "time_fragment_context": "Microsoft delays Xbox One release in eight markets to 2014.",
-            "time_fragment": "2014",
-            "item_fragment": "Microsoft delays Xbox One",
-            "precision": "year",
+            "momentum": 0.257800177576297,
+            "start": "2013-08-15T11:08:06.000Z",
+            "stop": "2013-08-15T11:08:06.000Z",
+            "tagged_fragment": "Microsoft Delays Xbox One Launch.",
+            "fragment": "Microsoft Delays Xbox One Launch.",
+            "item_fragment": "Microsoft Delays Xbox One",
+            "precision": "ms",
             "time_type": "in",
             "document": {
-                "id": "KDCpFd",
-                "title": "Microsoft delays Xbox One release in eight markets to 2014",
-                "url": "http://rss.feedsportal.com/c/669/f/9809/s/2ff5916f/sc/27/l/0L0Stechradar0N0Cus0Cnews0Cgaming0Cconsoles0Cmicrosoft0Edelays0Exbox0Eone0Erelease0Ein0E80Emarkets0Eto0E20A140E11731990Dsrc0Frss0Gattr0Fall/story01.htm",
+                "id": "KDJpkf",
+                "title": "Microsoft Delays Xbox One Launch ",
+                "url": "http://www.indiatimes.com/technology/pc-and-laptop/microsoft-delays-xbox-one-launch-95418.html",
                 "language": "eng",
-                "published": "2013-08-14T18:16:00.000Z",
-                "downloaded": "2013-08-14T19:28:19.488Z",
-                "indexed": "2013-08-14T19:28:23.654Z",
+                "published": "2013-08-15T11:08:06.000Z",
+                "downloaded": "2013-08-15T12:12:42.533Z",
+                "indexed": "2013-08-15T12:15:53.034Z",
                 "sourceId": {
-                    "id": "Pn",
-                    "name": "TechRadar",
-                    "description": "TechRadar",
-                    "media_type": "JxSDuU",
-                    "country": "United States",
-                    "topic": "JxSEs0"
+                    "id": "Jsh1er",
+                    "name": "indiatimes",
+                    "description": "Indiatimes: India's top portal for news, movies, Bollywood, videos, cricket, celebrity pictures, business, finance, travel, online shopping, astrology, games and email",
+                    "media_type": "JxSEs2",
+                    "country": "India",
+                    "topic": "JxSEs3"
                 }
-}
+            },
+            "attributes": {
+                "general_negative": 0,
+                "function": "id",
+                "document_category": "Technology_Internet",
+                "canonic_id": "DCULj0TbipF",
+                "positive": 0,
+                "sentiments": {
+                    "general_positive": 0,
+                    "violence": 0,
+                    "activism": 0,
+                    "general_negative": 0,
+                    "negative": 0,
+                    "positive": 0
+                },
+                "violence": 0,
+                "status": "delayed",
+                "binning_id": "GRzvcWAVNT6",
+                "product_type": "Other",
+                "entities": [
+                    "Jsj7FK",
+                    "B_E7B"
+                ],
+                "product": "Jsj7FK",
+                "general_positive": 0,
+                "hits": 3360,
+                "company": "B_E7B",
+                "negative": 0,
+                "fragment_count": 1
+            }
+        }
 }}}
 
 
-Entities – the people, companies, organizations, and places of the Recorded Future Who/Where list – are created on-demand as they are harvested by a query. Once an entity is defined, all references to that entity are defined as entity instances that point to the underlying canonical entity. Entities are returned in a separate structure, to avoid duplication, and in the instances only references to the entities are present, using an opaque identifier. For example, in the attributes section above there is a company with the identifier 'B_E7B'. In the entity structure, there is an parameter for that identifier:
-{{{
-    "B_E7B": {
-      "type": "Company",
-      "name": "Microsoft",
-      "momentum": 0.72911597000853101
-    }
-}}}
+Entities – the people, companies, organizations, and places of the Recorded Future Who/Where list – are created on-demand as they are harvested by a query. Once an entity is defined, all references to that entity are defined as entity instances that point to the underlying canonical entity. Entities are returned in a separate structure, to avoid duplication, and in the instances only references to the entities are present, using an opaque identifier. 
 
 For details about the exact query and response structures, see the “Query Specification” and “Response Specification” sections.
 
