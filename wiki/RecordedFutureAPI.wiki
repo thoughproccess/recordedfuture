@@ -118,7 +118,7 @@ The following sample result is part of the response to the query, which contains
                     "country": "United States",
                     "topic": "JxSEs0"
                 }
-            }
+}
 }}}
 
 
