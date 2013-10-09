@@ -159,7 +159,9 @@ For details about the exact query and response structures, see the “Query Spec
 == Input and Output in JSON ==
 
 The Recorded Future API supports JSON as the input and output format. For a detailed JSON specification, visit Douglas Crockford’s site [http://www.json.org/ JSON.org], paying particular attention to [http://tools.ietf.org/html/rfc4627 RFC 4627]. This section provides a short excerpt.
+
 *Tip*: If you are using [http://www.r-project.org R], you don’t need to worry about formatting JSON input or parsing JSON output. R packages manage input and output for you. See “Using the Recorded Future API with R” to learn more.
+
 *JSON* (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
 JSON is built on two structures:
 
@@ -216,20 +218,34 @@ The following query will look up the entity information for Chevy Chase:
 The response will look like this:
 {{{
 {
-  "status": "SUCCESS", 
-  "entities": [
-    "B_asX"
-  ], 
-  "entity_details": {
-    "B_asX": {
-      "hits": 3313, 
-      "name": "Chevy Chase", 
-      "gender": "male", 
-      "birth": "1943-10-08", 
-      "type": "Person", 
-      "momentum": 0.00094250736194230868
+    "next_page_start": "1",
+    "status": "SUCCESS",
+    "entities": [
+        "B_asX"
+    ],
+    "entity_details": {
+        "B_asX": {
+            "name": "Chevy Chase",
+            "hits": 29464,
+            "momentum": 0.0009443754591306595,
+            "type": "Person",
+            "birth": "1943-10-08",
+            "external_links": {
+                "wikipedia": {
+                    "id": "Chevy_Chase",
+                    "desc": "Emmy Award Winning American Comedian, Writer, and television and film actor"
+                }
+            },
+            "alias": [
+                "チェビーチェイス",
+                "Чеви Чейз",
+                "チェビー・チェイス",
+                "チェビー チェイス"
+            ],
+            "gender": "male",
+            "id": "B_asX"
+        }
     }
-  }
 }
 }}}
 
