@@ -52,12 +52,12 @@ To access Recorded Future through the API:
 
 === Quick Start: Creating Requests. ===
 
-Queries are sent using HTTP GET or POST to
+Queries are sent using HTTPS GET or POST to
 	[https://api.recordedfuture.com/query https://api.recordedfuture.com/query]
     
 Query parameters should be with the key "q" and a JSON-encoded query object as its value.
 
-Data will be gzipped with HTTP content encoding if requested by the client by setting the the HTTP "Accept-encoding" header to "gzip".
+Data will be gzipped with HTTPS content encoding if requested by the client by setting the the HTTPS "Accept-encoding" header to "gzip".
 
 Queries are expressed in JSON. Output is expressed in JSON or CSV.
 
