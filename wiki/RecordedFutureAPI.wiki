@@ -53,7 +53,7 @@ To access Recorded Future through the API:
 === Quick Start: Creating Requests. ===
 
 Queries are sent using HTTP GET or POST to
-	[http://api.recordedfuture.com/query http://api.recordedfuture.com/query]
+	[https://api.recordedfuture.com/query https://api.recordedfuture.com/query]
     
 Query parameters should be with the key "q" and a JSON-encoded query object as its value.
 
