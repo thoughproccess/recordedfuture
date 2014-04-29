@@ -554,45 +554,7 @@ If the query is successful, the format will be what is specified by the user. If
 
 == Aggregate Queries ==
 
-Aggregate queries average sentiment, momentum, and total count for entities you specify over a user-specified period. Aggregate query format is similar to the format of queries that return records for specific entity and event and instances:
-_entity_ is required, and must be specified with entity id. See Quick start: creating requests for more information.
-_document_ is required and must include the _published_ parameter. All other _document_ and _source_ parameters are optional.
-See Matching on document and source aspects for more information.
-_name_ is required - common names include {{{"daily_330pm", "daily_by_source_330pm", "by_half_hour", "by_half_hour_by_source", "attention_by_half_hour"}}}. The name of the aggregate frequently indicates the aggregation period. In the case of "daily_330pm", the name indicates that this aggregate is snapped at 3:30pm EST on a daily basis.
-
-Each aggregate may have a different output format based on the columns that are present in that aggregate.
-
-Aggregates are formatted as CSV by default. It is also possible to retrieve aggregates in JSON format.
-
-The response is grouped by entity and time, where time is in the range specified by "_document_": "_published_".
-
-{{{
-{
-  "aggregate": {
-    "entity": {"id": [id1,id2,...,idn]},
-    "document": {"published": {"min": "2010-02-01", "max": "2010-02-05"}},
-    "name":"daily_330pm"
-  },
-  "output": {
-    "format":"csv"
-  },
-  "token": "TOKEN"
-}
-}}}
-
-The output with the _aggregates_  formatted as CSV is
-
-{{{
-Entity,Time,Count,Momentum,Positive,Negative
-B_LyO,2010-02-01 20:30:00,6287,0.81459193,0.08341401,0.01728216
-B_LyO,2010-02-02 20:30:00,4972,0.82568912,0.07065118,0.01768908
-B_LyO,2010-02-03 20:30:00,4866,0.82964492,0.06699268,0.01861269
-B_LyO,2010-02-04 20:30:00,4063,0.82850242,0.08300386,0.01992535
-B_LyO,2010-02-05 20:30:00,4294,0.85620421,0.0682277,0.01520124
-}}}
-
-
-*Note: Aggregate queries report output in UTC, unless specified otherwise with a "timezone" parameter.*
+Functionality is deprecated
 
 = On the fly aggregation = 
 These aggregates are not pre-calculated, but instead calculated on the fly. The aggregates are formed as a normal instance query, but with a aggregation specification in the output section. No limit spec is needed, the API will aggregate all matching instances.
