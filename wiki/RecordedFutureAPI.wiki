@@ -1322,6 +1322,7 @@ The following event and entity types are currently available in the system.
 <font face="Courier">Currency</font><br>
 <font face="Courier">CurrencyPair</font><br>
 <font face="Courier">CyberAttackCampaign</font><br>
+<font face="Courier">CyberVulnerability</font><br>
 <font face="Courier">EconomicIndicator</font><br>
 <font face="Courier">EmailAddress</font><br>
 <font face="Courier">EntertainmentAwardEvent</font><br>
@@ -1331,12 +1332,15 @@ The following event and entity types are currently available in the system.
 <font face="Courier">Feature</font><br>
 <font face="Courier">FileName</font><br>
 <font face="Courier">GeoEntity</font><br>
+<font face="Courier">Hash</font><br>
 <font face="Courier">Holiday</font><br>
 <font face="Courier">Identifier</font><br>
 <font face="Courier">Industry</font><br>
 <font face="Courier">IndustryTerm</font><br>
+<font face="Courier">InternetDomainName</font><br>
 <font face="Courier">IpAddress</font><br>
 <font face="Courier">Malware</font><br>
+<font face="Courier">MalwareSignature</font><br>
 <font face="Courier">MarketIndex</font><br>
 <font face="Courier">MedicalCondition</font><br>
 <font face="Courier">MedicalTreatment</font><br>
@@ -1372,8 +1376,10 @@ The following event and entity types are currently available in the system.
 <font face="Courier">Technology</font><br>
 <font face="Courier">TechnologyArea</font><br>
 <font face="Courier">Topic</font><br>
+<font face="Courier">TwitterHandle</font><br>
 <font face="Courier">URL</font><br>
 <font face="Courier">Username</font><br>
+
 <font face="Courier">WinRegKey</font><br>
 
 === Event Types ===
