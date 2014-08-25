@@ -13,8 +13,7 @@ Using the example code in the python-examples directory is straightforward and w
 The easiest way to get the code is to save the following files to the same directory:
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/aggregatequery.rfq aggregatequery.rfq]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/instancequery.rfq instancequery.rfq]
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/recfut.py recfut.py]
-  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/uidecode.py uidecode.py]
+  * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/RFAPI.py RFAPI.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/pull_live.py pull_live.py]
   * [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/entity_lookup.py entity_lookup.py]
 
@@ -154,3 +153,7 @@ The columns here are the entity id, time stamp for the aggregate, count of artic
 Users will likely want to try running their own queries, and the neat thing about the JSON query API is how flexible it is. You can query the data in the Recorded Future database from all sorts of directions. Changing dates and IDs really just scratches the surface. 
 
 Before modifying these queries, we recommend reading [http://www.recordedfuture.com/api/home/ our API documentation]. There you will find what type of data you can ask for and what the various metadata fields in the results mean.
+
+== Direct access to the API ==
+
+In case you want to create your own applications using the Recorded Future API then you can re-use the client code found in [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/RFAPI.py RFAPI.py].
