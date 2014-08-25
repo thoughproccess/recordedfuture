@@ -156,4 +156,4 @@ Before modifying these queries, we recommend reading [http://www.recordedfuture.
 
 == Direct access to the API ==
 
-In case you want to create your own applications using the Recorded Future API then you can re-use the client code found in [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/RFAPI.py RFAPI.py].
+In case you want to integrate the Recorded Future API into custom applications then some example client code can be found in [http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull_live/RFAPI.py RFAPI.py].
