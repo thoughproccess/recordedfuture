@@ -27,7 +27,7 @@ svn checkout http://recordedfuture.googlecode.com/svn/trunk/python-examples/pull
 
 A new directory called "recordedfuture-read-only" will be created in your current working directory and the python files will be included in it. 
 
-In any case, you'll want to fire up a terminal (cmd.exe on Windows, Terminal on Mac, or Xterm/gnome-terminal on Linux) and cd to the directory that houses these four files for the remainder of this tutorial. 
+In any case, you'll want to fire up a terminal (cmd.exe on Windows, Terminal on Mac, or Xterm/gnome-terminal on Linux) and cd to the directory that houses these files for the remainder of this tutorial. 
 
 
 ==Run the code==
