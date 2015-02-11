@@ -78,7 +78,7 @@ The following sample query looks for Cyber Attack events related to the Syrian E
     },
     "limit": 100
   },
-  "token": TOKEN
+  "token": "TOKEN"
 }
 }}}
 
@@ -214,7 +214,7 @@ The following query will look up the entity information for Chevy Chase:
 {{{
 {
   "entity": {
-    "name": "Chevy Chase",
+    "name": "Edward Snowden",
     "type": "Person"
   },
   "token": "TOKEN"
@@ -224,32 +224,32 @@ The following query will look up the entity information for Chevy Chase:
 The response will look like this:
 {{{
 {
+    "count": {
+        "entities": {
+            "returned": 1,
+            "total": 1
+        }
+    },
     "next_page_start": "1",
     "status": "SUCCESS",
     "entities": [
-        "B_asX"
+        "J5K1uB"
     ],
     "entity_details": {
-        "B_asX": {
-            "name": "Chevy Chase",
-            "hits": 29464,
-            "momentum": 0.0009443754591306595,
+        "J5K1uB": {
+            "name": "Edward Snowden",
+            "hits": 3477157,
             "type": "Person",
-            "birth": "1943-10-08",
-            "external_links": {
-                "wikipedia": {
-                    "id": "Chevy_Chase",
-                    "desc": "Emmy Award Winning American Comedian, Writer, and television and film actor"
-                }
-            },
             "alias": [
-                "チェビーチェイス",
-                "Чеви Чейз",
-                "チェビー・チェイス",
-                "チェビー チェイス"
+                "Сноудене",
+                "إدوراد سنودن",
+                "ادوارد اسنودن",
+                "Edward Joseph Snowden",
+                "ادورد سنودن"
             ],
+            "curated": 1,
             "gender": "male",
-            "id": "B_asX"
+            "id": "J5K1uB"
         }
     }
 }
