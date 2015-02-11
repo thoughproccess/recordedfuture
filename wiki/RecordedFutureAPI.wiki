@@ -269,6 +269,8 @@ A source query has the following structure:
 }
 }}}
 
+The optional _comment_ section can be used to document a question in human readable form. It is not used in the query. 
+
 The _source_ section specifies conditions that must be true for all returned sources.
 
 {{{
@@ -280,7 +282,7 @@ The _source_ section specifies conditions that must be true for all returned sou
 }
 }}} 
 
-The following query will return source information for Business Blogs:
+The following query will return source information for Business (topic KPzZAT) Blogs (media_type JxSDuU):
 
 {{{
 {
