@@ -214,8 +214,8 @@ The following query will look up the entity information for Chevy Chase:
 {{{
 {
   "entity": {
-    "name": "Edward Snowden",
-    "type": "Person"
+    "type": "Person",
+    "name": "Edward Snowden"
   },
   "token": "TOKEN"
 }
