@@ -491,13 +491,23 @@ _topic_ matches on source topics. (Recorded Future categorizes all Sources into 
 _media`_`type_ matches on source media types. (The system categorizes all Sources into media types.) The value of the parameter must be a string or a list of strings. _media`_`type_ matches if the source media type matches one of the following names:
 
 <font face="Courier">Blog</font><br>
-<font face="Courier">Niche</font><br>
-<font face="Courier">Mainstream</font><br>
+<font face="Courier">Comment</font><br>
+<font face="Courier">Cyber Vulnerabilities<br>
+<font face="Courier">Exchange</font><br></font><br>
+<font face="Courier">Financial</font><br>
+<font face="Courier">Forum</font><br>
 <font face="Courier">Government</font><br>
+<font face="Courier">IRC Channels</font><br>
+<font face="Courier">Letters</font><br>
+<font face="Courier">Mainstream</font><br>
 <font face="Courier">NGO</font><br>
-<font face="Courier">News_agency</font><br>
-<font face="Courier">Exchange</font><br>
-<font face="Courier">Primary_source</font><br>
+<font face="Courier">Niche</font><br>
+<font face="Courier">Paste Site</font><br>
+<font face="Courier">Podcast</font><br>
+<font face="Courier">Paste Site</font><br>
+<font face="Courier">Primary Source</font><br>
+<font face="Courier">Scientific Journal</font><br>
+<font face="Courier">Social Media</font><br>
 
 _country_ matches on the originating country of the source. The value of _country_ must be a string or a list of strings. _country_ matches if the source country matches one of the country names specified in the metadata document.
 
@@ -512,6 +522,7 @@ fragment. A free text specification looks like this.
 
 This will match instances which contain the string ("aa" OR "bb") AND ("cc" OR "dd"). 
 
+===Exclusion===
 
 ===Entity details===
 
