@@ -6,7 +6,7 @@ Contents
 
 *1 *[#version_2.0.0 version2.0.0]<br>
 *2 *[#Introduction Introduction]<br>
-<font color="white">`  .  `</font>*2.1 *[#Quick_Start:_Creating_Requests. Quick Start: Creating Requests.]<br>
+<font color="white">`  .  `</font>*2.1 *[#Quick_Start:_Creating_Requests Quick Start: Creating Requests]<br>
 *3 *[#Input_and_Output_in_JSON Input and Output in JSON]<br>
 *4 *[#Entity_queries Entity query specification]<br>
 *5 *[#Source_queries Source query specification]<br>
@@ -42,7 +42,7 @@ Sample applications and analysis built/done with the Recorded Future API include
     * Interactive dashboards of global events
     * Google earth overlay of global events
     * Back testing whether FT Alphaville (high profile financial blog) is "better" than general news in predicting stock returns
-    * Backtesting news-based trading strategies for sources of uncorrelated alpha.
+    * Backtesting news-based trading strategies for sources of uncorrelated alpha
 
 To access Recorded Future through the API:
     # Request a Recorded Future API token.
@@ -50,7 +50,7 @@ To access Recorded Future through the API:
     # Create and submit the associated URL.
     # Retrieve and parse the results.
 
-=== Quick Start: Creating Requests. ===
+=== Quick Start: Creating Requests ===
 
 Queries are sent using HTTPS GET or POST to
 	[https://api.recordedfuture.com/query https://api.recordedfuture.com/query]
@@ -347,7 +347,7 @@ The _instance_ section specifies conditions that must be true for all returned i
 
 === Matching on instance identity or type ===
 
-_id_ matches on instance identifiers. An identifier is a string, and is a system defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.The value of _id_ must be an string or a list of strings. _id_ matches if the instance identifier matches one of the provided identifiers.
+_id_ matches on instance identifiers. An identifier is a string, and is a system defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.The value of _id_ must be a string or a list of strings. _id_ matches if the instance identifier matches one of the provided identifiers.
 
 _type_ matches on the names of the canonical types of instances. The canonical types are the event types and entity types in the system, as described by the system metadata specification. The value of _type_ must be a string or a list of strings. _type_ matches if the name of the canonical type of the instance is one of the supplied instance type names. A list of all current entity and event types is available [#Entity_and_Event_Types at the end of this document].
 
