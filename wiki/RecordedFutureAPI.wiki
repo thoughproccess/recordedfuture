@@ -210,7 +210,7 @@ The _entity_ section specifies conditions that must be true for all returned ent
 }
 }}} 
 
-The following query will look up the entity information for Chevy Chase:
+The following query will look up the entity information for Edward Snowden:
 {{{
 {
   "entity": {
@@ -276,35 +276,34 @@ The _source_ section specifies conditions that must be true for all returned sou
   "id": [string] (optional),
   "media_type": [string] (optional),
   "name": [string] (optional),
-  "topic": [string] (optional),
-  "country": [string] (optional)
+  "topic": [string] (optional)
 }
 }}} 
 
-The following query will return source information for Chinese Business Blogs:
+The following query will return source information for Business Blogs:
+
 {{{
 {
   "source": {
-    "topic": "Business",
-    "media_type": "Blog",
-    "country": "China"
+    "topic": "KPzZAT",
+    "media_type": "JxSDuU",
+    "limit": 20
   },
   "token": "TOKEN"
 }
 }}}
 
 The response will look like this:
+
 {{{
 {
     "status": "SUCCESS",
     "sources": {
-        "Jn_RRv": {
-            "topic": "JxSEs3",
-            "media_type": "JxSEs9",
-            "location": "B_FNa",
-            "description": "Peoples Daily Online",
-            "name": "ChinaFeatures",
-            "id": "Jn_RRv"
+        "LRAE8g": {
+            "media_type": "JxSDuU",
+            "created": "2014-07-07T21:23:55.442Z",
+            "location": "B_FAG",
+            "name": "Forbes"
         },
     ...
 }
