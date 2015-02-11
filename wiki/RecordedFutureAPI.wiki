@@ -524,6 +524,24 @@ This will match instances which contain the string ("aa" OR "bb") AND ("cc" OR "
 
 ===Exclusion===
 
+{{{
+
+{
+  "instance": {
+    "start": "2014-12",
+    "attributes": [
+      {"entity":{"id":["JyQgS"]}},
+      {"not":{
+        "name":"Event.event_fragment",
+        "string":["market cap", "earnings"]
+      }
+      }
+    ]
+  }
+}
+
+}}}
+
 ===Entity details===
 
 The "_entity_details_" section is a dictionary keyed by entity type name, and the values are lists of the attribute names that should be included in the output. The type, name and momentum are given for all entities. Some attributes are entity attributes, and they may be followed recursively to a certain maximum depth. The default depth is 2, which returns entity information for entities listed as attributes of instances that meet the initial query criteria. You can change the default by setting the depth parameter in the output section.  If set to 0, no entity details are given, and if set to -1, there is no depth limit.
