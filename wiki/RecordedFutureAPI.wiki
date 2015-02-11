@@ -492,7 +492,7 @@ _media`_`type_ matches on source media types. (The system categorizes all Source
 
 <font face="Courier">Blog</font><br>
 <font face="Courier">Comment</font><br>
-<font face="Courier">Cyber Vulnerabilities<br>
+<font face="Courier">Cyber Vulnerabilities</font><br>
 <font face="Courier">Exchange</font><br>
 <font face="Courier">Financial</font><br>
 <font face="Courier">Forum</font><br>
