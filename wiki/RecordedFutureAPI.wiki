@@ -61,20 +61,20 @@ Data will be gzipped with HTTPS content encoding if requested by the client by s
 
 Queries are expressed in JSON. Output is expressed in JSON or CSV.
 
-The following sample query looks for Product Release events for Microsoft, published in August 2013. The 100 first results are returned.
+The following sample query looks for Cyber Attack events related to the Syrian Electronic Army, published in January 2015. The first 100 results are returned.
 
 
 {{{
 {
   "instance": {
-    "type": ["ProductRelease"],
+    "type": ["CyberAttack"],
     "attributes": {
       "entity": {
-        "id":"B_E7B"
+        "id":"BFHu9W"
       }
     },
     "document": {
-      "published": {"min": "2013-08-01", "max": "2013-09-01"}
+      "published": {"min": "2015-01-01", "max": "2015-01-31"}
     },
     "limit": 100
   },
@@ -83,47 +83,51 @@ The following sample query looks for Product Release events for Microsoft, publi
 }}}
 
 
-The following sample result is part of the response to the query, which contains information about one event instance. The result contains information about the event (an announced product release), the text fragment it was found in (“Microsoft Delays Xbox One Launch”), the document source (IndiaTimes), the document it was found in (the URL that displays the actual document), and the instance momentum value.
+The following sample result is part of the response to the query, which contains information about one event instance. The result contains information about the event (a cyber attack), the text fragment it was found in (“French newspaper Le Monde's Twitter account suffers hacking attack”), the document source (IBTimes UK), and the document it was found in (the URL that displays the actual document).
 
 {{{
         {
-            "id": "GRzvcWAVNT6",
-            "type": "ProductRelease",
+            "id": "GUgYXSAqFHT",
+            "type": "CyberAttack",
             "cluster_ids": [
-                "Gx--573NiNe",
-                "Fk7dZCH4RjJ",
-                "FAx341q4q2w"
+                "C0bYw9girdQ"
             ],
-            "momentum": 0.257800177576297,
-            "start": "2013-08-15T11:08:06.000Z",
-            "stop": "2013-08-15T11:08:06.000Z",
-            "tagged_fragment": "Microsoft Delays Xbox One Launch.",
-            "fragment": "Microsoft Delays Xbox One Launch.",
-            "item_fragment": "Microsoft Delays Xbox One",
+            "start": "2015-01-21T06:21:06.000Z",
+            "stop": "2015-01-21T06:21:06.000Z",
+            "tagged_fragment": "Signs of <i id=GUgYXSAqFHT>hacking came after 7:00 pm ET, as the logo of the <e id=BFHu9W>Syrian Electronic Army</e></i> was seen in a tweet sent from the official <e id=I2M5pa>Le Monde</e> account.",
+            "fragment": "Signs of hacking came after 7:00 pm ET, as the logo of the Syrian Electronic Army was seen in a tweet sent from the official Le Monde account.",
+            "item_fragment": "hacking came after 7:00 pm ET, as the logo of the Syrian Electronic Army",
             "precision": "ms",
             "time_type": "in",
             "document": {
-                "id": "KDJpkf",
-                "title": "Microsoft Delays Xbox One Launch ",
-                "url": "http://www.indiatimes.com/technology/pc-and-laptop/microsoft-delays-xbox-one-launch-95418.html",
+                "id": "M8bkbW",
+                "title": "\n\nFrench newspaper Le Monde's Twitter account suffers hacking attack\n",
+                "url": "http://www.ibtimes.co.uk/french-newspaper-le-mondes-twitter-account-suffers-hacking-attack-1484357",
                 "language": "eng",
-                "published": "2013-08-15T11:08:06.000Z",
-                "downloaded": "2013-08-15T12:12:42.533Z",
-                "indexed": "2013-08-15T12:15:53.034Z",
+                "published": "2015-01-21T06:21:06.000Z",
+                "downloaded": "2015-01-21T06:21:23.796Z",
+                "indexed": "2015-01-21T06:21:43.120Z",
                 "sourceId": {
-                    "id": "Jsh1er",
-                    "name": "indiatimes",
-                    "description": "Indiatimes: India's top portal for news, movies, Bollywood, videos, cricket, celebrity pictures, business, finance, travel, online shopping, astrology, games and email",
+                    "id": "K3hhZz",
+                    "name": "IBTimescouk  Europe",
+                    "description": "Europe  Feed",
                     "media_type": "JxSEs2",
-                    "country": "India",
+                    "country": "United Kingdom",
                     "topic": "JxSEs3"
                 }
             },
             "attributes": {
+                "indicator": "hacking came after 7:00 pm ET , as the logo of the Syrian Electronic Army",
                 "general_negative": 0,
                 "function": "id",
-                "document_category": "Technology_Internet",
-                "canonic_id": "DCULj0TbipF",
+                "document_category": "Cyber",
+                "canonic_id": "C_1bJjzhPM5",
+                "extended_entities": [
+                    "0f-N9",
+                    "C3Oxl8"
+                ],
+                "analyzed": "2015-01-21T06:21:43.031Z",
+                "attacker": "BFHu9W",
                 "positive": 0,
                 "sentiments": {
                     "general_positive": 0,
@@ -131,20 +135,22 @@ The following sample result is part of the response to the query, which contains
                     "activism": 0,
                     "general_negative": 0,
                     "negative": 0,
-                    "positive": 0
+                    "positive": 0,
+                    "profanity": 0
                 },
                 "violence": 0,
-                "status": "delayed",
-                "binning_id": "GRzvcWAVNT6",
-                "product_type": "Other",
+                "document_external_id": "http://www.ibtimes.co.uk/french-newspaper-le-mondes-twitter-account-suffers-hacking-attack-1484357",
+                "binning_id": "C_1bJjzhPM5",
                 "entities": [
-                    "Jsj7FK",
-                    "B_E7B"
+                    "BFHu9W",
+                    "I2M5pa"
                 ],
-                "product": "Jsj7FK",
                 "general_positive": 0,
-                "hits": 3360,
-                "company": "B_E7B",
+                "hits": 0,
+                "topics": [
+                    "KPzZCG",
+                    "KPzZAE"
+                ],
                 "negative": 0,
                 "fragment_count": 1
             }
