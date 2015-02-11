@@ -36,7 +36,7 @@ Contents
 
 The Recorded Future’s API enables you to build analytic applications and perform analysis which is aware of events happening around the globe 24x7, with extensive historical records. You can perform queries and receive results from the Recorded Future Temporal Analytics™ Engine across a vast set of events, entities, and time points spanning from the far past into the future.
 
-Your application can come alive with real time access into the Recorded Future engine, completely aware of events as they unfold around the world - and your analysis of for example financial markets can be made aware of events involving companies, people, products, etc. Historical archives allows you to extensively backtest results.
+Your application can come alive with real time access into the Recorded Future engine, completely aware of events as they unfold around the world. Your analysis of, for example, financial markets can be made aware of events involving companies, people, products, etc. and historical archives allow you to extensively backtest results.
 
 Sample applications and analysis built/done with the Recorded Future API include
     * Interactive dashboards of global events
@@ -282,7 +282,7 @@ The _source_ section specifies conditions that must be true for all returned sou
 }
 }}} 
 
-The following query will return source information for Business (topic KPzZAT) Blogs (media_type JxSDuU):
+The following query will return source information for Business (topic KPzZAT) Blogs (media_type JxSDuU) and the numbers of results of returned is limited to 20:
 
 {{{
 {
