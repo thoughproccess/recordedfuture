@@ -730,13 +730,9 @@ If not all instances matching a query are returned by the API, due to the respon
 To get all matching instances of a query, this process should be repeated until next_page_start is not set in a query response.
 
 
-== Examples ==
+== Paging Example ==
 
-== Query Examples ==
-
-This section contains an example of paging. 
-
-An example query where paging is needed:
+An example query where paging is utilized:
 
 {{{
 {
