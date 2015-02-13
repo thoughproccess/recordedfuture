@@ -59,7 +59,7 @@ Data will be gzipped with HTTPS content encoding if requested by the client by s
 
 Queries are expressed in JSON and the returned output is expressed in JSON (by default) or CSV.
 
-The following sample query retrieves Cyber Attack events related to the Syrian Electronic Army which were published in January 2015. The first 100 results are returned.
+The following sample query retrieves Cyber Attack events related to the Syrian Electronic Army which were published in January 2015 and we limit the returned number of results to 100. To find out how to retrieve an entity's id -  which is BFHu9W for the Syrian Electronic Army in this case - see the "Entity query specification" section of this page. 
 
 
 {{{
@@ -81,7 +81,9 @@ The following sample query retrieves Cyber Attack events related to the Syrian E
 }}}
 
 
-The following sample result is part of the response to the query, which contains information about one event instance. The result contains information about the event (a cyber attack), the text fragment it was found in (“French newspaper Le Monde's Twitter account suffers hacking attack”), the document source (IBTimes UK), and the document it was found in (the URL that displays the actual document).
+The following sample result contains information about one event instance. 
+
+For this example, the result contains information about the event (a Cyber Attack), the text fragment the event was found in (“French newspaper Le Monde's Twitter account suffers hacking attack”), the document source (IBTimes UK), and the document it was found in (the URL that displays the actual document).
 
 {{{
         {
