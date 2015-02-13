@@ -187,7 +187,7 @@ In JSON, which always uses Unicode encoding, they take on these forms:
 	
 == Entity query specification ==
 
-Entity queries allow users to look up an identifier for an entity in the Recorded Future system. We support entity lookup by name or free text search. Entity IDs are used to query the system for information related to specific entities. 
+Entity queries allow users to look up an identifier for an entity in the Recorded Future system. We support entity lookup by name or freetext search. When searching for an entity using the 'name' field the exact string pattern will be searched for, whereas a search using the freetext field is not exact. The retrieved entity IDs are used to query the system for information related to specific entities.
 
 An entity query has the following structure:
 
@@ -212,7 +212,7 @@ The _entity_ section specifies conditions that must be true for all returned ent
 }
 }}} 
 
-The following query will look up the entity information for Edward Snowden:
+For example, the following query will look up the entity information for Edward Snowden:
 
 {{{
 {
@@ -224,7 +224,7 @@ The following query will look up the entity information for Edward Snowden:
 }
 }}}
 
-The response will be:
+The response of this query will be:
 
 {{{
 {
@@ -278,13 +278,17 @@ The _source_ section specifies conditions that must be true for all returned sou
 {{{
 "source": {
   "id": [string] (optional),
-  "media_type": [string] (optional),
   "name": [string] (optional),
-  "topic": [string] (optional)
+  "description": [string] (optional),
+  "created": [string] (optional),
+  "topic": [string] (optional),
+  "media_type": [string] (optional),
+  "country": [string] (optional),
+  "limit": [integer] (optional - default is 100)
 }
 }}} 
 
-The following query will return source information for Business (topic id of KPzZAT) Blogs (media_type id of JxSDuU). The number of results to be returned is limited to 20:
+The following query will return source information for 'Business' (topic id of KPzZAT) 'Blogs' (media_type id of JxSDuU). The number of results returned is limited to 20:
 
 {{{
 {
@@ -318,13 +322,12 @@ The response will look like this:
 
 Instance queries are given as the q parameter in the API URL. They need to be [http://en.wikipedia.org/wiki/URL_encoding URL encoded].
 
-A query has the following structure:
+An instance query has the following structure:
 
 {{{
 {
   "instance": <instance_spec>,
-  "output": <output_spec> (optional),
-  "token": <string>
+  "output": <output_spec> (optional)
 }
 }}}
 
