@@ -189,7 +189,6 @@ An entity query has the following structure:
 
 {{{
 {
-  "comment": <string> (optional),
   "entity": <entity_spec>,
   "token" <string>
 }
@@ -202,11 +201,15 @@ The _entity_ section specifies conditions that must be true for all returned ent
   "id": [string] (optional),
   "type": [string] (optional),
   "name": [string] (optional),
-  "freetext": <freetext_spec> (optional)
+  "created": [string] (optional),
+  "attributes": [string] (optional),
+  "freetext": <freetext_spec> (optional),
+  "limit": [integer] (optional - default is 100)
 }
 }}} 
 
 The following query will look up the entity information for Edward Snowden:
+
 {{{
 {
   "entity": {
@@ -217,7 +220,8 @@ The following query will look up the entity information for Edward Snowden:
 }
 }}}
 
-The response will look like this:
+The response will be:
+
 {{{
 {
     "count": {
@@ -259,13 +263,11 @@ A source query has the following structure:
 
 {{{
 {
-  "comment": <string> (optional),
   "source": <source_spec>,
   "token" <string>
 }
 }}}
 
-The optional _comment_ section can be used to document a question in human readable form. It is not used in the query. 
 
 The _source_ section specifies conditions that must be true for all returned sources.
 
@@ -278,7 +280,7 @@ The _source_ section specifies conditions that must be true for all returned sou
 }
 }}} 
 
-The following query will return source information for Business (topic KPzZAT) Blogs (media_type JxSDuU) and the numbers of results of returned is limited to 20:
+The following query will return source information for Business (topic id of KPzZAT) Blogs (media_type id of JxSDuU). The number of results to be returned is limited to 20:
 
 {{{
 {
@@ -316,7 +318,6 @@ A query has the following structure:
 
 {{{
 {
-  "comment": <string> (optional),
   "instance": <instance_spec>,
   "output": <output_spec> (optional),
   "token": <string>
