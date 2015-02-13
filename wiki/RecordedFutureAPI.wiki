@@ -17,6 +17,7 @@ Contents
 <font color="white">`  .  `</font>*4.4 *[#Matching_on_attributes Matching on attributes]<br>
 <font color="white">`  .  `</font>*4.5 *[#Matching_on_document_and_source_aspects Matching on document and source aspects]<br>
 <font color="white">`  .  `</font>*4.6 *[#Matching_on_free_text Matching on free text features]<br>
+<font color="white">`  .  `</font>*4.6 *[#Exclusion Exclusion]<br>
 <font color="white">`  .  `</font>*4.7 *[#Response_specification Response specification]<br>
 *7 *[#Output_fields Output fields]<br>
 *8 *[#Aggregate_Queries Aggregate Queries]<br>
@@ -528,6 +529,8 @@ fragment. A free text specification looks like this.
 This will match instances which contain the string ("aa" OR "bb") AND ("cc" OR "dd"). 
 
 ===Exclusion===
+
+It is possible to exclude terms in searches. For example, to retrieve information on Volvo starting from December 2014 - but exclude the terms 'market cap' and 'earnings' from the results - we could use the following query:
 
 {{{
 
