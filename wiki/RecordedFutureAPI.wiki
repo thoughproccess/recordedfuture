@@ -727,7 +727,7 @@ Here is the corresponding JSON output:
 
 = Paging instance results =
 	
-The default limit of the number of resulting instances in an instance query is 100. The limit can be explicitly set as described above, up to a maximum of 100 000 instances. Sometimes, it’s hard to know how many instances a query will result in, and sometimes it’s desirable to be able to page through the, possibly very large, result set. 
+The default limit of the number of resulting instances in an instance query is 100. The limit can be explicitly set as described above, up to a maximum of 100,000 instances. Sometimes, it’s hard to know how many instances a query will result in, and sometimes it’s desirable to be able to page through the - possibly very large - result set. 
 
 If not all instances matching a query are returned by the API, due to the response exceeding the implicit or explicit instance limit, the JSON response will contain the key next_page_start with an opaque value. If CSV output is requested there is no place in the output for this information, so instead the HTTP response header RFQ-next_page_start is set to the opaque value. In order to get the next set of matching instances (the next page), the same query should be executed again, with the instance query key page_start set to the value of the last next_page_start.
 
@@ -738,135 +738,83 @@ To get all matching instances of a query, this process should be repeated until 
 
 == Query Examples ==
 
-This section contains several sample queries.
+This section contains an example of paging. 
 
-Example: Mergers and Acquisitions
+An example query where paging is needed:
 
 {{{
 {
-  "comment": "Mergers or Acquisitions involving Apple or Google, published last year",
-  "instance": {
-    "type": ["Merger","Acquisition"],
-    "attributes": {
-        "entity": {
-          "attributes": {"id": ["B_LyO", "B_HE4"]}
+    "reference": {
+        "type": "RFEVEProtest",
+        "attributes": [
+            {
+                "not": {
+                    "name": "location",
+                    "entity": {
+                        "id": "B_FAG"
+                    }
+                }
+            }
+        ],
+        "document": {
+            "published": {
+                "min": "2014-10-27",
+                "max": "2014-10-27"
+            }
+        },
+        "limit": 7500,
+        "searchtype": "scan"
+    },
+    "token": "TOKEN"
+}
+}}}
+
+The response:
+
+{{{
+{
+    "count": {
+        "references": {
+            "returned": 472,
+            "total": 62771
         }
-      },
-    "document": {
-      "published": {"min": "2011-01-01", "max": "2011-12-31"}
     },
-    "limit": 200
-  },
-  "token": "ABCDEF"
-}
+    "next_page_start": "c2Nhbjs4OzMwOTc5MjkzOTowb0lBaUc3NVMtZWlna3RLMDVKaHhnOzMwOTM1MTQwOTpOYnNYYUp5YlFxMjUtUkcwWEVsYXdnOzc4OTI5NjE2OmlvbGowZlJVU1RXVGlFVC10eEZFMEE7MzI1OTg2NDgwOk9tUE5nZTM2UjJLWUJ4QmJ2dDY0SXc7MTM4NDUxMzkyOlBRWUZ5cjY3UXBldWk4N3RMcmhQWUE7Nzg5Mjk2MTk6aW9sajBmUlVTVFdUaUVULXR4RkUwQTszMTM3MDA4MjI6SDkzWWd6X0lUOTZ3N3dDNnFRbHVGdzsyODMyMDM4NTI6SU50MEVJUWlUVnFjTUhXZWVvdHR2UTsxO3RvdGFsX2hpdHM6NjI3NzE7",
+    "status": "SUCCESS",
+...
+
 }}}
 
-Example: Future Events
-{{{
-{
-	"comment": "Search for events involving Apple beginning after a particular date.",
-	"instance": {
-	    "attributes": {
-	        "entity":{
-	            "id": "B_LyO"
-	        }
-	    },
-		"start_time": "2012-10-01",
-		"limit":1000
-	},
-	"token": "YOURTOKEN"
-}
-}}}
-
-Example: Quotations
+After getting the first response, you'd set "page_start" in the query to "next_page_start" from the response and make a second query for the next page:
 
 {{{
 {
-  "comment": "Barack Obama quotations.",
-  "instance": {
-    "type": "Quotation",
-    "attributes": {
-      "entity": {
-        "id":"B_FCc"
-      }
+    "reference": {
+        "type": "RFEVEProtest",
+        "attributes": [
+            {
+                "not": {
+                    "name": "location",
+                    "entity": {
+                        "id": "B_FAG"
+                    }
+                }
+            }
+        ],
+        "document": {
+            "published": {
+                "min": "2014-10-27",
+                "max": "2014-10-27"
+            }
+        },
+        "limit": 7500,
+        "searchtype": "scan",
+        "page_start": "c2Nhbjs4OzMwOTc5MjkzOTowb0lBaUc3NVMtZWlna3RLMDVKaHhnOzMwOTM1MTQwOTpOYnNYYUp5YlFxMjUtUkcwWEVsYXdnOzc4OTI5NjE2OmlvbGowZlJVU1RXVGlFVC10eEZFMEE7MzI1OTg2NDgwOk9tUE5nZTM2UjJLWUJ4QmJ2dDY0SXc7MTM4NDUxMzkyOlBRWUZ5cjY3UXBldWk4N3RMcmhQWUE7Nzg5Mjk2MTk6aW9sajBmUlVTVFdUaUVULXR4RkUwQTszMTM3MDA4MjI6SDkzWWd6X0lUOTZ3N3dDNnFRbHVGdzsyODMyMDM4NTI6SU50MEVJUWlUVnFjTUhXZWVvdHR2UTsxO3RvdGFsX2hpdHM6NjI3NzE7"
     },
-    "limit": 3
-  },
-  "token": "ABCDEF"
+    "token":"TOKEN"
 }
 }}}
 
-
-Example: Search for Entity Instances
-
-{{{
-{
-  "instance": {
-    "type": "EntityOccurrence",
-    "attributes": {
-      "entity": {
-        "id": "B_FCc"
-      }
-    }
-    "document": {
-      "published": {"min": "2010-01-01", "max": "2010-02-01"}
-    },
-    "limit": 5
-  },
-  "token": "TOKEN"
- }
-}}}
-
-
-Example: Search for calendar events
-
-{{{
-{
- "instance": {
-   "type": ["EconomicEvent"],
-   "start_time": "2008-09-01",
-   "stop_time": "2008-10-01",
-   "limit": 10
- },
- "token": "TOKEN"
-}
-}}}
-
-Example: List and search by Bloomberg ID.
-The following query will give a list of all entities that have the Bloomberg ID attribute.
-{{{
-{
-  "entity": {
-    "attributes": {
-      "name": "external_links.bloomberg.id",
-      "exists": true
-    }
-  },
-  "token": "TOKEN"
-}
-}}}
-You can also find an entity based on its Bloomberg ID. 
-{{{
-{
-  "entity": {
-    "attributes": {
-      "name": "external_links.bloomberg.id",
-      "string": "BLOOMBERG_ID"
-    }
-  },
-  "token": "TOKEN"
-}
-}}}
-
-Example: Finding instances matching a given text fragment.
-{{{
-{
-  "instance": {
-    "fragment":"FRAGMENT OF TEXT TO SEARCH"
-  },
-  "token": "TOKEN"
-}
-}}}
 
 === Response Example ===
 
