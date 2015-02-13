@@ -30,17 +30,19 @@ Contents
 
 == Introduction ==
 
-The Recorded Future’s API enables you to build analytic applications and perform analysis which is aware of events happening around the globe 24x7, with extensive historical records. You can perform queries and receive results from the Recorded Future Temporal Analytics™ Engine across a vast set of events, entities, and time points spanning from the far past into the future.
+Recorded Future’s API enables you to build analytic applications and perform analysis which is aware of events happening around the globe 24x7. You can perform queries and receive results from the Recorded Future Temporal Analytics™ Engine across a vast set of events, entities, and time points spanning from the far past into the future.
 
-Your application can come alive with real time access into the Recorded Future engine, completely aware of events as they unfold around the world. Your analysis of, for example, financial markets can be made aware of events involving companies, people, products, etc. and historical archives allow you to extensively backtest results.
+Your application can come alive with real-time access into the Recorded Future engine, completely aware of events as they unfold around the world. Your analysis of, for example, financial markets can be made aware of events involving companies, people, products, etc. and historical archives allow you to extensively backtest results.
 
-Sample applications and analysis built/done with the Recorded Future API include
+Sample applications and analysis built/done with the Recorded Future API include:
+
     * Interactive dashboards of global events
     * Google earth overlay of global events
-    * Back testing whether FT Alphaville (high profile financial blog) is "better" than general news in predicting stock returns
+    * Backtesting whether FT Alphaville (high profile financial blog) is "better" than general news in predicting stock returns
     * Backtesting news-based trading strategies for sources of uncorrelated alpha
 
 To access Recorded Future through the API:
+
     # Request a Recorded Future API token.
     # Create a structured JSON string that describes the query.
     # Create and submit the associated URL.
@@ -51,13 +53,13 @@ To access Recorded Future through the API:
 Queries are sent using HTTPS GET or POST to
 	[https://api.recordedfuture.com/query https://api.recordedfuture.com/query]
     
-Query parameters should be with the key "q" and a JSON-encoded query object as its value.
+Query parameters should be used with the key "q" and a JSON-encoded query object as its value.
 
 Data will be gzipped with HTTPS content encoding if requested by the client by setting the the HTTPS "Accept-encoding" header to "gzip".
 
-Queries are expressed in JSON. Output is expressed in JSON or CSV.
+Queries are expressed in JSON and the returned output is expressed in JSON (by default) or CSV.
 
-The following sample query looks for Cyber Attack events related to the Syrian Electronic Army, published in January 2015. The first 100 results are returned.
+The following sample query retrieves Cyber Attack events related to the Syrian Electronic Army which were published in January 2015. The first 100 results are returned.
 
 
 {{{
