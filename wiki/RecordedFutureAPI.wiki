@@ -224,7 +224,7 @@ For example, the following query will look up the entity information for Edward 
 }
 }}}
 
-The response of this query will be:
+The response of this entity query will be:
 
 {{{
 {
@@ -301,7 +301,7 @@ The following query will return source information for 'Business' (topic id of K
 }
 }}}
 
-The response will look like this:
+The response of this source query will be:
 
 {{{
 {
@@ -331,36 +331,37 @@ An instance query has the following structure:
 }
 }}}
 
-The optional _comment_ section can be used to document a question in human readable form. It is not used in the query.
 
 The _instance_ section specifies conditions that must be true for all returned instances.
 
 {{{
 "instance": {
     "id": [string],
+    "cluster_id" [string],
     "type": [string],
-    "start_time": time-spec,
-    "stop_time": time-spec,
-    "canonical": canonical-constraints,
+    "start": [string],
+    "stop": [string]
     "attributes": attributes-constraints,
     "document": document-constraints,
-    "freetext": [freetext-constraints],
+    "source": source-constraints,
+    "freetext": [string],
     "limit": integer
 }
 }}}
 
 === Matching on instance identity or type ===
 
-_id_ matches on instance identifiers. An identifier is a string, and is a system defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries.The value of _id_ must be a string or a list of strings. _id_ matches if the instance identifier matches one of the provided identifiers.
+_id_ matches on instance identifiers. An identifier is a string and is a system-defined identification of the instance. You’ll usually match on instance identifiers only when you’re looking for detailed instance information using identifiers returned in the results of earlier queries. The value of _id_ must be a string or a list of strings. _id_ matches if the instance identifier matches one of the provided identifiers.
+
+_cluster`_`id_ matches on an event identifier. 
 
 _type_ matches on the names of the canonical types of instances. The canonical types are the event types and entity types in the system, as described by the system metadata specification. The value of _type_ must be a string or a list of strings. _type_ matches if the name of the canonical type of the instance is one of the supplied instance type names. A list of all current entity and event types is available [#Entity_and_Event_Types at the end of this document].
 
 === Matching on instance time ===
 
-_start`_`time_ specifies the minimum time of the instance start time. The time must be specified as a string with the date format YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS.000Z in UTC. It is possible to specify time with only initial portions of the time specification. That is, a timestamp can be specified as "2012-05" to indicate May, 2012, or "2012-05-01 12:00" to indicate noon, UTC on 2012-05-01.
+_start_ specifies the minimum instance start time. The time must be specified as a string with the date format YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS.000Z in UTC. It is possible to specify time with only initial portions of the time specification. That is, a timestamp can be specified as "2015-01" to indicate January, 2015 or "2015-01-01 12:00" to indicate noon, UTC on 2015-01-01.
 
-
-_stop`_`time_ specifies the maximum time of the instance stop time and must be a string formatted according to the same rules as _start`_`time_.
+_stop_ specifies the maximum instance stop time and must be a string formatted according to the same rules as _start_.
 
 === Matching on the canonical item ===
 
