@@ -789,7 +789,7 @@ The response:
 
 }}}
 
-After getting the first response, you'd set "page_start" in the query to "next_page_start" from the response and make a second query for the next page:
+After getting the first response, you would then set "page_start" in the query to "next_page_start" from the response and make a second query for the next page:
 
 {{{
 {
