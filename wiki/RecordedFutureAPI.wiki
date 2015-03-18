@@ -281,7 +281,7 @@ The _source_ section specifies conditions that must be true for all returned sou
   "id": [string] (optional),
   "name": [string] (optional),
   "description": [string] (optional),
-  "created": [string] (optional),
+  "created": [string] (optional - can use min and max boundaries),
   "topic": [string] (optional),
   "media_type": [string] (optional),
   "country": [string] (optional),
@@ -289,12 +289,12 @@ The _source_ section specifies conditions that must be true for all returned sou
 }
 }}} 
 
-The following query will return source information for 'Business' (topic id of KPzZAT) 'Blogs' (media_type id of JxSDuU). The number of results returned is limited to 20:
+The following query will return source information for 'Information Security' (topic id of KPzZAE) 'Blogs' (media_type id of JxSDuU). The number of results returned is limited to 20:
 
 {{{
 {
   "source": {
-    "topic": "KPzZAT",
+    "topic": "KPzZAE",
     "media_type": "JxSDuU",
     "limit": 20
   },
@@ -308,11 +308,15 @@ The response of this source query will be:
 {
     "status": "SUCCESS",
     "sources": {
-        "LRAE8g": {
+        "MkoDs5": {
             "media_type": "JxSDuU",
-            "created": "2014-07-07T21:23:55.442Z",
-            "location": "B_FAG",
-            "name": "Forbes"
+            "created": "2014-12-21T14:32:20.643Z",
+            "name": "HubPages | romantibensky"
+        },
+        "M2ssv8": {
+            "media_type": "JxSDuU",
+            "created": "2015-01-14T16:52:36.826Z",
+            "name": "BankInvestmentConsultant | Fixed Income"
         },
     ...
 }
