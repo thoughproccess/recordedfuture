@@ -260,6 +260,62 @@ The response of this entity query will be:
 }
 }}}
 
+As another example, suppose we want to query for all entities with Bloomberg IDs. We can use the attribute field to do this:
+
+{{{
+{
+  "entity": {
+    "attributes": {
+      "name": "external_links.bloomberg.id",
+      "exists": true
+    },
+    "limit":10000
+  },
+  "token": "TOKEN"
+}
+}}}
+
+The returned results:
+
+{{{
+{
+    "count": {
+        "entities": {
+            "returned": 10,
+            "total": 5444
+        }
+    },
+    "next_page_start": "10",
+    "status": "SUCCESS",
+    "entities": [
+        "B_JMt",
+        "B_LyO",
+        "B_HE4",
+        "B_E-a",
+        "B_E7B",
+        "B_Lho",
+        "CANiy",
+        "B_IxU",
+        "B_FBR",
+        "B_XKi"
+    ],
+    "entity_details": {
+        "CANiy": {
+            "name": "Sony Corp",
+            "hits": 16427818,
+            "type": "Company",
+            "external_links": {
+                "bloomberg": {
+                    "id": [
+                        "EQ0010136500001000"
+                    ]
+                }
+            },
+            ...
+
+}}}
+
+
 == Source query specification ==
 
 Source queries allow users to look up an identifier for a source in the Recorded Future system. We support entity source by id, name, media type, topic, and country.
