@@ -8,7 +8,7 @@ Contents
 *2 *[#Introduction Introduction]<br>
 <font color="white">`  .  `</font>*2.1 *[#Quick_Start:_Creating_Requests Quick Start: Creating Requests]<br>
 *3 *[#Input_and_Output_in_JSON Input and Output in JSON]<br>
-*4 *[#Entity_queries Entity query specification]<br>
+*4 *[#Entity_query_specification Entity query specification]<br>
 *5 *[#Source_queries Source query specification]<br>
 *6 *[#Instance_query_specification Instance query specification]<br>
 <font color="white">`  .  `</font>*4.1 *[#Matching_on_instance_identity_or_type Matching on instance identity or type]<br>
