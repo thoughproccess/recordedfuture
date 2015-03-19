@@ -383,7 +383,7 @@ Within the returned results will be the source id, a unique identifier in Record
 
 == Instance query specification ==
 
-Instance queries are given as the q parameter in the API URL. They need to be [http://en.wikipedia.org/wiki/URL_encoding URL encoded].
+Instance queries are given as the q parameter in the API URL. They need to be [http://en.wikipedia.org/wiki/URL_encoding URL encoded]. Within the [#Quick_Start:_Creating_Requests Quick Start: Creating Requests] section of this document we showed an example instance query where we are looking for cyber attack events related to the Syrian Electronic Army in the month of January 2015. 
 
 An instance query has the following structure:
 
