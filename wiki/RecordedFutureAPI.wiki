@@ -160,7 +160,7 @@ For this example, the returned result contains a number of fields with informati
 
 Entities – the people, companies, organizations, and places of the Recorded Future who/where list – are created on-demand as they are harvested by a query. Once an entity is defined, all references to that entity are defined as entity instances that point to the underlying canonical entity. Entities are returned in a separate structure, to avoid duplication, and in the instances only references to the entities are present, using an opaque identifier. 
 
-For details about the exact query and response structures, see the “Query Specification” and “Response Specification” sections.
+This documentation will go into detail on how to query entities, sources, and instances within the Recorded Future system. 
 
 == Input and Output in JSON ==
 
