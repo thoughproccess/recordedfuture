@@ -187,7 +187,7 @@ In JSON, which always uses Unicode encoding, they take on these forms:
 	
 == Entity query specification ==
 
-Entity queries allow users to look up an identifier for an entity in the Recorded Future system. We support entity lookup by name or freetext search. When searching for an entity using the 'name' field the exact string pattern will be searched for, whereas a search using the freetext field is not exact. The retrieved entity IDs are used to query the system for information related to specific entities.
+Entity queries allow users to look up an identifier for an entity in the Recorded Future system. You can think of entities as nouns: the people, places, and things we want to find information about. We support entity lookup by name or freetext search. When searching for an entity using the 'name' field the exact string pattern will be searched for, whereas a search using the freetext field is not exact. The retrieved entity IDs are used to query the system for information related to specific entities.
 
 An entity query has the following structure:
 
@@ -319,7 +319,7 @@ The returned results will be:
 
 == Source query specification ==
 
-Source queries allow users to look up an identifier for a source in the Recorded Future system. We support entity source by id, name, media type, topic, and country. 
+Source queries allow users to look up an identifier for a source in the Recorded Future system. Sources are the sites that information comes from: blogs and news sites, for example. We support entity source by id, name, media type, topic, and country. 
 
 A source query has the following structure:
 
