@@ -319,19 +319,19 @@ The returned results will be:
 
 == Source query specification ==
 
-Source queries allow users to look up an identifier for a source in the Recorded Future system. We support entity source by id, name, media type, topic, and country.
+Source queries allow users to look up an identifier for a source in the Recorded Future system. We support entity source by id, name, media type, topic, and country. 
 
 A source query has the following structure:
 
 {{{
 {
-  "source": <source_spec>,
+  "source": <source spec>,
   "token" <string>
 }
 }}}
 
 
-The _source_ section specifies conditions that must be true for all returned sources.
+The _source spec_ section specifies conditions that must be true for all returned sources.
 
 {{{
 "source": {
@@ -379,6 +379,7 @@ The response of this source query will be:
 }
 }}}
 
+Within the returned results will be the source id, a unique identifier in Recorded Future's system. MkoDs5 is the source id for the HubPages | romantibenksy blog. The source id can then be utilized in other queries against Recorded Future's system. 
 
 == Instance query specification ==
 
@@ -388,13 +389,13 @@ An instance query has the following structure:
 
 {{{
 {
-  "instance": <instance_spec>,
+  "instance": <instance spec>,
   "output": <output_spec> (optional)
 }
 }}}
 
 
-The _instance_ section specifies conditions that must be true for all returned instances.
+The _instance spec_ section specifies conditions that must be true for all returned instances.
 
 {{{
 "instance": {
