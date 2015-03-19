@@ -60,8 +60,7 @@ Data will be gzipped with HTTPS content encoding if requested by the client by s
 
 Queries are expressed in JSON and the returned output is expressed in JSON (by default) or CSV.
 
-The following sample query retrieves Cyber Attack events related to the Syrian Electronic Army which were published in January 2015 and we limit the returned number of results to 100. To find out how to retrieve an entity's id -  a unique Recorded Future id, which is BFHu9W for the Syrian Electronic Army in this case - see the "Entity query specification" section of this page. 
-
+As a quick example, suppose we want to query for the first 100 'Cyber Attack' events associated with the Syrian Electronic Army that were published in January 2015. We can execute the following query against Recorded Future's API to do this:
 
 {{{
 {
@@ -82,9 +81,9 @@ The following sample query retrieves Cyber Attack events related to the Syrian E
 }}}
 
 
-The following sample result contains information about one event instance. 
+Note: for information on how to retrieve an entity's id -  a unique Recorded Future id, which is BFHu9W for the Syrian Electronic Army in this case - see the "Entity query specification" section of this page. 
 
-For this example, the result contains information about the event (a Cyber Attack), the text fragment the event was found in (“French newspaper Le Monde's Twitter account suffers hacking attack”), the document source (IBTimes UK), and the document it was found in (the URL that displays the actual document).
+For this example, the returned result contains a number of fields with information about the event including: the text fragment the event was found in (“French newspaper Le Monde's Twitter account suffers hacking attack”), the document source ("IBTimes UK"), and the document it was found in (the URL that displays the actual document). 
 
 {{{
         {
@@ -159,7 +158,7 @@ For this example, the result contains information about the event (a Cyber Attac
 }}}
 
 
-Entities – the people, companies, organizations, and places of the Recorded Future Who/Where list – are created on-demand as they are harvested by a query. Once an entity is defined, all references to that entity are defined as entity instances that point to the underlying canonical entity. Entities are returned in a separate structure, to avoid duplication, and in the instances only references to the entities are present, using an opaque identifier. 
+Entities – the people, companies, organizations, and places of the Recorded Future who/where list – are created on-demand as they are harvested by a query. Once an entity is defined, all references to that entity are defined as entity instances that point to the underlying canonical entity. Entities are returned in a separate structure, to avoid duplication, and in the instances only references to the entities are present, using an opaque identifier. 
 
 For details about the exact query and response structures, see the “Query Specification” and “Response Specification” sections.
 
