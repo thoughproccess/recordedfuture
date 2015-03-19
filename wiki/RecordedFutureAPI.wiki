@@ -579,6 +579,46 @@ _media`_`type_ matches on source media types. (The system categorizes all Source
 
 _country_ matches on the originating country of the source. The value of _country_ must be a string or a list of strings. _country_ matches if the source country matches one of the country names specified in the metadata document.
 
+As another example, suppose we want to find the number of references to Apple that we indexed in the month of August 2014. We can run the following query:
+
+{{{
+{
+  "instance": {
+    "type": "Event",
+    "attributes": [
+      {
+        "entity": {
+          "id": "B_LyO"
+        }
+      }
+    ],
+    "document": {
+      "indexed": {
+        "min": "2014-08-01T00:00:00",
+        "max": "2014-09-01T00:00:00"
+      }
+    }
+  },
+  "token": "TOKEN"
+}
+}}}
+
+The result of this query is the following:
+
+{{{
+{
+    "count": {
+        "references": {
+            "returned": 0,
+            "total": 639981
+        }
+    },
+    "status": "SUCCESS",
+    "instances": [],
+    "entities": {}
+}
+}}}
+
 === Matching on free text ===
 
 The "freetext" section allows you to match on free text features of an instance.
