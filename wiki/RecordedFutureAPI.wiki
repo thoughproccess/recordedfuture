@@ -60,7 +60,7 @@ Data will be gzipped with HTTPS content encoding if requested by the client by s
 
 Queries are expressed in JSON and the returned output is expressed in JSON (by default) or CSV.
 
-The following sample query retrieves Cyber Attack events related to the Syrian Electronic Army which were published in January 2015 and we limit the returned number of results to 100. To find out how to retrieve an entity's id -  which is BFHu9W for the Syrian Electronic Army in this case - see the "Entity query specification" section of this page. 
+The following sample query retrieves Cyber Attack events related to the Syrian Electronic Army which were published in January 2015 and we limit the returned number of results to 100. To find out how to retrieve an entity's id -  a unique Recorded Future id, which is BFHu9W for the Syrian Electronic Army in this case - see the "Entity query specification" section of this page. 
 
 
 {{{
