@@ -193,12 +193,12 @@ An entity query has the following structure:
 
 {{{
 {
-  "entity": <entity_spec>,
+  "entity": <entity spec>,
   "token" <string>
 }
 }}}
 
-The _entity_ section specifies conditions that must be true for all returned entities.
+The _entity spec_ section specifies conditions that must be true for all returned entities.
 
 {{{
 "entity": {
@@ -207,12 +207,12 @@ The _entity_ section specifies conditions that must be true for all returned ent
   "name": [string] (optional),
   "created": [string] (optional),
   "attributes": [string] (optional),
-  "freetext": <freetext_spec> (optional),
+  "freetext": <freetext spec> (optional),
   "limit": [integer] (optional - default is 100)
 }
 }}} 
 
-For example, the following query will look up the entity information for Edward Snowden:
+As an example, the following query will look up Recorded Future's entity information for Edward Snowden:
 
 {{{
 {
@@ -224,7 +224,7 @@ For example, the following query will look up the entity information for Edward 
 }
 }}}
 
-The response of this entity query will be:
+The response for this entity query will be:
 
 {{{
 {
@@ -259,6 +259,8 @@ The response of this entity query will be:
 }
 }}}
 
+One key field included in this response is the id. In Recorded Future, a unique id exists for each entity. For Edward Snowden, this id is J5K1uB. This entity id can be used in other queries. 
+
 As another example, suppose we want to query for all entities with Bloomberg IDs. We can use the attribute field to do this:
 
 {{{
@@ -268,13 +270,13 @@ As another example, suppose we want to query for all entities with Bloomberg IDs
       "name": "external_links.bloomberg.id",
       "exists": true
     },
-    "limit":10000
+    "limit":1000
   },
   "token": "TOKEN"
 }
 }}}
 
-The returned results:
+The returned results will be:
 
 {{{
 {
