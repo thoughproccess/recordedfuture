@@ -60,7 +60,7 @@ Data will be gzipped with HTTPS content encoding if requested by the client by s
 
 Queries are expressed in JSON and the returned output is expressed in JSON (by default) or CSV.
 
-As a quick example, suppose we want to query for the first 100 'Cyber Attack' events associated with the Syrian Electronic Army that were published in January 2015. We can execute the following query against Recorded Future's API to do this:
+As a quick example, suppose we want to query for the first 100 'Cyber Attack' events associated with the Syrian Electronic Army that were published in January 2015. We can execute the following instance query against Recorded Future's API to do this:
 
 {{{
 {
@@ -81,7 +81,7 @@ As a quick example, suppose we want to query for the first 100 'Cyber Attack' ev
 }}}
 
 
-Note: for information on how to retrieve an entity's id -  a unique Recorded Future id, which is BFHu9W for the Syrian Electronic Army in this case - see the "Entity query specification" section of this page. 
+Note: for information on how to retrieve an entity's id -  a unique id created by Recorded Future, which is BFHu9W for the Syrian Electronic Army in this case - see the "Entity query specification" section of this page. 
 
 For this example, the returned result contains a number of fields with information about the event including: the text fragment the event was found in (“French newspaper Le Monde's Twitter account suffers hacking attack”), the document source ("IBTimes UK"), and the document it was found in (the URL that displays the actual document). 
 
@@ -527,6 +527,7 @@ _topic_ matches on source topics. (Recorded Future categorizes all Sources into 
 <font face="Courier">Business/Finance</font><br>
 <font face="Courier">Disaster/Accident</font><br>
 <font face="Courier">Education</font><br>
+<font face="Courier">Energy</font><br>
 <font face="Courier">Entertainment/Culture</font><br>
 <font face="Courier">Environment</font><br>
 <font face="Courier">General</font><br>
@@ -559,7 +560,7 @@ _topic_ matches on source topics. (Recorded Future categorizes all Sources into 
 _media`_`type_ matches on source media types. (The system categorizes all Sources into media types.) The value of the parameter must be a string or a list of strings. _media`_`type_ matches if the source media type matches one of the following names:
 
 <font face="Courier">Blog</font><br>
-<font face="Courier">Comment</font><br>
+<font face="Courier">Comments</font><br>
 <font face="Courier">Cyber Vulnerabilities</font><br>
 <font face="Courier">Exchange</font><br>
 <font face="Courier">Financial</font><br>
@@ -569,10 +570,10 @@ _media`_`type_ matches on source media types. (The system categorizes all Source
 <font face="Courier">Letters</font><br>
 <font face="Courier">Mainstream</font><br>
 <font face="Courier">NGO</font><br>
+<font face="Courier">News Agency</font><br>
 <font face="Courier">Niche</font><br>
 <font face="Courier">Paste Site</font><br>
 <font face="Courier">Podcast</font><br>
-<font face="Courier">Paste Site</font><br>
 <font face="Courier">Primary Source</font><br>
 <font face="Courier">Scientific Journal</font><br>
 <font face="Courier">Social Media</font><br>
